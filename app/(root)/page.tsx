@@ -3,7 +3,7 @@ import { UserButton } from "@clerk/nextjs"
 export default function Home() {
   return (
     <>
-      <UserButton afterSignOutUrl="/" />
+      <h2 className="text-light-1">Home</h2>
     </>
   )
 }

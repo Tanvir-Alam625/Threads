@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.23.2",
+    "@clerk/themes": "^1.7.5",
     "@types/node": "20.4.10",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
@@ -25,5 +26,8 @@
     "tailwindcss-animate": "^1.0.6",
     "typescript": "5.1.6",
     "uploadthing": "^5.3.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17"
   }
 }
