@@ -24,7 +24,7 @@ export default function RootLayout({
       <html lang="en">
         <body suppressHydrationWarning={true} className={inter.className}>
           <TopBar />
-          <main>
+          <main className='flex flex-row'>
             <LeftSidebar />
             <section className='main-container'>
               <div className="w-full mx-w-4xl">

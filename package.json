@@ -28,6 +28,8 @@
     "uploadthing": "^5.3.2"
   },
   "devDependencies": {
-    "@types/express": "^4.17.17"
+    "@types/express": "^4.17.17",
+    "eslint": "8.47.0",
+    "eslint-config-next": "13.4.13"
   }
 }
