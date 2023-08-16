@@ -38,9 +38,9 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
         resolver: zodResolver(userValidation),
         defaultValues: {
             profile_photo: user.image || "",
-            name: "",
-            username: "",
-            bio: "",
+            name: user.name || "",
+            username: user.username || "",
+            bio: user.bio || "",
         }
     });
 
@@ -131,6 +131,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                 <Input
                                     type='text'
                                     className='account-form_input  no-focus'
+                                    {...field}
                                 />
                             </FormControl>
                         </FormItem>
@@ -149,6 +150,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                 <Input
                                     type='text'
                                     className='account-form_input  no-focus'
+                                    {...field}
                                 />
                             </FormControl>
                         </FormItem>
