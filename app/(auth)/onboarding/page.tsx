@@ -1,4 +1,5 @@
 import AccountProfile from "@/components/forms/AccountProfile";
+import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs"
 
 interface UserInfo {
@@ -10,7 +11,9 @@ interface UserInfo {
 }
 const onboardingPage = async () => {
     const user = await currentUser();
-    const userInfo: UserInfo = {}
+    if (!user) return null;
+
+    const userInfo = await getUser(user?.id)
     const userData = {
         id: user?.id || "",
         objectId: userInfo?._id || "",
@@ -19,6 +22,7 @@ const onboardingPage = async () => {
         bio: userInfo?.bio || "",
         image: userInfo?.image || user?.imageUrl
     }
+
     return (
         <main className="mx-auto max-w-3xl flex flex-col justify-start px-10  py-20 gap-2">
             <h1 className="head-text">Onboarding</h1>

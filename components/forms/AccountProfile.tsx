@@ -37,6 +37,7 @@ interface Props {
 
 const AccountProfile = ({ user, btnTitle }: Props) => {
     const [files, setFiles] = useState<File[]>([])
+    const [btnLoading, setBtnLoading] = useState(false);
     const { startUpload } = useUploadThing("media")
     const pathname = usePathname();
     const router = useRouter()
@@ -53,6 +54,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
 
     // Submit Function 
     const onSubmit = async (values: z.infer<typeof userValidation>) => {
+        setBtnLoading(true);
         const blob = values.profile_photo;
         console.log(values);
 
@@ -79,6 +81,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
         } else {
             router.push("/");
         }
+        setBtnLoading(false);
     };
 
 
@@ -212,7 +215,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                         </FormItem>
                     )}
                 />
-                <Button type='submit' color='primary'>{btnTitle}</Button>
+                <Button type='submit' disabled={btnLoading} color='primary'>{btnLoading ? "Loading..." : btnTitle}</Button>
             </form>
         </Form>
     )
