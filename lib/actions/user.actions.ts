@@ -13,6 +13,7 @@ interface Params {
     path: string;
 }
 
+// Action : Update a User Info 
 export const updateUser = async ({ userId, username, name, image, bio, path }: Params) => {
 
 
@@ -25,7 +26,7 @@ export const updateUser = async ({ userId, username, name, image, bio, path }: P
             image,
             bio,
             onboarded: true
-        }, { upsert: true })
+        }, { upsert: true });
 
         if (path === "profile/edit") {
             revalidatePath(path)
@@ -40,6 +41,7 @@ export const updateUser = async ({ userId, username, name, image, bio, path }: P
     }
 }
 
+// Action: Get A User Info 
 export const getUser = async (userId: string) => {
     try {
         connectToDB();
@@ -49,6 +51,7 @@ export const getUser = async (userId: string) => {
         //     path: "communities",
         //     model: Community
         // });
+
         return user;
     } catch (error) {
         if (error instanceof Error) {
