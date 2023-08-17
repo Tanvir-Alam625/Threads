@@ -32,6 +32,29 @@ export const updateUser = async ({ userId, username, name, image, bio, path }: P
         }
 
     } catch (error) {
-        console.log("Error:", error);
+        if (error instanceof Error) {
+            throw new Error(`Couldn't update user: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
+    }
+}
+
+export const getUser = async (userId: string) => {
+    try {
+        connectToDB();
+        const user = await User
+            .findOne({ id: userId })
+        // .populate({
+        //     path: "communities",
+        //     model: Community
+        // });
+        return user;
+    } catch (error) {
+        if (error instanceof Error) {
+            throw new Error(`Couldn't get user: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
     }
 }
