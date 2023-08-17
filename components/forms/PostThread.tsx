@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from '@/components/ui/textarea';
 import { usePathname, useRouter } from "next/navigation"
 import { threadValidation } from "@/lib/validation/thread";
+import { createThread } from "@/lib/actions/thread.action";
 
 
 type Props = {
@@ -32,8 +33,16 @@ const PostThread = ({ userId }: Props) => {
         },
     });
 
-    const onSubmit = (values: z.infer<typeof threadValidation>) => {
-        console.log(values);
+    const onSubmit = async (values: z.infer<typeof threadValidation>) => {
+
+        await createThread({
+            text: values.thread,
+            author: userId,
+            communityId: null,
+            path: pathname,
+        })
+
+        router.push("/")
     }
 
     return (

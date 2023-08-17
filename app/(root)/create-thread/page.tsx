@@ -12,7 +12,6 @@ const CreateThreadPage = async () => {
     if (!userInfo.onboarded) {
         redirect('/onboarding');
     }
-    console.log(userInfo);
 
     return (
         <>
