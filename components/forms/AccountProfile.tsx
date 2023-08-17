@@ -149,6 +149,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                     onChange={(e) => handleImage(e, field.onChange)}
                                 />
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
@@ -168,6 +169,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                     {...field}
                                 />
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
@@ -187,6 +189,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                     {...field}
                                 />
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
@@ -206,10 +209,11 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                     {...field}
                                 />
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )}
                 />
-                <Button type='submit' className='bg-primary-500'>{btnTitle}</Button>
+                <Button type='submit' color='primary'>{btnTitle}</Button>
             </form>
         </Form>
     )
