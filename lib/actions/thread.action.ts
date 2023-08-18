@@ -45,6 +45,10 @@ export const createThread = async ({ text, author, communityId, path }: Params) 
 export const getThreads = async (page = 1, limit = 20) => {
     try {
         connectToDB();
+
+        // Incomplete: Community
+
+
         const skipCount = (page - 1) * limit;
 
         const threadsQuery = Thread.find({ parentId: { $in: [null, undefined] } })
@@ -77,3 +81,49 @@ export const getThreads = async (page = 1, limit = 20) => {
         }
     }
 };
+
+export const fetchThreadById = async (threadId: string) => {
+    connectToDB();
+
+    try {
+        const thread = await Thread.findById(threadId)
+            .populate({
+                path: "author",
+                model: User,
+                select: "_id id name image",
+            })
+            // .populate({
+            //   path: "community",
+            //   model: Community,
+            //   select: "_id id name image",
+            // }) 
+            .populate({
+                path: "children",
+                populate: [
+                    {
+                        path: "author",
+                        model: User,
+                        select: "_id id name parentId image",
+                    },
+                    {
+                        path: "children",
+                        model: Thread,
+                        populate: {
+                            path: "author",
+                            model: User,
+                            select: "_id id name parentId image",
+                        },
+                    },
+                ],
+            })
+            .exec();
+
+        return thread;
+    } catch (error) {
+        if (error instanceof Error) {
+            throw new Error(`Couldn't get threads: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
+    }
+}
