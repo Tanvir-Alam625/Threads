@@ -82,7 +82,7 @@ export const getThreads = async (page = 1, limit = 20) => {
     }
 };
 
-export const fetchThreadById = async (threadId: string) => {
+export const getThreadById = async (threadId: string) => {
     connectToDB();
 
     try {
