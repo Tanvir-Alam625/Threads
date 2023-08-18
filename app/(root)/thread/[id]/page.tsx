@@ -31,6 +31,7 @@ const SingleThread = async ({ params }: Params) => {
         createdAt
 
     }
+    type Comment = typeof children[0]
 
     return (
         <section className="relative flex flex-col gap-6 items-center justify-center">
@@ -44,6 +45,31 @@ const SingleThread = async ({ params }: Params) => {
                     threadId={params.id}
                     userId={JSON.stringify(userInfo._id)}
                 />
+            </div>
+            <div className="w-full">
+                {
+                    children.map((comment: Comment, index: number) => {
+                        const PropsObj = {
+                            id: _id,
+                            currentUserId: user.id,
+                            content: text,
+                            comments: comment.children,
+                            parentId: comment.parentId,
+                            author: comment.author,
+                            community: comment.community,
+                            createdAt: comment.createdAt,
+                            isComment: true,
+
+                        }
+                        return (
+                            <ThreadCard
+                                key={index}
+                                {...PropsObj}
+                            />
+                        );
+
+                    })
+                }
             </div>
         </section>
     );
