@@ -24,10 +24,9 @@ const editProfilePage = async () => {
     }
 
     return (
-        <main className="mx-auto max-w-3xl flex flex-col justify-start py-20 gap-2">
+        <main className="mx-auto max-w-3xl flex flex-col justify-start gap-2">
             <h1 className="head-text">Edit</h1>
-            <p className="text-base-regular text-light-2">Edit your profile</p>
-            <section className="p-10 mt-2 rounded-md shadow">
+            <section className="mt-2">
                 <AccountProfile user={userData} btnTitle="Continue" />
             </section>
         </main>
