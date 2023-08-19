@@ -45,7 +45,7 @@ const ThreadCard = ({
     community,
     createdAt,
     comments,
-    isComment, }: Props) => {
+    isComment = false, }: Props) => {
     return (
         <article
             className={`flex w-full flex-col rounded-xl ${isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"
