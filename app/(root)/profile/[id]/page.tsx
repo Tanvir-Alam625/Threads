@@ -8,13 +8,13 @@ import ThreadsTab from "@/components/shared/ThreadsTab";
 import ProfileHeader from "@/components/shared/ProfileHeader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { fetchUser } from "@/lib/actions/user.actions";
+import { getUser } from "@/lib/actions/user.actions";
 
 async function Page({ params }: { params: { id: string } }) {
     const user = await currentUser();
     if (!user) return null;
 
-    const userInfo = await fetchUser(params.id);
+    const userInfo = await getUser(params.id);
     if (!userInfo?.onboarded) redirect("/onboarding");
 
     return (
@@ -50,20 +50,32 @@ async function Page({ params }: { params: { id: string } }) {
                             </TabsTrigger>
                         ))}
                     </TabsList>
-                    {profileTabs.map((tab) => (
-                        <TabsContent
-                            key={`content-${tab.label}`}
-                            value={tab.value}
-                            className='w-full text-light-1'
-                        >
-                            {/* @ts-ignore */}
-                            <ThreadsTab
-                                currentUserId={user.id}
-                                accountId={userInfo.id}
-                                accountType='User'
-                            />
-                        </TabsContent>
-                    ))}
+                    {/* Tab Content For Threads  */}
+                    <TabsContent
+                        value='threads'
+                        className='w-full text-light-1'
+                    >
+                        {/* @ts-ignore */}
+                        <ThreadsTab
+                            currentUserId={user.id}
+                            accountId={userInfo.id}
+                            accountType='User'
+                        />
+                    </TabsContent>
+                    {/* Tab Content Replies For Threads  */}
+                    <TabsContent
+                        value='replies'
+                        className='w-full text-light-1'
+                    >
+                        <h2 className="text-light-2 mt-8">This content in progress</h2>
+                    </TabsContent>
+                    {/* Tab Content For Tagged  */}
+                    <TabsContent
+                        value='tagged'
+                        className='w-full text-light-1'
+                    >
+                        <h2 className="text-light-2 mt-8">This content in progress</h2>
+                    </TabsContent>
                 </Tabs>
             </div>
         </section>

@@ -1,5 +1,5 @@
 import ThreadCard from "@/components/cards/ThreadCard"
-import { getThreadById } from "@/lib/actions/thread.action"
+import { getThreadById } from "@/lib/actions/thread.actions"
 import { getUser } from "@/lib/actions/user.actions"
 import { currentUser } from "@clerk/nextjs"
 import { redirect } from "next/navigation"

@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from '@/components/ui/textarea';
 import { usePathname, useRouter } from "next/navigation"
 import { threadValidation } from "@/lib/validation/thread";
-import { createThread } from "@/lib/actions/thread.action";
+import { createThread } from "@/lib/actions/thread.actions";
 
 
 type Props = {
