@@ -40,7 +40,6 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     const [btnLoading, setBtnLoading] = useState(false);
     const { startUpload } = useUploadThing("media")
     const pathname = usePathname();
-    console.log(pathname);
 
     const router = useRouter()
     const form = useForm({
