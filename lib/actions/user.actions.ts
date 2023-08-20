@@ -66,7 +66,7 @@ export async function updateUser({
     }
 }
 
-export async function getUserPosts(userId: string) {
+export async function getUserPosts(userId: string): Promise<any> {
     try {
         connectToDB();
 
@@ -114,7 +114,7 @@ export async function getUsers({
     pageNumber?: number;
     pageSize?: number;
     sortBy?: SortOrder;
-}) {
+}): Promise<any> {
     try {
         connectToDB();
 

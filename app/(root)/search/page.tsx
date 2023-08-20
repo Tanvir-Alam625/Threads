@@ -6,6 +6,7 @@ import Searchbar from "@/components/forms/SearchBar";
 import Pagination from "@/components/shared/Pagination";
 
 import { getUser, getUsers } from "@/lib/actions/user.actions";
+import { Author } from "next/dist/lib/metadata/types/metadata-types";
 
 async function Page({
     searchParams,
@@ -24,6 +25,12 @@ async function Page({
         pageNumber: searchParams?.page ? +searchParams.page : 1,
         pageSize: 25,
     });
+    type Person = {
+        name: string;
+        image: string;
+        id: string;
+        username: string
+    }
 
     return (
         <section>
@@ -36,7 +43,7 @@ async function Page({
                     <p className='no-result'>No Result</p>
                 ) : (
                     <>
-                        {result.users.map((person) => (
+                        {result.users.map((person: Person) => (
                             <UserCard
                                 key={person.id}
                                 id={person.id}
