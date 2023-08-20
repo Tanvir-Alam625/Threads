@@ -1,8 +1,9 @@
-
+import ThreadSkeleton from "@/components/Skeleton/ThreadSkeleton"
 const loading = () => {
     return (
-        <div className="bg-dark-2 p-4 rounded-md animate-pulse">
-            {/* Your skeleton content */}
+        <div className="flex flex-col gap-y-8">
+            <ThreadSkeleton />
+            <ThreadSkeleton />
         </div>
     )
 }
