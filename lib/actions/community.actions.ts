@@ -8,14 +8,16 @@ import User from "../models/user.model";
 
 import { connectToDB } from "../mongoose";
 
-export async function createCommunity(
+
+// Action : Create A Community 
+export const createCommunity = async (
     id: string,
     name: string,
     username: string,
     image: string,
     bio: string,
     createdById: string // Change the parameter name to reflect it's an id
-) {
+): Promise<any> => {
     try {
         connectToDB();
 
@@ -43,13 +45,16 @@ export async function createCommunity(
 
         return createdCommunity;
     } catch (error) {
-        // Handle any errors
-        console.error("Error creating community:", error);
-        throw error;
+        if (error instanceof Error) {
+            throw new Error(`Couldn't create a Community: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
     }
 }
 
-export async function fetchCommunityDetails(id: string) {
+// Action: Get A Community 
+export const getCommunityDetails = async (id: string): Promise<any> => {
     try {
         connectToDB();
 
@@ -64,13 +69,16 @@ export async function fetchCommunityDetails(id: string) {
 
         return communityDetails;
     } catch (error) {
-        // Handle any errors
-        console.error("Error fetching community details:", error);
-        throw error;
+        if (error instanceof Error) {
+            throw new Error(`Couldn't get a Community: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
     }
 }
 
-export async function fetchCommunityPosts(id: string) {
+// Action: Get Community Posts  
+export const getCommunityPosts = async (id: string): Promise<any> => {
     try {
         connectToDB();
 
@@ -97,13 +105,16 @@ export async function fetchCommunityPosts(id: string) {
 
         return communityPosts;
     } catch (error) {
-        // Handle any errors
-        console.error("Error fetching community posts:", error);
-        throw error;
+        if (error instanceof Error) {
+            throw new Error(`Couldn't get Community Post: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
     }
 }
 
-export async function fetchCommunities({
+// Action: get All Communities
+export const getCommunities = async ({
     searchString = "",
     pageNumber = 1,
     pageSize = 20,
@@ -113,7 +124,7 @@ export async function fetchCommunities({
     pageNumber?: number;
     pageSize?: number;
     sortBy?: SortOrder;
-}) {
+}): Promise<any> => {
     try {
         connectToDB();
 
@@ -154,15 +165,19 @@ export async function fetchCommunities({
 
         return { communities, isNext };
     } catch (error) {
-        console.error("Error fetching communities:", error);
-        throw error;
+        if (error instanceof Error) {
+            throw new Error(`Couldn't get communities: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
     }
 }
 
-export async function addMemberToCommunity(
+// Action: Add Member Community
+export const addMemberToCommunity = async (
     communityId: string,
     memberId: string
-) {
+): Promise<any> => {
     try {
         connectToDB();
 
@@ -195,16 +210,19 @@ export async function addMemberToCommunity(
 
         return community;
     } catch (error) {
-        // Handle any errors
-        console.error("Error adding member to community:", error);
-        throw error;
+        if (error instanceof Error) {
+            throw new Error(`Error adding member to community: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
     }
 }
 
-export async function removeUserFromCommunity(
+// Action: Remove User From Community
+export const removeUserFromCommunity = async (
     userId: string,
     communityId: string
-) {
+): Promise<{ success: boolean }> => {
     try {
         connectToDB();
 
@@ -241,13 +259,13 @@ export async function removeUserFromCommunity(
         throw error;
     }
 }
-
-export async function updateCommunityInfo(
+// Action: Update Community 
+export const updateCommunityInfo = async (
     communityId: string,
     name: string,
     username: string,
     image: string
-) {
+): Promise<any> => {
     try {
         connectToDB();
 
@@ -263,13 +281,16 @@ export async function updateCommunityInfo(
 
         return updatedCommunity;
     } catch (error) {
-        // Handle any errors
-        console.error("Error updating community information:", error);
-        throw error;
+        if (error instanceof Error) {
+            throw new Error(`Error updating community information: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
     }
 }
 
-export async function deleteCommunity(communityId: string) {
+// Action: Delete A Community 
+export const deleteCommunity = async (communityId: string): Promise<any> => {
     try {
         connectToDB();
 
@@ -298,7 +319,10 @@ export async function deleteCommunity(communityId: string) {
 
         return deletedCommunity;
     } catch (error) {
-        console.error("Error deleting community: ", error);
-        throw error;
+        if (error instanceof Error) {
+            throw new Error(`Couldn't delete Community: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
     }
 }

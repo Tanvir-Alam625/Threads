@@ -95,7 +95,7 @@ export const getThreads = async (page = 1, limit = 20): Promise<any> => {
 };
 
 //Action: Get a Single Thread
-export const getThreadById = async (threadId: string): Promise<void> => {
+export const getThreadById = async (threadId: string): Promise<any> => {
     connectToDB();
 
     try {
