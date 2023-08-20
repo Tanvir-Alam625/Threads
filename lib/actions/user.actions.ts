@@ -116,28 +116,20 @@ export async function getUsers({
     sortBy?: SortOrder;
 }): Promise<any> {
     try {
-        connectToDB();
+        connectToDB(); // Ensure the database connection is established.
 
-        // Calculate the number of users to skip based on the page number and page size.
         const skipAmount = (pageNumber - 1) * pageSize;
-
-        // Create a case-insensitive regular expression for the provided search string.
         const regex = new RegExp(searchString, "i");
 
-        // Create an initial query object to filter users.
+        // Using _id instead of id and combining the search fields using $regex and $or.
         const query: FilterQuery<typeof User> = {
-            id: { $ne: userId }, // Exclude the current user from the results.
-        };
-
-        // If the search string is not empty, add the $or operator to match either username or name fields.
-        if (searchString.trim() !== "") {
-            query.$or = [
+            id: { $ne: userId },
+            $or: [
                 { username: { $regex: regex } },
                 { name: { $regex: regex } },
-            ];
-        }
+            ],
+        };
 
-        // Define the sort options for the fetched users based on createdAt field and provided sort order.
         const sortOptions = { createdAt: sortBy };
 
         const usersQuery = User.find(query)
@@ -145,12 +137,10 @@ export async function getUsers({
             .skip(skipAmount)
             .limit(pageSize);
 
-        // Count the total number of users that match the search criteria (without pagination).
         const totalUsersCount = await User.countDocuments(query);
 
         const users = await usersQuery.exec();
 
-        // Check if there are more users beyond the current page.
         const isNext = totalUsersCount > skipAmount + users.length;
 
         return { users, isNext };
@@ -162,6 +152,7 @@ export async function getUsers({
         }
     }
 }
+
 
 export const getActivity = async (userId: string): Promise<any> => {
     try {
