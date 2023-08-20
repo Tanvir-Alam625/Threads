@@ -1,8 +1,8 @@
 
 const loading = () => {
     return (
-        <div>
-            <h2 className='text-light-2'>Loading...</h2>
+        <div className="bg-dark-2 p-4 rounded-md animate-pulse">
+            {/* Your skeleton content */}
         </div>
     )
 }
