@@ -17,7 +17,9 @@ const authLayout = ({ children }: Props) => {
         <ClerkProvider>
             <html lang='en'>
                 <body suppressHydrationWarning={true} className={`${inter.className} bg-dark-1`}>
-                    {children}
+                    <div className='flex flex-col items-center justify-center min-h-screen min-w-full'>
+                        {children}
+                    </div>
                 </body>
             </html>
         </ClerkProvider>
