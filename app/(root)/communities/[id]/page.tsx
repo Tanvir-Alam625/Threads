@@ -9,10 +9,14 @@ import ProfileHeader from "@/components/shared/ProfileHeader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { getCommunityDetails } from "@/lib/actions/community.actions";
+import { redirect } from "next/navigation";
 
 async function Page({ params }: { params: { id: string } }) {
     const user = await currentUser();
-    if (!user) return null;
+    if (!user) {
+        redirect("/sign-in");
+        return
+    };
 
     const communityDetails = await getCommunityDetails(params.id);
 

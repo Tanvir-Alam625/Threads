@@ -6,7 +6,10 @@ import { redirect } from "next/navigation";
 
 export default async function Home() {
   const user = await currentUser()
-  if (!user) return null;
+  if (!user) {
+    redirect("/sign-in");
+    return
+  };
 
   const userInfo = await getUser(user?.id);
   if (!userInfo?.onboarded) redirect("/onboarding");

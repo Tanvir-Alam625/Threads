@@ -1,6 +1,7 @@
 import AccountProfile from "@/components/forms/AccountProfile";
 import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs"
+import { redirect } from "next/navigation";
 
 interface UserInfo {
     _id?: string;
@@ -11,7 +12,10 @@ interface UserInfo {
 }
 const editProfilePage = async () => {
     const user = await currentUser();
-    if (!user) return null;
+    if (!user) {
+        redirect("/sign-in");
+        return
+    };
 
     const userInfo = await getUser(user?.id)
     const userData = {

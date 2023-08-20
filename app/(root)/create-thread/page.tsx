@@ -6,7 +6,10 @@ import { redirect } from "next/navigation";
 const CreateThreadPage = async () => {
     const user = await currentUser();
 
-    if (!user) return null;
+    if (!user) {
+        redirect("/sign-in");
+        return
+    };
 
     const userInfo = await getUser(user.id);
     if (!userInfo.onboarded) {
