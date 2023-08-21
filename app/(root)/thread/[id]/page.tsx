@@ -34,7 +34,6 @@ async function page({ params }: { params: { id: string } }) {
                     comments={thread.children}
                 />
             </div>
-
             <div className='mt-7'>
                 <Comment
                     threadId={params.id}
