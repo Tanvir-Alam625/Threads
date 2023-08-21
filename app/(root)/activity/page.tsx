@@ -7,10 +7,7 @@ import { getUser, getActivity } from "@/lib/actions/user.actions";
 
 async function ActivityPage() {
     const user = await currentUser();
-    if (!user) {
-        redirect("/sign-in");
-        return
-    };
+    if (!user) return null;
 
     const userInfo = await getUser(user.id);
     if (!userInfo?.onboarded) redirect("/onboarding");

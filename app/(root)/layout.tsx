@@ -6,7 +6,8 @@ import TopBar from '@/components/shared/TopBar'
 import LeftSidebar from '@/components/shared/LeftSidebar'
 import RightSidebar from '@/components/shared/RightSidebar'
 import BottomBar from '@/components/shared/BottomBar'
-
+import { currentUser } from '@clerk/nextjs'
+import { redirect } from 'next/navigation'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -14,11 +15,16 @@ export const metadata: Metadata = {
   description: 'NextJs Threads Application',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const user = await currentUser()
+  if (!user) {
+    redirect("/sign-in");
+    return;
+  }
   return (
     <ClerkProvider>
       <html lang="en">
