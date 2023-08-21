@@ -14,10 +14,7 @@ async function CommunitiesPage({
     searchParams: { [key: string]: string | undefined };
 }) {
     const user = await currentUser();
-    if (!user) {
-        redirect("/sign-in");
-        return
-    };
+    if (!user) return null;
 
     const userInfo = await getUser(user.id);
     if (!userInfo?.onboarded) redirect("/onboarding");

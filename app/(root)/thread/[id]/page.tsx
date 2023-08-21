@@ -13,10 +13,7 @@ interface Params {
 
 const SingleThread = async ({ params }: Params) => {
     const user = await currentUser();
-    if (!user) {
-        redirect("/sign-in");
-        return
-    };
+    if (!user) return null;
     const userInfo = await getUser(user.id);
     if (!userInfo) return null;
 

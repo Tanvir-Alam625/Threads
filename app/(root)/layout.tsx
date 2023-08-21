@@ -23,7 +23,7 @@ export default async function RootLayout({
   const user = await currentUser()
   if (!user) {
     redirect("/sign-in");
-    return;
+    return null;
   }
   return (
     <ClerkProvider>

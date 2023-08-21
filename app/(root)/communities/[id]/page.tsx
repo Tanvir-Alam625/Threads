@@ -13,10 +13,7 @@ import { redirect } from "next/navigation";
 
 async function Page({ params }: { params: { id: string } }) {
     const user = await currentUser();
-    if (!user) {
-        redirect("/sign-in");
-        return
-    };
+    if (!user) return null;
 
     const communityDetails = await getCommunityDetails(params.id);
 

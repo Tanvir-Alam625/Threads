@@ -12,10 +12,7 @@ interface UserInfo {
 }
 const editProfilePage = async () => {
     const user = await currentUser();
-    if (!user) {
-        redirect("/sign-in");
-        return
-    };
+    if (!user) return null;
 
     const userInfo = await getUser(user?.id)
     const userData = {
