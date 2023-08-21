@@ -1,7 +1,7 @@
 import AccountProfile from "@/components/forms/AccountProfile";
 import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs"
-import { redirect } from "next/navigation";
+import type { Metadata } from 'next'
 
 interface UserInfo {
     _id?: string;
@@ -10,6 +10,12 @@ interface UserInfo {
     bio?: string;
     image?: string;
 }
+
+export const metadata: Metadata = {
+    title: 'Edit Profile | Threads',
+    description: 'NextJs Threads Application',
+}
+
 const editProfilePage = async () => {
     const user = await currentUser();
     if (!user) return null;

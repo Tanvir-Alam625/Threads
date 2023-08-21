@@ -9,6 +9,12 @@ import ProfileHeader from "@/components/shared/ProfileHeader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { getCommunityDetails } from "@/lib/actions/community.actions";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Community Profile | Threads',
+    description: 'NextJs Threads Application',
+}
 
 async function Page({ params }: { params: { id: string } }) {
     const user = await currentUser();

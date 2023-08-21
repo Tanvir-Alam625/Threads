@@ -7,6 +7,13 @@ import CommunityCard from "@/components/cards/CommunityCard";
 import Searchbar from "@/components/forms/SearchBar";
 import { getUser } from "@/lib/actions/user.actions";
 import { getCommunities } from "@/lib/actions/community.actions";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Communities | Threads',
+    description: 'NextJs Threads Application',
+}
+
 
 async function CommunitiesPage({
     searchParams,

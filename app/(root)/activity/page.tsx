@@ -4,7 +4,11 @@ import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 import { getUser, getActivity } from "@/lib/actions/user.actions";
-
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+    title: 'Activity | Threads',
+    description: 'NextJs Threads Application',
+}
 async function ActivityPage() {
     const user = await currentUser();
     if (!user) return null;

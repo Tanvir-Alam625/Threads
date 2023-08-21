@@ -4,6 +4,12 @@ import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Home | Threads',
+  description: 'NextJs Threads Application',
+}
+
 export default async function Home() {
   const user = await currentUser()
   if (!user) return null

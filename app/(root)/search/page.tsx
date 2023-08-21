@@ -6,7 +6,12 @@ import Searchbar from "@/components/forms/SearchBar";
 import Pagination from "@/components/shared/Pagination";
 
 import { getUser, getUsers } from "@/lib/actions/user.actions";
-import { Author } from "next/dist/lib/metadata/types/metadata-types";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Search | Threads',
+    description: 'NextJs Threads Application',
+}
 
 async function Page({
     searchParams,

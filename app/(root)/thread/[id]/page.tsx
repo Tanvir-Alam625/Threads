@@ -6,6 +6,13 @@ import ThreadCard from "@/components/cards/ThreadCard";
 
 import { getUser } from "@/lib/actions/user.actions";
 import { getThreadById } from "@/lib/actions/thread.actions";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Thread Details | Threads',
+    description: 'NextJs Threads Application',
+}
+
 
 export const revalidate = 0;
 
