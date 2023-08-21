@@ -54,7 +54,7 @@ async function RightSidebar() {
                                 <UserCard
                                     key={person.id}
                                     id={person.id}
-                                    name={person.name}
+                                    name={person.name.length > 10 ? person.name.slice(0, 10) + "..." : person.name}
                                     username={person.username}
                                     imgUrl={person.image}
                                     personType='User'
