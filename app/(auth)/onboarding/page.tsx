@@ -2,7 +2,12 @@ import AccountProfile from "@/components/forms/AccountProfile";
 import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs"
 import { redirect } from "next/navigation";
+import type { Metadata } from 'next';
 
+export const metadata: Metadata = {
+    title: 'Onboarding | Threads',
+    description: 'NextJs Threads Application',
+}
 interface UserInfo {
     _id?: string;
     username?: string;
