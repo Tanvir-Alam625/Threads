@@ -1,8 +1,5 @@
-import React from 'react'
 
-type Props = {}
-
-const loading = (props: Props) => {
+const loading = () => {
     return (
         <>
             <h1 className='head-text'>Activity</h1>
@@ -15,7 +12,6 @@ const loading = (props: Props) => {
                     <div className='h-5 w-5 bg-gray-400 rounded-full animate-pulse' />
                     <div className='bg-gray-400 h-5 w-40 rounded-md animate-pulse' />
                 </div>
-
             </section>
         </>
     )
