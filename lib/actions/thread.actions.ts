@@ -148,9 +148,9 @@ export const addCommentToThread = async (
     userId: string,
     path: string
 ): Promise<void> => {
-    connectToDB();
 
     try {
+        connectToDB();
         // Find the original thread by its ID
         const originalThread = await Thread.findById(threadId);
 
@@ -177,7 +177,7 @@ export const addCommentToThread = async (
         revalidatePath(path);
     } catch (error) {
         if (error instanceof Error) {
-            throw new Error(`Couldn't add Comment to thread: ${error.message}`);
+            throw new Error(`Couldn't comment into thread: ${error.message}`);
         } else {
             throw new Error(`An unknown error occurred`);
         }

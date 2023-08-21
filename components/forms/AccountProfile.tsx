@@ -215,7 +215,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                         </FormItem>
                     )}
                 />
-                <Button type='submit' disabled={btnLoading} color='primary'>{btnLoading ? "Loading..." : btnTitle}</Button>
+                <Button type='submit' disabled={btnLoading} color='primary'>{btnTitle} {btnLoading && <span className='loader'></span>}</Button>
             </form>
         </Form>
     )

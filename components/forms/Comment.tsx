@@ -1,32 +1,37 @@
 "use client";
-import * as z from "zod";
+
+import { z } from "zod";
+import Image from "next/image";
+import { useForm } from "react-hook-form";
+import { usePathname } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import {
     Form,
     FormControl,
     FormField,
     FormItem,
     FormLabel,
-} from "@/components/ui/form"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { Button } from "@/components/ui/button"
-import { usePathname, useRouter } from "next/navigation"
-import { commentValidation } from "@/lib/validation/thread";
+} from "@/components/ui/form";
+
 import { Input } from "../ui/input";
-import Image from "next/image";
+import { Button } from "../ui/button";
+
+import { commentValidation } from "@/lib/validation/thread";
 import { addCommentToThread } from "@/lib/actions/thread.actions";
+import { useState } from "react";
 
 interface Props {
-    userImage: string,
-    threadId: string,
-    userId: string
+    threadId: string;
+    currentUserImg: string;
+    currentUserId: string;
 }
 
-
-const Comment = ({ userImage, threadId, userId }: Props) => {
+function Comment({ threadId, currentUserImg, currentUserId }: Props) {
+    const [loading, setLoading] = useState(false)
     const pathname = usePathname();
-    const router = useRouter()
-    const form = useForm({
+
+    const form = useForm<z.infer<typeof commentValidation>>({
         resolver: zodResolver(commentValidation),
         defaultValues: {
             thread: "",
@@ -34,15 +39,17 @@ const Comment = ({ userImage, threadId, userId }: Props) => {
     });
 
     const onSubmit = async (values: z.infer<typeof commentValidation>) => {
-
+        setLoading(true)
         await addCommentToThread(
             threadId,
-            values?.thread,
-            JSON.parse(userId),
+            values.thread,
+            JSON.parse(currentUserId),
             pathname
-        )
+        );
+
         form.reset();
-    }
+        setLoading(false);
+    };
 
     return (
         <Form {...form}>
@@ -54,8 +61,8 @@ const Comment = ({ userImage, threadId, userId }: Props) => {
                         <FormItem className='flex w-full items-center gap-3'>
                             <FormLabel>
                                 <Image
-                                    src={userImage}
-                                    alt='user-img'
+                                    src={currentUserImg}
+                                    alt='current_user'
                                     width={48}
                                     height={48}
                                     className='rounded-full object-cover'
@@ -73,12 +80,15 @@ const Comment = ({ userImage, threadId, userId }: Props) => {
                     )}
                 />
 
-                <Button type='submit' className='comment-form_btn'>
+                <Button type='submit' disabled={loading} className='comment-form_btn'>
                     Reply
+                    {loading &&
+                        <span className="loader"></span>
+                    }
                 </Button>
             </form>
         </Form>
-    )
+    );
 }
 
-export default Comment
+export default Comment;

@@ -15,6 +15,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { usePathname, useRouter } from "next/navigation"
 import { threadValidation } from "@/lib/validation/thread";
 import { createThread } from "@/lib/actions/thread.actions";
+import { useState } from "react";
 
 
 type Props = {
@@ -24,6 +25,7 @@ type Props = {
 
 const PostThread = ({ userId }: Props) => {
     const pathname = usePathname();
+    const [loading, setLoading] = useState(false)
     const router = useRouter()
     const form = useForm({
         resolver: zodResolver(threadValidation),
@@ -34,14 +36,15 @@ const PostThread = ({ userId }: Props) => {
     });
 
     const onSubmit = async (values: z.infer<typeof threadValidation>) => {
-
+        setLoading(true)
         await createThread({
             text: values.thread,
             author: userId,
             communityId: null,
             path: pathname,
         })
-
+        setLoading(false)
+        form.reset()
         router.push("/")
     }
 
@@ -71,7 +74,11 @@ const PostThread = ({ userId }: Props) => {
                         </FormItem>
                     )}
                 />
-                <Button type="submit" className="bg-primary-500">Post Thread</Button>
+                <Button disabled={loading} type="submit" className="bg-primary-500">Post Thread
+                    {
+                        loading && <span className="loader"></span>
+                    }
+                </Button>
             </form>
         </Form>
     )
