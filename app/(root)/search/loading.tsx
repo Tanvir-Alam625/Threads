@@ -1,4 +1,4 @@
-import UserSkeleton from '@/components/Skeleton/UserSkeleton'
+import UserSkeleton from '@/components/Skeletons/UserSkeleton'
 const loading = () => {
     return (
         <>

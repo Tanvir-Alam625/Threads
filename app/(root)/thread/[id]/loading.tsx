@@ -1,4 +1,4 @@
-import ThreadSkeleton from '@/components/Skeleton/ThreadSkeleton'
+import ThreadSkeleton from '@/components/Skeletons/ThreadSkeleton'
 import React from 'react'
 
 type Props = {}

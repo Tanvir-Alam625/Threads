@@ -1,4 +1,4 @@
-import ProfileSkeleton from '@/components/Skeleton/ProfileSkeleton'
+import ProfileSkeleton from '@/components/Skeletons/ProfileSkeleton'
 
 const loading = () => {
     return (

@@ -1,4 +1,4 @@
-import CommunitySkeleton from '@/components/Skeleton/CommunitySkeleton'
+import CommunitySkeleton from '@/components/Skeletons/CommunitySkeleton'
 
 
 const loading = () => {
