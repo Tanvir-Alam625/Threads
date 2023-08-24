@@ -1,6 +1,6 @@
 "use client";
 import millify from 'millify';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 type Props = {
     likeCount: number
@@ -9,7 +9,12 @@ type Props = {
 const Like = ({ likeCount }: Props) => {
     const [likes, setLikes] = useState<number>(likeCount);
     const [isLiked, setIsLiked] = useState<boolean>(false);
-
+    // const [isSlide, setIsSlide] = useState(false);
+    // useEffect(() => {
+    //     setIsSlide(true);
+    //     let slideAnimation = setTimeout(() => setIsSlide(false), 300)
+    //     return () => clearTimeout(slideAnimation);
+    // }, [likes])
     const handleLikeBtn = () => {
         if (!isLiked) {
             setLikes(likes + 1);
@@ -27,7 +32,18 @@ const Like = ({ likeCount }: Props) => {
                 </div>
             </div>
             {
-                likes > 0 ? <p className="text-subtle-medium">{millify(likes)}</p> : null
+                likes > 0 ? <div className=' overflow-hidden h-4'>
+                    <p
+                        className={`text-subtle-medium my-0 py-0 likes-number-before ${isLiked ? 'text-[#E2264D] slide-up' : ''}`}
+                    >
+                        {millify(likes)}
+                    </p>
+                    <p
+                        className={`text-subtle-medium my-0 py-0 likes-number-after ${isLiked ? 'text-[#E2264D] slide-down' : ''}`}
+                    >
+                        {millify(likes)}
+                    </p>
+                </div> : null
             }
         </div>
     )

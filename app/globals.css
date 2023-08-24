@@ -211,13 +211,22 @@
 .heart-icon.liked {
   animation: like-anim 0.7s steps(28) forwards;
 }
+.likes-number-before {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, color 0.3s;
+}
+.likes-number-after {
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, color 0.4s;
+  transform: translateY(100%);
+}
+.likes-number-before.slide-up {
+  transform: translateY(-200%);
+}
+.likes-number-after.slide-down {
+  transform: translateY(-100%);
+}
 
 @keyframes like-anim {
   to {
     background-position: right;
   }
-}
-
-.likes-amount.liked {
-  color: red;
 }
