@@ -1,13 +1,14 @@
 import React from 'react'
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
     height: number;
     width: number;
     color?: string;
     animation?: boolean;
-    rounded?: "sm" | "md" | "xl" | "full"
-    children?: React.ReactNode
-}
+    rounded?: "sm" | "md" | "xl" | "full";
+    className?: string
+} & React.HTMLAttributes<HTMLDivElement>
 
 const Skeleton = ({
     height,
@@ -15,10 +16,14 @@ const Skeleton = ({
     color = "bg-gray-400",
     animation = true,
     rounded = "md",
-    children
+    className
 }: Props) => {
+    const heightClass = `h-[${height}px]`
+    const widthClass = `w-[${width}px]`
+    const roundedClass = `rounded-${rounded}`
     return (
-        <div className={`h-${height} w-${width} rounded-${rounded} ${animation && 'animate-pulse'} ${color}`}>{children}</div>
+
+        <div className={twMerge(heightClass, widthClass, roundedClass, animation ? 'animate-pulse' : '', color, className)} />
     )
 }
 
