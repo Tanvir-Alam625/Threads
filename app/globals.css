@@ -159,6 +159,7 @@
 .comment-form_btn {
   @apply rounded-3xl bg-primary-500 px-8 py-2 !text-small-regular text-light-1 max-xs:w-full !important;
 }
+/* For Button Loader  */
 
 .loader {
   width: 14px;
@@ -171,7 +172,6 @@
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
-
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
@@ -179,4 +179,45 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* For Like Animation style  */
+.like-parent {
+  transform: scale(0.5);
+}
+.heart-container {
+  background: rgba(255, 192, 200, 0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 100ms ease;
+}
+
+.heart-icon {
+  height: 100px;
+  width: 100px;
+  padding: 30px;
+  background: url("../public/assets/heart.png");
+  background-position: left;
+  cursor: pointer;
+  position: absolute;
+}
+
+.heart-container:hover {
+  background: rgba(255, 192, 200, 0.7);
+}
+
+.heart-icon.liked {
+  animation: like-anim 0.7s steps(28) forwards;
+}
+
+@keyframes like-anim {
+  to {
+    background-position: right;
+  }
+}
+
+.likes-amount.liked {
+  color: red;
 }

@@ -1,11 +1,11 @@
+
 import Image from "next/image";
 import Link from "next/link";
-import { GoHeart, GoHeartFill } from 'react-icons/go';
-import { RiMessage3Line } from 'react-icons/ri';
-import { PiShareFat } from 'react-icons/pi';
-import { BiRepost } from 'react-icons/bi';
+import { FaComment } from 'react-icons/fa';
+import { PiShareFatFill } from 'react-icons/pi';
 import { formatDateString } from "@/lib/utils";
 import DeleteThread from "../forms/DeleteThread";
+import Like from "../shared/Like";
 
 
 type Author = {
@@ -48,6 +48,7 @@ const ThreadCard = ({
     createdAt,
     comments,
     isComment = false, }: Props) => {
+
     return (
         <article
             className={`flex w-full flex-col rounded-xl ${isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"
@@ -78,37 +79,17 @@ const ThreadCard = ({
                         <p className='mt-2 text-small-regular text-light-2'>{content}</p>
 
                         <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
-                            <div className='flex gap-3.5'>
-                                <Image
-                                    src='/assets/heart-gray.svg'
-                                    alt='heart'
-                                    width={24}
-                                    height={24}
-                                    className='cursor-pointer object-contain'
-                                />
-                                <Link href={`/thread/${id}`}>
-                                    <Image
-                                        src='/assets/reply.svg'
-                                        alt='heart'
-                                        width={24}
-                                        height={24}
-                                        className='cursor-pointer object-contain'
-                                    />
+                            <div className='flex items-center gap-3.5'>
+                                <Like likeCount={4} />
+                                <Link title="Comment" href={`/thread/${id}`} className="flex items-center gap-1">
+                                    <FaComment className="text-base-regular text-gray-1" />
+                                    {
+                                        comments.length ? <p className="text-subtle-medium text-gray-1">{comments.length}</p> : null
+                                    }
                                 </Link>
-                                <Image
-                                    src='/assets/repost.svg'
-                                    alt='heart'
-                                    width={24}
-                                    height={24}
-                                    className='cursor-pointer object-contain'
-                                />
-                                <Image
-                                    src='/assets/share.svg'
-                                    alt='heart'
-                                    width={24}
-                                    height={24}
-                                    className='cursor-pointer object-contain'
-                                />
+                                <div className="cursor-pointer" title="Share">
+                                    <PiShareFatFill className="text-base-regular text-gray-1" />
+                                </div>
                             </div>
 
                             {isComment && comments.length > 0 && (
