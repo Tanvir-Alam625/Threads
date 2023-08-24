@@ -6,6 +6,7 @@ import { PiShareFatFill } from 'react-icons/pi';
 import { formatDateString } from "@/lib/utils";
 import DeleteThread from "../forms/DeleteThread";
 import Like from "../shared/Like";
+import millify from "millify";
 
 
 type Author = {
@@ -49,6 +50,13 @@ const ThreadCard = ({
     comments,
     isComment = false, }: Props) => {
 
+    function getRandomLikeCount(min: number, max: number): number {
+        const range = max - min;
+        const randomValue = Math.random();
+        const randomNumber = min + Math.floor(randomValue * range);
+        return randomNumber;
+    }
+
     return (
         <article
             className={`flex w-full flex-col rounded-xl ${isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"
@@ -80,7 +88,7 @@ const ThreadCard = ({
 
                         <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
                             <div className='flex items-center gap-3.5'>
-                                <Like likeCount={4} />
+                                <Like likeCount={getRandomLikeCount(1000, 4000)} />
                                 <Link title="Comment" href={`/thread/${id}`} className="flex items-center gap-1">
                                     <FaComment className="text-base-regular text-gray-1" />
                                     {
@@ -95,7 +103,7 @@ const ThreadCard = ({
                             {isComment && comments.length > 0 && (
                                 <Link href={`/thread/${id}`}>
                                     <p className='mt-1 text-subtle-medium text-gray-1'>
-                                        {comments.length} repl{comments.length > 1 ? "ies" : "y"}
+                                        {millify(comments.length)} repl{comments.length > 1 ? "ies" : "y"}
                                     </p>
                                 </Link>
                             )}

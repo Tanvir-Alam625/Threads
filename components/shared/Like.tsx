@@ -1,4 +1,5 @@
 "use client";
+import millify from 'millify';
 import React, { useState } from 'react'
 
 type Props = {
@@ -26,7 +27,7 @@ const Like = ({ likeCount }: Props) => {
                 </div>
             </div>
             {
-                likes > 0 ? <p className="text-subtle-medium">{likes}</p> : null
+                likes > 0 ? <p className="text-subtle-medium">{millify(likes)}</p> : null
             }
         </div>
     )
