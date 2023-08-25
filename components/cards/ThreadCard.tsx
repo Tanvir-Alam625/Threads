@@ -7,6 +7,7 @@ import { formatDateString } from "@/lib/utils";
 import DeleteThread from "../forms/DeleteThread";
 import Like from "../shared/Like";
 import millify from "millify";
+import ShareModal from "../shared/ShareModal";
 
 
 type Author = {
@@ -95,9 +96,7 @@ const ThreadCard = ({
                                         comments.length ? <p className="text-subtle-medium text-gray-1">{comments.length}</p> : null
                                     }
                                 </Link>
-                                <div className="cursor-pointer" title="Share">
-                                    <PiShareFatFill className="text-base-regular text-gray-1" />
-                                </div>
+                                <ShareModal />
                             </div>
 
                             {isComment && comments.length > 0 && (

@@ -1,6 +1,6 @@
 "use client";
 import millify from 'millify';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 type Props = {
     likeCount: number
@@ -9,12 +9,7 @@ type Props = {
 const Like = ({ likeCount }: Props) => {
     const [likes, setLikes] = useState<number>(likeCount);
     const [isLiked, setIsLiked] = useState<boolean>(false);
-    // const [isSlide, setIsSlide] = useState(false);
-    // useEffect(() => {
-    //     setIsSlide(true);
-    //     let slideAnimation = setTimeout(() => setIsSlide(false), 300)
-    //     return () => clearTimeout(slideAnimation);
-    // }, [likes])
+
     const handleLikeBtn = () => {
         if (!isLiked) {
             setLikes(likes + 1);
