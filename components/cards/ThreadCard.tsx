@@ -58,6 +58,27 @@ const ThreadCard = ({
         return randomNumber;
     }
 
+    // Regular expression to match hashtags
+    const hashtagRegex = /#(\w+)/g;
+
+    // Array to store extracted hashtags
+    const hashtags: string[] = [];
+
+    // String to store plain text
+    let plainText: string = "";
+
+    let match;
+    let lastIndex = 0;
+    while ((match = hashtagRegex.exec(content)) !== null) {
+        const hashtag = match[1];
+        hashtags.push(hashtag);
+        plainText += content.slice(lastIndex, match.index);
+        lastIndex = hashtagRegex.lastIndex;
+    }
+
+    plainText += content.slice(lastIndex);
+
+
     return (
         <article
             className={`flex w-full flex-col rounded-xl ${isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"
@@ -85,7 +106,13 @@ const ThreadCard = ({
                             </h4>
                         </Link>
 
-                        <p className='mt-2 text-small-regular text-light-2'>{content}</p>
+                        <p className='mt-2 text-small-regular text-light-2'>{plainText}</p>
+                        <div className="flex gap-x-1">
+                            {
+                                hashtags.length ?
+                                    hashtags.map((tag: string, index: number) => <span key={index} className="text-small-regular text-primary-500">#{tag}</span>) : null
+                            }
+                        </div>
 
                         <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
                             <div className='flex items-center gap-3.5'>
@@ -96,7 +123,7 @@ const ThreadCard = ({
                                         comments.length ? <p className="text-subtle-medium text-gray-1">{comments.length}</p> : null
                                     }
                                 </Link>
-                                <ShareModal />
+                                <ShareModal postId={id} postContent={content} postTags={hashtags} />
                             </div>
 
                             {isComment && comments.length > 0 && (
