@@ -24,8 +24,9 @@ async function page({ params }: { params: { id: string } }) {
 
     const userInfo = await getUser(user.id);
     if (!userInfo?.onboarded) redirect("/onboarding");
-
     const thread = await getThreadById(params.id);
+    console.log(userInfo);
+
 
     return (
         <section className='relative'>
@@ -44,7 +45,7 @@ async function page({ params }: { params: { id: string } }) {
             <div className='mt-7'>
                 <Comment
                     threadId={params.id}
-                    currentUserImg={user.imageUrl}
+                    currentUserImg={userInfo?.image}
                     currentUserId={JSON.stringify(userInfo._id)}
                 />
             </div>
