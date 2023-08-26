@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PiShareFatFill } from "react-icons/pi"
 import Modal from "../ui/modal";
 import Image from "next/image";
@@ -14,9 +14,7 @@ import {
     WhatsappShareButton,
 } from "react-share";
 import { Input } from "../ui/input";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
+import { Button } from "../ui/button";
 type Props = {
     postId: string,
     postContent: string,
@@ -26,6 +24,13 @@ type Props = {
 
 const ShareModal = ({ postId, postContent, postTags }: Props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isCopied, setIsCopied] = useState(false);
+    const inputRef = useRef<HTMLInputElement>(null)
+
+    useEffect(() => {
+        let timer = setTimeout(() => setIsCopied(false), 3000)
+        return () => clearTimeout(timer)
+    }, [isCopied])
 
     const handleModalOpen = () => {
         setIsModalOpen(true);
@@ -33,7 +38,17 @@ const ShareModal = ({ postId, postContent, postTags }: Props) => {
 
     const handleModalClose = () => {
         setIsModalOpen(false);
+        setIsCopied(false);
     };
+
+    const handleCopyBtn = () => {
+        if (inputRef.current) {
+            inputRef.current.select();
+            document.execCommand("copy");
+            setIsCopied(true);
+        }
+    }
+
     const tagsString = postTags.map((tag: string) => `#${tag}`).join(' ');
     const postURL = `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/thread/${postId}`;
 
@@ -45,13 +60,15 @@ const ShareModal = ({ postId, postContent, postTags }: Props) => {
 
 
 
+
+
     return (
         <div>
 
             <button onClick={handleModalOpen}> <PiShareFatFill className="text-base-regular text-gray-1" /></button>
 
             <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-                <Modal.Content className="flex flex-col gap-4 w-[300px] md:w-[600px] p-6">
+                <Modal.Content className="flex flex-col gap-6 w-[300px] md:w-[600px] p-6">
                     <h1 className="text-xl font-medium text-light-1">Share the post</h1>
 
                     <div className="overflow-auto flex gap-4 items-center">
@@ -80,8 +97,11 @@ const ShareModal = ({ postId, postContent, postTags }: Props) => {
                             <Image src="/assets/tumblr-logo.png" height={40} width={40} alt="Tumblr" />
                         </TumblrShareButton>
                     </div>
-                    <div className="w-full">
-                        <Input value={postURL} className='account-form_input  no-focus' />
+                    <div className="w-full relative overflow-hidden">
+                        <Input ref={inputRef} value={postURL} className='account-form_input px-6 py-8  no-focus' />
+                        <div className=" bg-dark-3 absolute right-1 top-1 bottom-1 flex pl-4 py-2 pr-2 justify-center items-center">
+                            <Button onClick={handleCopyBtn} className=" rounded-md bg-primary-500 hover:bg-primary-500 px-8 py-2 !text-small-regular text-light-1 max-xs:w-full">{isCopied ? "Copied" : "Copy"}</Button>
+                        </div>
                     </div>
                 </Modal.Content>
             </Modal>

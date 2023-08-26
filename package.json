@@ -33,7 +33,6 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
-    "react-multi-carousel": "^2.8.4",
     "react-share": "^4.4.1",
     "svix": "^1.8.1",
     "tailwind-merge": "^1.14.0",
