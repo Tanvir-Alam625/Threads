@@ -25,6 +25,7 @@ export default async function Home() {
 
       <h2 className="head-text text-left">Home</h2>
       <section className="mt-6 flex flex-col gap-8">
+
         {
           posts.length ? <>
             {
@@ -42,7 +43,8 @@ export default async function Home() {
                 return <ThreadCard key={index} {...data} />
               })
             }
-          </> : <p className="no-result">No Post Found</p>
+          </> :
+            <p className="no-result">No Post Found</p>
         }
       </section>
     </>

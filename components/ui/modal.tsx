@@ -48,7 +48,7 @@ const Modal = ({
                         >
                             <Dialog.Panel
                                 className={twMerge(
-                                    'group relative text-light-1 flex max-w-md transform flex-col self-center rounded-md bg-dark-2 text-left shadow-xl transition-all',
+                                    'group relative text-light-1 flex  transform flex-col self-center rounded-md bg-dark-2 text-left shadow-xl transition-all',
 
                                     className
                                 )}

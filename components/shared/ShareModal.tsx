@@ -13,12 +13,16 @@ import {
     TwitterShareButton,
     WhatsappShareButton,
 } from "react-share";
+import { Input } from "../ui/input";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 type Props = {
     postId: string,
     postContent: string,
     postTags: string[],
 }
+
 
 const ShareModal = ({ postId, postContent, postTags }: Props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -40,16 +44,17 @@ const ShareModal = ({ postId, postContent, postTags }: Props) => {
     }
 
 
+
     return (
         <div>
 
             <button onClick={handleModalOpen}> <PiShareFatFill className="text-base-regular text-gray-1" /></button>
 
             <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-                <Modal.Content className="flex flex-col gap-4 min-w-min p-6">
+                <Modal.Content className="flex flex-col gap-4 w-[300px] md:w-[600px] p-6">
                     <h1 className="text-xl font-medium text-light-1">Share the post</h1>
 
-                    <div className="flex gap-4 items-center">
+                    <div className="overflow-auto flex gap-4 items-center">
                         <FacebookShareButton {...shareData} title="Facebook">
                             <Image src="/assets/facebook-logo.png" height={40} width={40} alt="facebook" />
                         </FacebookShareButton>
@@ -74,6 +79,9 @@ const ShareModal = ({ postId, postContent, postTags }: Props) => {
                         <TumblrShareButton {...shareData} title="Tumblr">
                             <Image src="/assets/tumblr-logo.png" height={40} width={40} alt="Tumblr" />
                         </TumblrShareButton>
+                    </div>
+                    <div className="w-full">
+                        <Input value={postURL} className='account-form_input  no-focus' />
                     </div>
                 </Modal.Content>
             </Modal>

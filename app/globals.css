@@ -63,11 +63,11 @@
   }
 
   .bottombar {
-    @apply fixed bottom-0  z-10 w-full rounded-t-3xl bg-glassmorphism p-4 backdrop-blur-lg xs:px-7 md:hidden;
+    @apply fixed bottom-0 left-0 right-0  z-10 w-full rounded-t-3xl bg-glassmorphism p-2 backdrop-blur-lg  md:hidden;
   }
 
   .bottombar_container {
-    @apply flex items-center justify-between gap-3 xs:gap-5;
+    @apply flex items-center justify-between gap-3 xs:gap-1;
   }
 
   .bottombar_link {
