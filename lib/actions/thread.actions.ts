@@ -16,7 +16,7 @@ interface Params {
 export const createThread = async ({ text, author, communityId, path }: Params): Promise<void> => {
 
     try {
-        connectToDB()
+        connectToDB();
 
         const communityIdObject = await Community.findOne(
             { id: communityId },
