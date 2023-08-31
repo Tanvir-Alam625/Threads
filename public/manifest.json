@@ -1,32 +1,32 @@
 {
-  "theme_color": "#877EFF",
-  "background_color": "#000000",
-  "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
-  "name": "Thread",
-  "short_name": "Thread",
-  "description": "Welcome to the Social Media Thread Application! This full-stack application is built using Next.js, TypeScript, MongoDB, and Mongoose. It provides a platform for users to engage in discussions, share ideas, and connect with communities. Below, you'll find an overview of the application's features, how to set up the project, and how to navigate through its various functionalities.",
-  "icons": [
-    {
-      "src": "/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-256x256.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+    "theme_color": "#877EFF",
+    "background_color": "#000000",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Threads",
+    "short_name": "Threads",
+    "description": "Welcome to the Social Media Thread Application! This full-stack application is built using Next.js, TypeScript, MongoDB, and Mongoose. It provides a platform for users to engage in discussions, share ideas, and connect with communities. Below, you'll find an overview of the application's features, how to set up the project, and how to navigate through its various functionalities.",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
 }
