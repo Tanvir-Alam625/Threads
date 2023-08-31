@@ -13,7 +13,7 @@ interface UserInfo {
 
 export const metadata: Metadata = {
     title: 'Edit Profile | Threads',
-    description: 'NextJs Threads Application',
+    manifest: '/manifest.json'
 }
 
 const editProfilePage = async () => {

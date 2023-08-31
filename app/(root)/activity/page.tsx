@@ -7,7 +7,7 @@ import { getUser, getActivity } from "@/lib/actions/user.actions";
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
     title: 'Activity | Threads',
-    description: 'NextJs Threads Application',
+    manifest: '/manifest.json'
 }
 async function ActivityPage() {
     const user = await currentUser();

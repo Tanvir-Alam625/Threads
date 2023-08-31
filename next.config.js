@@ -1,5 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const withPWA = require("next-pwa")({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_MODE === "development",
+});
+
+module.exports = withPWA({
   experimental: {
     serverActions: true,
     serverComponentsExternalPackages: ["mongoose"],
@@ -29,6 +35,4 @@ const nextConfig = {
       },
     ],
   },
-};
-
-module.exports = nextConfig;
+});

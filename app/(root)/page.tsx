@@ -9,7 +9,7 @@ import Pagination from "@/components/shared/Pagination";
 import ThreadCard from "@/components/cards/ThreadCard";
 export const metadata: Metadata = {
   title: 'Home | Threads',
-  description: 'NextJs Threads Application',
+  manifest: '/manifest.json'
 }
 
 export default async function Home({

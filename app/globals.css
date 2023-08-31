@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overscroll-behavior-y: contain;
+}
 @layer components {
   /* main */
   .main-container {

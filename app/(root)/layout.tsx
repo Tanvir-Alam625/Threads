@@ -10,9 +10,10 @@ import { currentUser } from '@clerk/nextjs'
 import { redirect } from 'next/navigation'
 const inter = Inter({ subsets: ['latin'] })
 
+
 export const metadata: Metadata = {
   title: 'Threads',
-  description: 'NextJs Threads Application',
+  manifest: '/manifest.json'
 }
 
 export default async function RootLayout({

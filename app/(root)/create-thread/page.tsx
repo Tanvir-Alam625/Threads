@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
     title: 'Create Thread | Threads',
-    description: 'NextJs Threads Application',
+    manifest: '/manifest.json'
 }
 
 const CreateThreadPage = async () => {

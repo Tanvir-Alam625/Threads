@@ -4,7 +4,7 @@ import React from 'react'
 import '../globals.css'
 export const metadata = {
     title: "Threads",
-    description: "NextJs Thread Application"
+    manifest: '/manifest.json'
 }
 
 type Props = {
