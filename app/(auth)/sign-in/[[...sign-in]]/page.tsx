@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'SignIn | Threads',
-    description: 'NextJs Threads Application',
+    manifest: '/manifest.json'
 }
 export default async function Page() {
     const user = await currentUser();
