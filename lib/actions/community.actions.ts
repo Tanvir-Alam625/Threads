@@ -62,6 +62,8 @@ export async function getCommunityDetails(id: string) {
                 select: "name username image _id id",
             },
         ]);
+        console.log(communityDetails);
+
 
         return communityDetails;
     } catch (error) {

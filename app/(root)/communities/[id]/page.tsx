@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
-
 import { communityTabs } from "@/constants";
-
 import UserCard from "@/components/cards/UserCard";
-import ThreadsTab from "@/components/shared/ThreadsTab";
 import ProfileHeader from "@/components/shared/ProfileHeader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
 import { getCommunityDetails } from "@/lib/actions/community.actions";
 import type { Metadata } from 'next'
+import { getThreadByCommunityId } from "@/lib/actions/thread.actions";
+import ThreadCard from "@/components/cards/ThreadCard";
+import { getUser } from "@/lib/actions/user.actions";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
     title: 'Community Profile | Threads',
@@ -19,8 +19,13 @@ export const metadata: Metadata = {
 async function Page({ params }: { params: { id: string } }) {
     const user = await currentUser();
     if (!user) return null;
+    const userInfo = await getUser(user.id);
+    if (!userInfo?.onboarded) redirect("/onboarding");
 
     const communityDetails = await getCommunityDetails(params.id);
+    const posts = await getThreadByCommunityId(communityDetails._id)
+
+    type Post = typeof posts[0]
 
     return (
         <section>
@@ -58,12 +63,30 @@ async function Page({ params }: { params: { id: string } }) {
                     </TabsList>
 
                     <TabsContent value='threads' className='w-full text-light-1'>
-                        {/* @ts-ignore */}
-                        <ThreadsTab
-                            currentUserId={user.id}
-                            accountId={communityDetails._id}
-                            accountType='Community'
-                        />
+                        <section className='mt-9 flex flex-col gap-10'>
+                            {
+                                posts?.length ? <>
+                                    {
+                                        posts?.map((post: Post, index: number) => {
+                                            const data = {
+                                                id: post._id,
+                                                currentUserId: user?.id,
+                                                parentId: post.parentId,
+                                                content: post.text,
+                                                author: post.author,
+                                                community: post.community,
+                                                createdAt: post.createdAt,
+                                                comments: post.children,
+                                                userId: userInfo._id,
+                                                likes: post.likes
+                                            }
+                                            return <ThreadCard key={index} {...data} />
+                                        })
+                                    }
+                                </> :
+                                    <p className="no-result my-6">No Post Found</p>
+                            }
+                        </section>
                     </TabsContent>
 
                     <TabsContent value='members' className='mt-9 w-full text-light-1'>
@@ -82,12 +105,7 @@ async function Page({ params }: { params: { id: string } }) {
                     </TabsContent>
 
                     <TabsContent value='requests' className='w-full text-light-1'>
-                        {/* @ts-ignore */}
-                        <ThreadsTab
-                            currentUserId={user.id}
-                            accountId={communityDetails._id}
-                            accountType='Community'
-                        />
+                        <p className="no-result my-6"> No Tag Found</p>
                     </TabsContent>
                 </Tabs>
             </div>

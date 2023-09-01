@@ -1,65 +1,63 @@
-import { redirect } from "next/navigation";
-
-import { getCommunityPosts } from "@/lib/actions/community.actions";
-import { getUserPosts } from "@/lib/actions/user.actions";
-
 import ThreadCard from "../cards/ThreadCard";
+import { getThreadByUserId } from "@/lib/actions/thread.actions";
 
-interface Result {
-    name: string;
-    image: string;
-    id: string;
-    threads: {
-        _id: string;
-        text: string;
-        parentId: string | null;
-        author: {
-            name: string;
-            image: string;
-            id: string;
-        };
-        community: {
-            id: string;
-            name: string;
-            image: string;
-        } | null;
-        createdAt: string;
-        children: {
-            author: {
-                image: string;
-            };
-        }[];
-    }[];
-}
+// interface Result {
+//     name: string;
+//     image: string;
+//     id: string;
+
+//     threads: {
+//         _id: string;
+//         text: string;
+//         parentId: string | null;
+//         author: {
+//             name: string;
+//             image: string;
+//             id: string;
+//         };
+//         community: {
+//             id: string;
+//             name: string;
+//             image: string;
+//         } | null;
+//         createdAt: string;
+//         children: {
+//             author: {
+//                 image: string;
+//             };
+//         }[];
+//     }[];
+// }
 
 interface Props {
-    currentUserId: string;
-    accountId: string;
-    accountType: string;
+    userId?: string;
+    communityId?: string
 }
 
-async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
-    let result: Result;
+async function ThreadsTab({ userId, communityId }: Props) {
+    // const [threads, setThreads] = useState(null)
+    if (userId) {
+        const threads = await getThreadByUserId(userId)
+        // setThreads(threads)
+        console.log(threads);
 
-    if (accountType === "Community") {
-        result = await getCommunityPosts(accountId);
-    } else {
-        result = await getUserPosts(accountId);
     }
+    console.log("userId:", userId);
 
-    if (!result) {
-        redirect("/");
-    }
+    // console.log(threads);
 
     return (
         <section className='mt-9 flex flex-col gap-10'>
-            {result.threads.map((thread) => (
+            <h2 className="text-light-1">no thread</h2>
+            {/* {result.threads.map((thread) => (
                 <ThreadCard
                     key={thread._id}
                     id={thread._id}
                     currentUserId={currentUserId}
                     parentId={thread.parentId}
                     content={thread.text}
+                    // likes={thread.likes}
+                    userId={userId}
                     author={
                         accountType === "User"
                             ? { name: result.name, image: result.image, id: result.id }
@@ -77,7 +75,7 @@ async function ThreadsTab({ currentUserId, accountId, accountType }: Props) {
                     createdAt={thread.createdAt}
                     comments={thread.children}
                 />
-            ))}
+            ))} */}
         </section>
     );
 }
