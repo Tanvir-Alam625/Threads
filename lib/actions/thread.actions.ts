@@ -323,3 +323,33 @@ export const getThreadByUserId = async (userId: string): Promise<any> => {
         }
     }
 }
+// Action: get Thread by CommunityId 
+export const getThreadByCommunityId = async (communityId: string): Promise<any> => {
+    connectToDB();
+
+    try {
+        const threads = await Thread.find({ community: communityId })
+            .sort({ createdAt: "desc" })
+            .populate({ path: "author", model: User })
+            .populate({
+                path: "community",
+                model: Community,
+            })
+            .populate({
+                path: "children",
+                populate: {
+                    path: "author",
+                    model: User,
+                    select: "_id name parentId image"
+                }
+            });
+
+        return threads;
+    } catch (error) {
+        if (error instanceof Error) {
+            throw new Error(`Couldn't get thread: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
+    }
+}
