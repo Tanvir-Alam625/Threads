@@ -1,8 +1,6 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import { FaComment } from 'react-icons/fa';
-import { PiShareFatFill } from 'react-icons/pi';
 import { formatDateString } from "@/lib/utils";
 import DeleteThread from "../forms/DeleteThread";
 import Like from "../shared/Like";
@@ -37,6 +35,8 @@ interface Props {
     createdAt: string;
     comments: Comment[];
     isComment?: boolean;
+    userId?: string;
+    likes?: string[];
 }
 
 
@@ -44,12 +44,15 @@ const ThreadCard = ({
     id,
     currentUserId,
     parentId,
+    userId,
     content,
     author,
     community,
     createdAt,
     comments,
+    likes = [],
     isComment = false, }: Props) => {
+
 
     function getRandomLikeCount(min: number, max: number): number {
         const range = max - min;
@@ -78,6 +81,11 @@ const ThreadCard = ({
 
     plainText += content.slice(lastIndex);
 
+    const likeData = {
+        threadId: id,
+        userId: userId || "",
+        likeCount: likes || []
+    }
 
     return (
         <article
@@ -116,7 +124,9 @@ const ThreadCard = ({
 
                         <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
                             <div className='flex items-center  gap-2 md:gap-3.5'>
-                                <Like likeCount={getRandomLikeCount(1000, 4000)} />
+
+                                {/* Like Component  */}
+                                <Like {...likeData} />
                                 <Link title="Comment" href={`/thread/${id}`} className="flex items-center gap-1">
                                     <FaComment className="text-base-regular text-gray-1" />
                                     {

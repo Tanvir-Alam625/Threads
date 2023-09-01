@@ -1,19 +1,16 @@
 import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-
 import { profileTabs } from "@/constants";
-
-import ThreadsTab from "@/components/shared/ThreadsTab";
 import ProfileHeader from "@/components/shared/ProfileHeader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
 import { getUser } from "@/lib/actions/user.actions";
 import type { Metadata } from 'next'
+import { getThreadByUserId } from "@/lib/actions/thread.actions";
+import ThreadCard from "@/components/cards/ThreadCard";
 
 export const metadata: Metadata = {
     title: 'User Profile | Threads',
-    description: 'NextJs Threads Application',
 }
 
 async function Page({ params }: { params: { id: string } }) {
@@ -22,7 +19,8 @@ async function Page({ params }: { params: { id: string } }) {
 
     const userInfo = await getUser(params.id);
     if (!userInfo?.onboarded) redirect("/onboarding");
-
+    const posts = await getThreadByUserId(userInfo._id || "")
+    type Post = typeof posts[0];
     return (
         <section>
             <ProfileHeader
@@ -61,11 +59,31 @@ async function Page({ params }: { params: { id: string } }) {
                         className='w-full text-light-1'
                     >
                         {/* @ts-ignore */}
-                        <ThreadsTab
-                            currentUserId={user.id}
-                            accountId={userInfo.id}
-                            accountType='User'
-                        />
+
+                        <section className='mt-9 flex flex-col gap-10'>
+                            {
+                                posts?.length ? <>
+                                    {
+                                        posts?.map((post: Post, index: number) => {
+                                            const data = {
+                                                id: post._id,
+                                                currentUserId: user?.id,
+                                                parentId: post.parentId,
+                                                content: post.text,
+                                                author: post.author,
+                                                community: post.community,
+                                                createdAt: post.createdAt,
+                                                comments: post.children,
+                                                userId: userInfo._id,
+                                                likes: post.likes
+                                            }
+                                            return <ThreadCard key={index} {...data} />
+                                        })
+                                    }
+                                </> :
+                                    <p className="no-result">No Post Found</p>
+                            }
+                        </section>
                     </TabsContent>
                     {/* Tab Content Replies For Threads  */}
                     <TabsContent

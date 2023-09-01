@@ -186,7 +186,7 @@
   transform: scale(0.5);
 }
 .heart-container {
-  background: rgba(255, 192, 200, 0);
+  background: red;
   border-radius: 50%;
   display: flex;
   align-items: center;

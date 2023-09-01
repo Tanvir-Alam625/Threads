@@ -1,15 +1,13 @@
-// import ThreadCard from "@/components/cards/ThreadCard";
 import { getThreads } from "@/lib/actions/thread.actions"
 import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
 import Pagination from "@/components/shared/Pagination";
 import ThreadCard from "@/components/cards/ThreadCard";
+
 export const metadata: Metadata = {
   title: 'Home | Threads',
-  description: 'NextJs Threads Application',
 }
 
 export default async function Home({
@@ -25,8 +23,6 @@ export default async function Home({
 
   const { threads: posts, isNext } = await getThreads(Number(searchParams.page) || 1, 30);
   type Post = typeof posts[0];
-  console.log(searchParams);
-
 
   return (
     <>
@@ -46,7 +42,9 @@ export default async function Home({
                   author: post.author,
                   community: post.community,
                   createdAt: post.createdAt,
-                  comments: post.children
+                  comments: post.children,
+                  userId: userInfo._id,
+                  likes: post.likes
                 }
                 return <ThreadCard key={index} {...data} />
               })

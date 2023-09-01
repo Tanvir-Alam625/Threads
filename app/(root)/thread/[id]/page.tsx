@@ -1,9 +1,7 @@
 import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs";
-
 import Comment from "@/components/forms/Comment";
 import ThreadCard from "@/components/cards/ThreadCard";
-
 import { getUser } from "@/lib/actions/user.actions";
 import { getThreadById } from "@/lib/actions/thread.actions";
 import type { Metadata } from 'next';
@@ -25,8 +23,6 @@ async function page({ params }: { params: { id: string } }) {
     const userInfo = await getUser(user.id);
     if (!userInfo?.onboarded) redirect("/onboarding");
     const thread = await getThreadById(params.id);
-    console.log(userInfo);
-
 
     return (
         <section className='relative'>
@@ -40,6 +36,8 @@ async function page({ params }: { params: { id: string } }) {
                     community={thread.community}
                     createdAt={thread.createdAt}
                     comments={thread.children}
+                    likes={thread.likes}
+                    userId={userInfo._id}
                 />
             </div>
             <div className='mt-7'>
@@ -62,6 +60,8 @@ async function page({ params }: { params: { id: string } }) {
                         community={childItem.community}
                         createdAt={childItem.createdAt}
                         comments={childItem.children}
+                        likes={childItem.likes}
+                        userId={userInfo._id}
                         isComment
                     />
                 ))}

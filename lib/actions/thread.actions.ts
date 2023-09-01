@@ -105,11 +105,11 @@ export const getThreadById = async (threadId: string): Promise<any> => {
                 model: User,
                 select: "_id id name image",
             })
-            // .populate({
-            //   path: "community",
-            //   model: Community,
-            //   select: "_id id name image",
-            // }) 
+            .populate({
+                path: "community",
+                model: Community,
+                select: "_id id name image",
+            })
             .populate({
                 path: "children",
                 populate: [
@@ -252,6 +252,72 @@ export const deleteThread = async (id: string, path: string): Promise<void> => {
     } catch (error: any) {
         if (error instanceof Error) {
             throw new Error(`Couldn't delete to thread: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
+    }
+}
+
+
+// Action: Like to a thread post 
+export const likeToThread = async (threadId: string, userId: string, path: string): Promise<void> => {
+    try {
+        connectToDB();
+        const thread = await Thread.findById(threadId);
+
+
+        if (!thread) {
+            throw new Error(`Not Found thread`);
+        }
+
+        const userIndex = thread.likes.indexOf(userId);
+
+        if (userIndex === -1) {
+            // User hasn't liked the thread, so we add the like
+            thread.likes.push(userId);
+        } else {
+            // User has already liked the thread, so we remove the like
+            thread.likes.splice(userIndex, 1);
+        }
+
+        await thread.save();
+        revalidatePath(path);
+    } catch (error) {
+        if (error instanceof Error) {
+            throw new Error(`Can't like to thread: ${error.message}`);
+        } else {
+            throw new Error(`An unknown error occurred`);
+        }
+    }
+}
+
+
+
+// Action: get Thread by userId 
+export const getThreadByUserId = async (userId: string): Promise<any> => {
+    connectToDB();
+
+    try {
+        const threads = await Thread.find({ author: userId })
+            .sort({ createdAt: "desc" })
+            .populate({ path: "author", model: User })
+            .populate({
+                path: "community",
+                model: Community,
+            })
+            .populate({
+                path: "children",
+                populate: {
+                    path: "author",
+                    model: User,
+                    select: "_id name parentId image"
+                }
+            });
+
+        return threads;
+    } catch (error) {
+        if (error instanceof Error) {
+            throw new Error(`Couldn't get thread: ${error.message}`);
         } else {
             throw new Error(`An unknown error occurred`);
         }
