@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  overscroll-behavior-y: contain;
-}
 @layer components {
   /* main */
   .main-container {
@@ -189,7 +186,7 @@ body {
   transform: scale(0.5);
 }
 .heart-container {
-  background: red;
+  background: rgba(255, 192, 200, 0);
   border-radius: 50%;
   display: flex;
   align-items: center;
