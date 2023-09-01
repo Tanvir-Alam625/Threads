@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Thread Details | Threads',
-    description: 'NextJs Threads Application',
+    manifest: '/manifest.json'
 }
 
 

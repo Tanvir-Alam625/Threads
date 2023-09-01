@@ -11,6 +11,7 @@ import ThreadCard from "@/components/cards/ThreadCard";
 
 export const metadata: Metadata = {
     title: 'User Profile | Threads',
+    manifest: '/manifest.json'
 }
 
 async function Page({ params }: { params: { id: string } }) {

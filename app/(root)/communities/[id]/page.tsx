@@ -12,6 +12,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
     title: 'Community Profile | Threads',
+    manifest: '/manifest.json'
 }
 
 async function Page({ params }: { params: { id: string } }) {

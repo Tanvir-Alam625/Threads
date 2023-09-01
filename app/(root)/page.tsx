@@ -8,6 +8,7 @@ import ThreadCard from "@/components/cards/ThreadCard";
 
 export const metadata: Metadata = {
   title: 'Home | Threads',
+  manifest: '/manifest.json'
 }
 
 export default async function Home({
