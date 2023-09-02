@@ -211,6 +211,9 @@
 .heart-icon.liked {
   animation: like-anim 0.7s steps(28) forwards;
 }
+.heart-icon.already-like {
+  animation: like-anim -0.7s steps(28) forwards;
+}
 .likes-number-before {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, color 0.3s;
 }
