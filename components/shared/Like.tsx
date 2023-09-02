@@ -2,7 +2,7 @@
 import { likeToThread } from '@/lib/actions/thread.actions';
 import millify from 'millify';
 import { usePathname } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 
 type Props = {
     likeCount: string[],
@@ -12,13 +12,24 @@ type Props = {
 
 const Like = ({ likeCount, threadId, userId }: Props) => {
     const [likes, setLikes] = useState<string[]>(likeCount);
-    const [isLiked, setIsLiked] = useState<boolean>(likes.includes(userId));
+    const [isLiked, setIsLiked] = useState<boolean>(false);
+    const [beforeLike, setBeforeLiked] = useState<boolean | null>(null)
 
     const pathname = usePathname();
+    useLayoutEffect(() => {
+        const alreadyLiked = likeCount.indexOf(userId)
+        if (alreadyLiked !== -1 && !isLiked) {
+            setBeforeLiked(true);
+        } else {
+            setBeforeLiked(false)
+        }
+        return undefined;
+    }, [])
 
     const handleLikeBtn = async () => {
         try {
-            if (isLiked) {
+            if (likes.includes(userId)) {
+                setBeforeLiked(false)
                 // Unlike
                 const newLikes = likes.filter(like => like !== userId);
                 setLikes(newLikes);
@@ -41,10 +52,11 @@ const Like = ({ likeCount, threadId, userId }: Props) => {
         <div className="flex items-center gap-3 duration-200 ease-in-out hover:text-[red] text-gray-1">
             <div title={isLiked ? "Unlike" : "Like"} className='like-parent'>
                 <div className='heart-container'>
-                    <div className={`heart-icon ${isLiked ? "liked" : ""}`} onClick={handleLikeBtn}></div>
+                    <div
+                        className={`heart-icon ${!beforeLike && isLiked ? "liked" : ""} ${beforeLike && !isLiked ? "already-like" : ""}`} onClick={handleLikeBtn}></div>
                 </div>
             </div>
-            <div className='overflow-hidden h-4'>
+            <div className={`overflow-hidden h-4 ${beforeLike ? "text-[#E2264D]" : ""}`}>
                 <p className={`text-subtle-medium my-0 py-0 likes-number-before ${isLiked ? 'text-[#E2264D] slide-up' : ''}`}>
                     {millify(likes.length)}
                 </p>
