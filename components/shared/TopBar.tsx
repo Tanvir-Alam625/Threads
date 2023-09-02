@@ -33,6 +33,7 @@ const TopBar = () => {
                         baseTheme: dark,
                         elements: {
                             organizationSwitcherTrigger: "py-2 px-4",
+
                         },
                     }}
                 />
