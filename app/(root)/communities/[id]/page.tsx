@@ -105,7 +105,7 @@ async function Page({ params }: { params: { id: string } }) {
                     </TabsContent>
 
                     <TabsContent value='requests' className='w-full text-light-1'>
-                        <p className="no-result my-6"> No Tag Found</p>
+                        <p className="no-result my-6"> No Request Found</p>
                     </TabsContent>
                 </Tabs>
             </div>
