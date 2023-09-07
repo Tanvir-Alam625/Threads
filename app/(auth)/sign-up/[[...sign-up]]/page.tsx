@@ -2,6 +2,7 @@ import { SignUp } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import type { Metadata } from 'next';
+import { dark } from "@clerk/themes";
 
 export const metadata: Metadata = {
     title: 'SignUp | Threads',
@@ -13,5 +14,9 @@ export default async function Page() {
         redirect("/");
         return;
     }
-    return <SignUp />;
+    return <SignUp
+        appearance={{
+            baseTheme: dark
+        }}
+    />;
 }

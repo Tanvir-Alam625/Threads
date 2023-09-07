@@ -29,12 +29,13 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body suppressHydrationWarning={true} className={inter.className}>
+        <body suppressHydrationWarning={true} className={`bg-dark-1  ${inter.className}`}>
+
           <TopBar />
-          <main className='flex flex-row'>
+          <main className={`flex flex-row`}>
             <LeftSidebar />
             <section className='main-container'>
-              <div className="w-full mx-w-4xl">
+              <div className="w-full max-w-4xl">
                 {children}
               </div>
             </section>
