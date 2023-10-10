@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import type { Metadata } from 'next'
 import Pagination from "@/components/shared/Pagination";
 import ThreadCard from "@/components/cards/ThreadCard";
+import PostContainer from "@/components/posts/PostContainer";
 
 export const metadata: Metadata = {
   title: 'Home | Threads',
@@ -18,7 +19,6 @@ export default async function Home({
 }) {
   const user = await currentUser()
   if (!user) return null
-
   const userInfo = await getUser(user?.id);
   if (!userInfo?.onboarded) redirect("/onboarding");
 
@@ -27,10 +27,9 @@ export default async function Home({
 
   return (
     <>
-
       <h2 className="head-text text-left">Home</h2>
       <section className="mt-6 flex flex-col gap-8">
-
+        <PostContainer />
         {
           posts?.length ? <>
             {
