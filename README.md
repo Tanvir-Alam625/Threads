@@ -50,6 +50,8 @@ Check out the live version of the application [here](https://threads-eta.vercel.
 
 ## In progress Items
 
+- Home Infinity scrolling feature.
+- Full Website glassmorphisom UI design.
 - Profile Page inside Replies & Tagged tab in complete.
 - The Community Page inside the Request tab is complete.
 
