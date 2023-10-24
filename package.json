@@ -36,6 +36,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
+    "react-intersection-observer": "^9.5.2",
     "react-share": "^4.4.1",
     "svix": "^1.8.1",
     "tailwind-merge": "^1.14.0",
