@@ -8,12 +8,12 @@ import millify from "millify";
 import ShareModal from "../shared/ShareModal";
 
 
-type Author = {
+export type Author = {
     name: string;
     image: string;
     id: string;
 }
-type Community = {
+export type Community = {
     id: string;
     name: string;
     image: string;

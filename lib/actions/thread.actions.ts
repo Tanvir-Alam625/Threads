@@ -83,7 +83,7 @@ export const getThreads = async (page = 1, limit = 20): Promise<any> => {
 
         const isNext = totalThreads > skipCount + threads.length;
 
-        return { threads, isNext };
+        return { threads: JSON.parse(JSON.stringify(threads)), isNext };
 
     } catch (error) {
         if (error instanceof Error) {
