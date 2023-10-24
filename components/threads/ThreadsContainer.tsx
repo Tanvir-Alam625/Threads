@@ -2,12 +2,24 @@
 import { getThreads } from '@/lib/actions/thread.actions';
 import React, { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer';
-import ThreadCard from '@/components/cards/ThreadCard';
+import ThreadCard, { Author, Community } from '@/components/cards/ThreadCard';
 import ThreadSkeleton from '@/components/Skeletons/ThreadSkeleton';
+
+type Post = {
+    _id: string,
+    text: string,
+    author: Author,
+    community: Community,
+    createdAt: string,
+    children: any[]
+    likes: any[]
+    parentId: string
+
+}
 
 type Props = {
     threadData: {
-        initialPosts: object[],
+        initialPosts: Post[],
         isNext: boolean
         userId: string,
         userInfoId: string
@@ -15,7 +27,7 @@ type Props = {
 }
 
 const ThreadsContainer = ({ threadData }: Props) => {
-    const [posts, setPosts] = useState<typeof threadData.initialPosts>(threadData.initialPosts);
+    const [posts, setPosts] = useState<Post[]>(threadData.initialPosts);
     const [page, setPage] = useState<number>(1);
     const [ref, inView] = useInView();
     const [isNext, setIsNext] = useState<boolean>(threadData.isNext);
@@ -42,7 +54,6 @@ const ThreadsContainer = ({ threadData }: Props) => {
         }
     }, [inView])
 
-    type Post = typeof posts[0]
 
     return (
         <>
@@ -51,7 +62,7 @@ const ThreadsContainer = ({ threadData }: Props) => {
                     {
                         posts?.map((post: Post, index: number) => {
                             const data = {
-                                id: post._id,
+                                id: post?._id,
                                 currentUserId: threadData.userId,
                                 parentId: post.parentId,
                                 content: post.text,
