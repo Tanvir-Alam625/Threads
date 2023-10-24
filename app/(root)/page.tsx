@@ -3,8 +3,6 @@ import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import type { Metadata } from 'next'
-// import Pagination from "@/components/shared/Pagination";
-// import ThreadCard from "@/components/cards/ThreadCard";
 import { fetchPost } from "./actions";
 import ThreadsContainer from "@/components/threads/ThreadsContainer";
 
@@ -13,11 +11,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.json'
 }
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | undefined };
-}) {
+export default async function Home() {
   const user = await currentUser()
   if (!user) return null
   const userInfo = await getUser(user?.id);
@@ -39,35 +33,7 @@ export default async function Home({
         <ThreadsContainer
           threadData={threadData}
         />
-        {/* {
-          posts?.length ? <>
-            {
-              posts?.map((post: Post, index: number) => {
-                const data = {
-                  id: post._id,
-                  currentUserId: user?.id,
-                  parentId: post.parentId,
-                  content: post.text,
-                  author: post.author,
-                  community: post.community,
-                  createdAt: post.createdAt,
-                  comments: post.children,
-                  userId: userInfo._id,
-                  likes: post.likes
-                }
-                return <ThreadCard key={index} {...data} />
-              })
-            }
-          </> :
-            <p className="no-result">No Post Found</p>
-        } */}
       </section>
-
-      {/* <Pagination
-        path='/'
-        pageNumber={searchParams?.page ? +searchParams.page : 1}
-        isNext={isNext}
-      /> */}
     </>
   )
 }
