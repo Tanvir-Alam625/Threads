@@ -6,7 +6,7 @@ const loading = () => {
         <>
             <h1 className='head-text'>Communities</h1>
             <div className=' mt-9  mb-6 h-14 w-full bg-gray-400 rounded-md animate-pulse' />
-            <div className=' flex flex-wrap gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 <CommunitySkeleton />
                 <CommunitySkeleton />
             </div>
