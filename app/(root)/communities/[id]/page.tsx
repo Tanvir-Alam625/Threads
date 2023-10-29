@@ -10,6 +10,7 @@ import { getThreadByCommunityId } from "@/lib/actions/thread.actions";
 import ThreadCard from "@/components/cards/ThreadCard";
 import { getUser } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
+import CommunityThreadsContainer from "@/components/threads/CommunityThreadsContainer";
 
 export const metadata: Metadata = {
     title: 'Community Profile | Threads',
@@ -23,9 +24,16 @@ async function Page({ params }: { params: { id: string } }) {
     if (!userInfo?.onboarded) redirect("/onboarding");
 
     const communityDetails = await getCommunityDetails(params.id);
-    const posts = await getThreadByCommunityId(communityDetails._id)
+    const { threads: posts, isNext } = await getThreadByCommunityId(communityDetails._id, 10, 1)
 
     type Post = typeof posts[0]
+    const threadData = {
+        userId: user.id,
+        userInfoId: userInfo._id,
+        communityId: communityDetails._id,
+        initialPosts: posts,
+        isNext
+    }
 
     return (
         <section>
@@ -64,28 +72,7 @@ async function Page({ params }: { params: { id: string } }) {
 
                     <TabsContent value='threads' className='w-full text-light-1'>
                         <section className='mt-9 flex flex-col gap-10'>
-                            {
-                                posts?.length ? <>
-                                    {
-                                        posts?.map((post: Post, index: number) => {
-                                            const data = {
-                                                id: post._id,
-                                                currentUserId: user?.id,
-                                                parentId: post.parentId,
-                                                content: post.text,
-                                                author: post.author,
-                                                community: post.community,
-                                                createdAt: post.createdAt,
-                                                comments: post.children,
-                                                userId: userInfo._id,
-                                                likes: post.likes
-                                            }
-                                            return <ThreadCard key={index} {...data} />
-                                        })
-                                    }
-                                </> :
-                                    <p className="no-result my-6">No Post Found</p>
-                            }
+                            <CommunityThreadsContainer threadData={threadData} />
                         </section>
                     </TabsContent>
 

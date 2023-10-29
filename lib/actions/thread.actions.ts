@@ -334,12 +334,15 @@ export const getThreadByUserId = async (userId: string, limit: number = 10, page
     }
 }
 // Action: get Thread by CommunityId 
-export const getThreadByCommunityId = async (communityId: string): Promise<any> => {
+export const getThreadByCommunityId = async (communityId: string, limit: number = 10, page: number = 1): Promise<any> => {
     connectToDB();
 
     try {
-        const threads = await Thread.find({ community: communityId })
+        const skipCount = (page - 1) * limit;
+        const threadsQuery = await Thread.find({ community: communityId })
             .sort({ createdAt: "desc" })
+            .skip(skipCount)
+            .limit(limit)
             .populate({ path: "author", model: User })
             .populate({
                 path: "community",
@@ -354,7 +357,10 @@ export const getThreadByCommunityId = async (communityId: string): Promise<any> 
                 }
             });
 
-        return threads;
+        const totalThreads = await Thread.countDocuments({ parentId: { $in: [null, undefined] } });
+        const isNext = totalThreads > skipCount + threadsQuery.length;
+        return { threads: JSON.parse(JSON.stringify(threadsQuery)), isNext };
+        // return threads;
     } catch (error) {
         if (error instanceof Error) {
             throw new Error(`Couldn't get thread: ${error.message}`);

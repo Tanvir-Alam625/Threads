@@ -74,28 +74,6 @@ async function Page({ params }: { params: { id: string } }) {
 
                         <section className='mt-9 flex flex-col gap-10'>
                             <UserThreadsContainer threadData={threadData} />
-                            {/* {
-                                posts?.threads?.length ? <>
-                                    {
-                                        posts?.threads?.map((post: Post, index: number) => {
-                                            const data = {
-                                                id: post._id,
-                                                currentUserId: user?.id,
-                                                parentId: post.parentId,
-                                                content: post.text,
-                                                author: post.author,
-                                                community: post.community,
-                                                createdAt: post.createdAt,
-                                                comments: post.children,
-                                                userId: userInfo._id,
-                                                likes: post.likes
-                                            }
-                                            return <ThreadCard key={index} {...data} />
-                                        })
-                                    }
-                                </> :
-                                    <p className="no-result my-6">No Post Found</p>
-                            } */}
                         </section>
                     </TabsContent>
                     {/* Tab Content Replies For Threads  */}
