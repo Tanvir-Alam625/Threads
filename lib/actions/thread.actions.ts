@@ -53,7 +53,7 @@ export const createThread = async ({ text, author, communityId, path }: Params):
 }
 
 // Action: Get All Thread Posts 
-export const getThreads = async (page = 1, limit = 20): Promise<any> => {
+export const getThreads = async (page = 1, limit = 10): Promise<any> => {
     try {
         connectToDB();
 
@@ -294,12 +294,15 @@ export const likeToThread = async (threadId: string, userId: string, path: strin
 
 
 // Action: get Thread by userId 
-export const getThreadByUserId = async (userId: string): Promise<any> => {
+export const getThreadByUserId = async (userId: string, limit: number = 10, page: number = 1): Promise<any> => {
     connectToDB();
 
     try {
-        const threads = await Thread.find({ author: userId })
+        const skipCount = (page - 1) * limit;
+        const threadsQuery = await Thread.find({ author: userId })
             .sort({ createdAt: "desc" })
+            .limit(limit)
+            .skip(skipCount)
             .populate({ path: "author", model: User })
             .populate({
                 path: "community",
@@ -313,8 +316,15 @@ export const getThreadByUserId = async (userId: string): Promise<any> => {
                     select: "_id name parentId image"
                 }
             });
+        const totalThreads = await Thread.countDocuments({ parentId: { $in: [null, undefined] } });
 
-        return threads;
+        // const threads = await threadsQuery.exec();
+
+        const isNext = totalThreads > skipCount + threadsQuery.length;
+
+        return { threads: JSON.parse(JSON.stringify(threadsQuery)), isNext };
+
+        // return threads;
     } catch (error) {
         if (error instanceof Error) {
             throw new Error(`Couldn't get thread: ${error.message}`);

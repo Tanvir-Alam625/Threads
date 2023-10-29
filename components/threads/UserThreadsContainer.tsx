@@ -1,5 +1,5 @@
 'use client';
-import { getThreads } from '@/lib/actions/thread.actions';
+import { getThreadByUserId, getThreads } from '@/lib/actions/thread.actions';
 import React, { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer';
 import ThreadCard, { Author, Community } from '@/components/cards/ThreadCard';
@@ -26,7 +26,8 @@ type Props = {
     }
 }
 
-const ThreadsContainer = ({ threadData }: Props) => {
+const UserThreadsContainer = ({ threadData }: Props) => {
+
     const [posts, setPosts] = useState<Post[]>(threadData.initialPosts);
     const [page, setPage] = useState<number>(1);
     const [ref, inView] = useInView();
@@ -35,10 +36,10 @@ const ThreadsContainer = ({ threadData }: Props) => {
 
     async function fetchMorePosts() {
         const next = page + 1
-        const { threads: newPosts, isNext: newIsNext } = await getThreads(next, 10);
+        const { threads: newPosts, isNext: newIsNext } = await getThreadByUserId(threadData.userInfoId || "", 10, next)
 
         if (newPosts?.length) {
-            setPosts((prev: any) => {
+            setPosts((prev: Post[]) => {
                 return [...prev, ...newPosts]
             });
             setPage(page + 1);
@@ -95,4 +96,4 @@ const ThreadsContainer = ({ threadData }: Props) => {
     )
 }
 
-export default ThreadsContainer
+export default UserThreadsContainer

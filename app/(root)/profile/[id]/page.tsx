@@ -9,6 +9,7 @@ import type { Metadata } from 'next'
 import { getThreadByUserId } from "@/lib/actions/thread.actions";
 import ThreadCard from "@/components/cards/ThreadCard";
 import Link from "next/link";
+import UserThreadsContainer from "@/components/threads/UserThreadsContainer";
 
 export const metadata: Metadata = {
     title: 'User Profile | Threads',
@@ -21,10 +22,17 @@ async function Page({ params }: { params: { id: string } }) {
 
     const userInfo = await getUser(params.id);
     if (!userInfo?.onboarded) redirect("/onboarding");
-    const posts = await getThreadByUserId(userInfo._id || "")
+    const { threads: posts, isNext } = await getThreadByUserId(userInfo._id || "", 10, 1)
+    // console.log(posts)
     const activities = await getActivity(userInfo._id);
     type Activity = typeof activities[0]
     type Post = typeof posts[0];
+    const threadData = {
+        userId: user.id,
+        userInfoId: userInfo._id,
+        initialPosts: posts,
+        isNext
+    }
     return (
         <section>
             <ProfileHeader
@@ -65,10 +73,11 @@ async function Page({ params }: { params: { id: string } }) {
                         {/* @ts-ignore */}
 
                         <section className='mt-9 flex flex-col gap-10'>
-                            {
-                                posts?.length ? <>
+                            <UserThreadsContainer threadData={threadData} />
+                            {/* {
+                                posts?.threads?.length ? <>
                                     {
-                                        posts?.map((post: Post, index: number) => {
+                                        posts?.threads?.map((post: Post, index: number) => {
                                             const data = {
                                                 id: post._id,
                                                 currentUserId: user?.id,
@@ -86,7 +95,7 @@ async function Page({ params }: { params: { id: string } }) {
                                     }
                                 </> :
                                     <p className="no-result my-6">No Post Found</p>
-                            }
+                            } */}
                         </section>
                     </TabsContent>
                     {/* Tab Content Replies For Threads  */}
