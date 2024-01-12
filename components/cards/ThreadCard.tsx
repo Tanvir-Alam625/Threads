@@ -7,6 +7,8 @@ import Like from "../shared/Like";
 import millify from "millify";
 import ShareModal from "../shared/ShareModal";
 import ThreadAction from "./ThreadAction";
+import { Fira_Code } from 'next/font/google'
+const firaCode = Fira_Code({ subsets: ['latin'] });
 
 
 export type Author = {
@@ -111,7 +113,7 @@ const ThreadCard = ({
                     <div className='flex w-full flex-col'>
                         <div className="flex justify-between items-center">
                             <Link href={`/profile/${author.id}`} className='w-fit'>
-                                <h4 className='cursor-pointer text-base-semibold text-light-1'>
+                                <h4 className={` cursor-pointer text-base-semibold text-light-1`}>
                                     {author.name}
                                 </h4>
                             </Link>
@@ -124,8 +126,8 @@ const ThreadCard = ({
                             />
                         </div>
 
-                        <p className='mt-2 text-small-regular text-light-2'>{plainText}</p>
-                        <div className="flex flex-wrap gap-x-1">
+                        <p className={`${firaCode.className} mt-2 text-small-regular text-light-2`}>{plainText}</p>
+                        <div className={`${firaCode.className} flex flex-wrap gap-x-1`}>
                             {
                                 hashtags.length ?
                                     hashtags.map((tag: string, index: number) => <span key={index} className="text-small-regular text-primary-500">#{tag}</span>) : null

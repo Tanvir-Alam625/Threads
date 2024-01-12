@@ -10,6 +10,7 @@ import { getThreadByUserId } from "@/lib/actions/thread.actions";
 import ThreadCard from "@/components/cards/ThreadCard";
 import Link from "next/link";
 
+
 export const metadata: Metadata = {
     title: 'User Profile | Threads',
     manifest: '/manifest.json'
