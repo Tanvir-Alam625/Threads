@@ -9,7 +9,7 @@ import BottomBar from '@/components/shared/BottomBar'
 import { currentUser } from '@clerk/nextjs'
 import { redirect } from 'next/navigation';
 import { Toaster } from "react-hot-toast";
-// import 'react-hot-toast/dist/index.css';
+import { dark } from '@clerk/themes';
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -29,7 +29,11 @@ export default async function RootLayout({
     return null;
   }
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
       <html lang="en">
         <body suppressHydrationWarning={true} className={`bg-dark-1  ${inter.className}`}>
           <Toaster

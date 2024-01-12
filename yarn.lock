@@ -1022,7 +1022,7 @@
     js-cookie "3.0.1"
     swr "2.2.0"
 
-"@clerk/themes@^1.7.5":
+"@clerk/themes@^1.7.9":
   version "1.7.9"
   resolved "https://registry.yarnpkg.com/@clerk/themes/-/themes-1.7.9.tgz#b2650a6b3c36109e077ff12891425192e8f5a801"
   integrity sha512-9hXxgoPuUSlZ7sH9diJEK1rTWEnk0zGKBYw4Tqaqp0RA1dtB+OHE02DK5pnTypZTnreBJYac3VmxFVTxVV35xg==
