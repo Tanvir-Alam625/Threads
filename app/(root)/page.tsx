@@ -25,6 +25,7 @@ export default async function Home() {
     initialPosts: posts,
     isNext
   }
+  throw new Error('Not implemented');
 
   return (
     <>
