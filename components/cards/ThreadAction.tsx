@@ -91,10 +91,7 @@ function ThreadAction({
                         <LuCopy size={18} className="mr-2 inline-block" />
                         <span className="text-small-regular">Copy Post</span>
                     </Dropdown.Item>
-                    <Dropdown.Item>
-                        <MdOutlineErrorOutline size={18} className="mr-2 inline-block" />
-                        <span className="text-small-regular">Report Spam</span>
-                    </Dropdown.Item>
+
                     {
                         currentUserId === authorId && pathname !== "/" ? <Dropdown.Item
                             onClick={handleDeletePost}
@@ -103,6 +100,13 @@ function ThreadAction({
                             <span className="text-small-regular">Delete Post</span>
                         </Dropdown.Item> : null
                     }
+                    {
+                        currentUserId !== authorId ? <Dropdown.Item >
+                            <MdOutlineErrorOutline size={18} className="mr-2 text-gray-1 inline-block" />
+                            <span className="text-small-regular text-gray-1">Report Spam</span>
+                        </Dropdown.Item> : null
+                    }
+
                 </Dropdown.Content>
             </Dropdown>
         </>
