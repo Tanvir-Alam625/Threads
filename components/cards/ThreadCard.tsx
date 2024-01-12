@@ -2,14 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaComment } from 'react-icons/fa';
 import { formatDateString } from "@/lib/utils";
-// import DeleteThread from "../forms/DeleteThread";
+import DeleteThread from "../forms/DeleteThread";
 import Like from "../shared/Like";
 import millify from "millify";
 import ShareModal from "../shared/ShareModal";
-import Dropdown from "../ui/Dropdown";
-import { CiMenuKebab } from "react-icons/ci";
-import { LuCopy } from "react-icons/lu";
-import { MdOutlineReport } from "react-icons/md";
+import ThreadAction from "./ThreadAction";
 
 
 export type Author = {
@@ -57,6 +54,7 @@ const ThreadCard = ({
     likes = [],
     isComment = false, }: Props) => {
 
+
     // function getRandomLikeCount(min: number, max: number): number {
     //     const range = max - min;
     //     const randomValue = Math.random();
@@ -92,7 +90,7 @@ const ThreadCard = ({
 
     return (
         <article
-            className={`flex w-full flex-col relative rounded-xl ${isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"
+            className={`flex w-full flex-col rounded-xl ${isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"
                 }`}
         >
             <div className='flex items-start justify-between'>
@@ -110,40 +108,20 @@ const ThreadCard = ({
                         <div className='thread-card_bar' />
                     </div>
 
-
                     <div className='flex w-full flex-col'>
-                        <div className="flex w-full justify-between items-center">
+                        <div className="flex justify-between items-center">
                             <Link href={`/profile/${author.id}`} className='w-fit'>
                                 <h4 className='cursor-pointer text-base-semibold text-light-1'>
                                     {author.name}
                                 </h4>
                             </Link>
-                            <Dropdown showArrow>
-                                <Dropdown.Trigger>
-                                    <span className="text-light-2">
-                                        <CiMenuKebab size={18} />
-                                    </span>
-                                </Dropdown.Trigger>
-                                <Dropdown.Content >
-                                    <Dropdown.Item>
-                                        <LuCopy size={16} className="mr-2 inline-block" />
-                                        <span className="text-small-regular">Copy Post</span>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item>
-                                        <MdOutlineReport size={16} className="mr-2 inline-block" />
-                                        <span className="text-small-regular">Report Spam</span>
-                                    </Dropdown.Item>
-                                    {/* {
-                                        currentUserId !== author.id && pathname !== "/" && <Dropdown.Item
-                                            onClick={() => handleDelete(id)}
-                                        >
-                                            <MdDeleteOutline size={16} className="mr-2 inline-block" />
-                                            <span className="text-small-regular">Delete Post</span>
-                                        </Dropdown.Item>
-                                    } */}
-                                </Dropdown.Content>
-                            </Dropdown>
-
+                            <ThreadAction
+                                threadId={JSON.stringify(id)}
+                                currentUserId={currentUserId}
+                                authorId={author.id}
+                                parentId={parentId}
+                                isComment={isComment}
+                            />
                         </div>
 
                         <p className='mt-2 text-small-regular text-light-2'>{plainText}</p>
@@ -178,14 +156,6 @@ const ThreadCard = ({
                         </div>
                     </div>
                 </div>
-
-                {/* <DeleteThread
-                    threadId={JSON.stringify(id)}
-                    currentUserId={currentUserId}
-                    authorId={author.id}
-                    parentId={parentId}
-                    isComment={isComment}
-                /> */}
             </div>
 
             {!isComment && comments.length > 0 && (
