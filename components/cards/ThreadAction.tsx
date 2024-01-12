@@ -5,8 +5,11 @@ import { deleteThread } from "@/lib/actions/thread.actions";
 import Dropdown from "../ui/Dropdown";
 import { CiMenuKebab } from "react-icons/ci";
 import { LuCopy, LuCopyCheck } from "react-icons/lu";
-import { MdOutlineReport, MdDeleteOutline } from "react-icons/md";
+import { MdOutlineErrorOutline } from "react-icons/md";
+import { TiDeleteOutline } from "react-icons/ti";
 import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 interface Props {
     threadId: string;
@@ -25,7 +28,40 @@ function ThreadAction({
 }: Props) {
     const pathname = usePathname();
     const router = useRouter();
+    const [loading, setLoading] = useState(false);
 
+    useEffect(() => {
+
+        if (loading) {
+            toast.loading('Deleting Post...', {
+                id: 'delete-post',
+            })
+        }
+    }, [loading])
+
+    const handleDeletePost = async () => {
+        try {
+            setLoading(true);
+            await deleteThread(JSON.parse(threadId), pathname);
+            if (!parentId || !isComment) {
+                router.push("/");
+            }
+            toast.success('Post deleted!', {
+                id: 'delete-post',
+                icon: <IoMdCheckmarkCircleOutline className="!text-emerald-500" size={18} />,
+
+            });
+        } catch (error) {
+            console.error('Error deleting post:', error);
+            toast.error('Error deleting post', {
+                id: 'delete-post',
+                icon: <TiDeleteOutline size={18} className="!text-rose-500" />
+
+            });
+        } finally {
+            setLoading(false);
+        }
+    }
     const handleCopyPostURL = async (postPath: string) => {
         try {
             const postUrl = `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/${postPath}`
@@ -36,7 +72,7 @@ function ThreadAction({
             toast.success('Copied to clipboard!',
                 {
                     id: 'copy-post-url',
-                    icon: <LuCopyCheck size={18} />,
+                    icon: <LuCopyCheck className="!text-emerald-500" size={18} />,
                 }
             )
         }
@@ -52,23 +88,18 @@ function ThreadAction({
                     <Dropdown.Item
                         onClick={() => handleCopyPostURL(`thread/${JSON.parse(threadId)}`)}
                     >
-                        <LuCopy size={16} className="mr-2 inline-block" />
+                        <LuCopy size={18} className="mr-2 inline-block" />
                         <span className="text-small-regular">Copy Post</span>
                     </Dropdown.Item>
                     <Dropdown.Item>
-                        <MdOutlineReport size={16} className="mr-2 inline-block" />
+                        <MdOutlineErrorOutline size={18} className="mr-2 inline-block" />
                         <span className="text-small-regular">Report Spam</span>
                     </Dropdown.Item>
                     {
                         currentUserId === authorId && pathname !== "/" ? <Dropdown.Item
-                            onClick={() => {
-                                deleteThread(JSON.parse(threadId), pathname);
-                                if (!parentId || !isComment) {
-                                    router.push("/");
-                                }
-                            }}
+                            onClick={handleDeletePost}
                         >
-                            <MdDeleteOutline size={16} className="mr-2 inline-block" />
+                            <TiDeleteOutline size={18} className="mr-2 inline-block" />
                             <span className="text-small-regular">Delete Post</span>
                         </Dropdown.Item> : null
                     }
