@@ -7,7 +7,9 @@ import LeftSidebar from '@/components/shared/LeftSidebar'
 import RightSidebar from '@/components/shared/RightSidebar'
 import BottomBar from '@/components/shared/BottomBar'
 import { currentUser } from '@clerk/nextjs'
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
+import { Toaster } from "react-hot-toast";
+// import 'react-hot-toast/dist/index.css';
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -30,7 +32,12 @@ export default async function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body suppressHydrationWarning={true} className={`bg-dark-1  ${inter.className}`}>
-
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              className: "!bg-dark-1 !shadow shadow-light-1 !text-light-2 !border-light-1 !text-small-regular",
+            }}
+          />
           <TopBar />
           <main className={`flex flex-row`}>
             <LeftSidebar />

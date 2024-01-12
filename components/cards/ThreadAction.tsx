@@ -4,8 +4,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { deleteThread } from "@/lib/actions/thread.actions";
 import Dropdown from "../ui/Dropdown";
 import { CiMenuKebab } from "react-icons/ci";
-import { LuCopy } from "react-icons/lu";
+import { LuCopy, LuCopyCheck } from "react-icons/lu";
 import { MdOutlineReport, MdDeleteOutline } from "react-icons/md";
+import toast from "react-hot-toast";
 
 interface Props {
     threadId: string;
@@ -25,23 +26,21 @@ function ThreadAction({
     const pathname = usePathname();
     const router = useRouter();
 
-    // if (currentUserId !== authorId || pathname === "/") return null;
-    // const DeletePost = () => {
-
-    //     return (
-    //         <Dropdown.Item
-    //             onClick={() => {
-    //                 deleteThread(threadId, pathname);
-    //                 if (!parentId || !isComment) {
-    //                     router.push("/");
-    //                 }
-    //             }}
-    //         >
-    //             <MdDeleteOutline size={16} className="mr-2 inline-block" />
-    //             <span className="text-small-regular">Delete Post</span>
-    //         </Dropdown.Item>
-    //     )
-    // }
+    const handleCopyPostURL = async (postPath: string) => {
+        try {
+            const postUrl = `${process.env.NEXT_PUBLIC_DOMAIN_NAME}/${postPath}`
+            await navigator.clipboard.writeText(postUrl);
+        } catch (error) {
+            console.log("Post Copy error:", error)
+        } finally {
+            toast.success('Copied to clipboard!',
+                {
+                    id: 'copy-post-url',
+                    icon: <LuCopyCheck size={18} />,
+                }
+            )
+        }
+    }
 
     return (
         <>
@@ -50,7 +49,9 @@ function ThreadAction({
                     <CiMenuKebab className="inline-block text-light-2" size={18} />
                 </Dropdown.Trigger>
                 <Dropdown.Content >
-                    <Dropdown.Item>
+                    <Dropdown.Item
+                        onClick={() => handleCopyPostURL(`thread/${JSON.parse(threadId)}`)}
+                    >
                         <LuCopy size={16} className="mr-2 inline-block" />
                         <span className="text-small-regular">Copy Post</span>
                     </Dropdown.Item>

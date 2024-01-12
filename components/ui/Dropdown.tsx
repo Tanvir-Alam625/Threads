@@ -112,7 +112,9 @@ const Content = ({ width = '180px', className, children }: DropdownContentProps)
                             className
                         )}
                     >
-                        {children}
+                        <div className='overflow-hidden'>
+                            {children}
+                        </div>
                         {showArrow && (
                             <Arrow
                                 {...arrowProps}
