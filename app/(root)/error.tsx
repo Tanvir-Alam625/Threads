@@ -1,8 +1,11 @@
-'use client' // Error components must be Client Components
-
+'use client'
 import { Button } from '@/components/ui/button'
 import { useEffect } from 'react'
 import { GrPowerReset } from "react-icons/gr";
+import { Fira_Code } from "next/font/google"
+import { MdOutlineErrorOutline } from 'react-icons/md';
+
+const firaCode = Fira_Code({ subsets: ['latin'] });
 
 export default function Error({
     error,
@@ -17,7 +20,12 @@ export default function Error({
 
     return (
         <div className='min-h-[calc(100vh-72px)] flex flex-col gap-3 justify-center items-center'>
-            <h2 className='head-text text-rose-500 text-center'>Something went wrong!</h2>
+
+
+            <MdOutlineErrorOutline className="text-rose-500 " size={35} />
+
+            <h2 className={`${firaCode.className} head-text text-rose-500 font-semibold `}>Error</h2>
+            <p className='text-small-regular text-gray-1 text-center font-medium'>An unknown error occurred</p>
             <Button
                 onClick={
                     () => reset()
