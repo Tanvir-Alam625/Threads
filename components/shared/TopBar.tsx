@@ -1,10 +1,14 @@
-import { OrganizationSwitcher, SignedIn, SignOutButton } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
-import Image from "next/image";
-import Link from "next/link";
-import Logo from "@/public/assets/logo.png"
-
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { OrganizationSwitcher, SignOutButton, useAuth } from '@clerk/nextjs';
+import { dark } from '@clerk/themes';
+import Logo from '@/public/assets/logo.png';
+import { redirect } from "next/navigation";
 const TopBar = () => {
+    const { sessionId } = useAuth();
+    if (!sessionId) redirect('/sign-in');
+
     return (
         <nav className='topbar'>
             <Link href='/' className='flex items-center gap-4'>
@@ -14,32 +18,26 @@ const TopBar = () => {
 
             <div className='flex items-center gap-1'>
                 <div className='block md:hidden'>
-                    <SignedIn>
-                        <SignOutButton>
-                            <div className='flex cursor-pointer'>
-                                <Image
-                                    src='/assets/logout.svg'
-                                    alt='logout'
-                                    width={24}
-                                    height={24}
-                                />
-                            </div>
-                        </SignOutButton>
-                    </SignedIn>
+                    {/* <SignedIn> */}
+                    <SignOutButton signOutOptions={{ sessionId }}>
+                        <div className='flex cursor-pointer'>
+                            <Image src='/assets/logout.svg' alt='logout' width={24} height={24} />
+                        </div>
+                    </SignOutButton>
+                    {/* </SignedIn> */}
                 </div>
 
                 <OrganizationSwitcher
                     appearance={{
                         baseTheme: dark,
                         elements: {
-                            organizationSwitcherTrigger: "py-2 px-4",
-
+                            organizationSwitcherTrigger: 'py-2 px-4',
                         },
                     }}
                 />
             </div>
         </nav>
     );
-}
+};
 
 export default TopBar;
