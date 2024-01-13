@@ -11,6 +11,7 @@ import ThreadCard from "@/components/cards/ThreadCard";
 import Link from "next/link";
 import UserThreadsContainer from "@/components/threads/UserThreadsContainer";
 
+
 export const metadata: Metadata = {
     title: 'User Profile | Threads',
     manifest: '/manifest.json'

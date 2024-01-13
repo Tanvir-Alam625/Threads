@@ -41,6 +41,7 @@ export type TabItemType = {
     value: string;
     label: string;
 }
+export type CSSUnit = `${number}${'px' | 'rem' | 'em' | 'vw' | 'vh' | '%'}`;
 
 export const profileTabs: TabItemType[] = [
     { value: "threads", label: "Threads", icon: "/assets/reply.svg" },

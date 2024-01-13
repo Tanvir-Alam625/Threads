@@ -6,6 +6,8 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./ui/**/*.{ts,tsx}",
+    "./app/*.{tsx,ts}"
   ],
   theme: {
     container: {
@@ -186,6 +188,7 @@ module.exports = {
         "light-2": "#EFEFEF",
         "light-3": "#7878A3",
         "light-4": "#5C5C7B",
+        "light-5": "#e3e4e6",
         "gray-1": "#697C89",
         glassmorphism: "rgba(16, 16, 18, 0.60)",
       },

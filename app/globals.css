@@ -233,3 +233,14 @@
     background-position: right;
   }
 }
+
+/* clerk reset Styles  */
+.cl-formButtonPrimary {
+  @apply text-small-regular  text-light-2 bg-primary-500;
+}
+
+.cl-formButtonPrimary:hover,
+.cl-formButtonPrimary:focus,
+.cl-formButtonPrimary:active {
+  @apply bg-primary-500;
+}

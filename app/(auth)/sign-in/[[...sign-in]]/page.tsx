@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     title: 'SignIn | Threads',
     manifest: '/manifest.json'
 }
+
 export default async function Page() {
     const user = await currentUser();
     if (user) {

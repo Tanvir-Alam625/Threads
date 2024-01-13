@@ -6,6 +6,9 @@ import DeleteThread from "../forms/DeleteThread";
 import Like from "../shared/Like";
 import millify from "millify";
 import ShareModal from "../shared/ShareModal";
+import ThreadAction from "./ThreadAction";
+import { Fira_Code } from 'next/font/google'
+const firaCode = Fira_Code({ subsets: ['latin'] });
 
 
 export type Author = {
@@ -54,12 +57,12 @@ const ThreadCard = ({
     isComment = false, }: Props) => {
 
 
-    function getRandomLikeCount(min: number, max: number): number {
-        const range = max - min;
-        const randomValue = Math.random();
-        const randomNumber = min + Math.floor(randomValue * range);
-        return randomNumber;
-    }
+    // function getRandomLikeCount(min: number, max: number): number {
+    //     const range = max - min;
+    //     const randomValue = Math.random();
+    //     const randomNumber = min + Math.floor(randomValue * range);
+    //     return randomNumber;
+    // }
 
     // Regular expression to match hashtags
     const hashtagRegex = /#(\w+)/g;
@@ -108,14 +111,23 @@ const ThreadCard = ({
                     </div>
 
                     <div className='flex w-full flex-col'>
-                        <Link href={`/profile/${author.id}`} className='w-fit'>
-                            <h4 className='cursor-pointer text-base-semibold text-light-1'>
-                                {author.name}
-                            </h4>
-                        </Link>
+                        <div className="flex justify-between items-center">
+                            <Link href={`/profile/${author.id}`} className='w-fit'>
+                                <h4 className={` cursor-pointer text-base-semibold text-light-1`}>
+                                    {author.name}
+                                </h4>
+                            </Link>
+                            <ThreadAction
+                                threadId={JSON.stringify(id)}
+                                currentUserId={currentUserId}
+                                authorId={author.id}
+                                parentId={parentId}
+                                isComment={isComment}
+                            />
+                        </div>
 
-                        <p className='mt-2 text-small-regular text-light-2'>{plainText}</p>
-                        <div className="flex flex-wrap gap-x-1">
+                        <p className={`${firaCode.className} mt-2 text-small-regular text-light-2`}>{plainText}</p>
+                        <div className={`${firaCode.className} flex flex-wrap gap-x-1`}>
                             {
                                 hashtags.length ?
                                     hashtags.map((tag: string, index: number) => <span key={index} className="text-small-regular text-primary-500">#{tag}</span>) : null
@@ -146,14 +158,6 @@ const ThreadCard = ({
                         </div>
                     </div>
                 </div>
-
-                <DeleteThread
-                    threadId={JSON.stringify(id)}
-                    currentUserId={currentUserId}
-                    authorId={author.id}
-                    parentId={parentId}
-                    isComment={isComment}
-                />
             </div>
 
             {!isComment && comments.length > 0 && (
