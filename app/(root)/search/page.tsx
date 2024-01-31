@@ -41,7 +41,7 @@ async function Page({
         <section>
             <h1 className='head-text mb-10'>Search</h1>
 
-            <Searchbar routeType='search' />
+            <Searchbar placeholder='Search Users' routeType='search' />
 
 
             <div className='mt-14 flex flex-col gap-6'>
@@ -63,11 +63,11 @@ async function Page({
                 )}
             </div>
 
-            <Pagination
+            {/* <Pagination
                 path='search'
                 pageNumber={searchParams?.page ? +searchParams.page : 1}
                 isNext={result.isNext}
-            />
+            /> */}
         </section>
     );
 }

@@ -37,7 +37,7 @@ async function CommunitiesPage({
             <h1 className='head-text'>Communities</h1>
 
             <div className='mt-5'>
-                <Searchbar routeType='communities' />
+                <Searchbar placeholder="Search communities" routeType='communities' />
             </div>
 
             <section className='mt-9 grid grid-cols-1 md:grid-cols-2  gap-4'>

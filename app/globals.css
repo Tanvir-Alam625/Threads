@@ -33,7 +33,7 @@
 
   /* Community Card */
   .community-card {
-    @apply w-full rounded-lg bg-dark-3 px-4 py-5;
+    @apply w-full rounded-lg px-4 py-5;
   }
 
   .community-card_btn {
@@ -59,11 +59,11 @@
   }
 
   .searchbar {
-    @apply flex gap-1 rounded-lg bg-dark-3 px-4 py-2;
+    @apply flex gap-1 rounded-lg  px-4 py-2;
   }
 
   .searchbar_input {
-    @apply border-none bg-dark-3 text-base-regular text-light-4 outline-none !important;
+    @apply border-none bg-transparent  text-base-regular text-white outline-none !important;
   }
 
   .topbar {
@@ -101,13 +101,7 @@
   .blur-card-bg {
     background: rgba(28, 30, 38, 0.6);
     backdrop-filter: blur(7px);
-    border-radius: 10px;
-    /* border: 1px solid rgba(255, 255, 255, 0.18); */
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    width: 300px;
-    margin: auto;
-    margin-top: 50px;
   }
 }
 
