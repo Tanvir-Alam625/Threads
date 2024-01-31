@@ -45,8 +45,8 @@ async function Page({ params }: { params: { id: string } }) {
                 bio={userInfo.bio}
             />
             <div className='mt-9'>
-                <Tabs defaultValue='threads' className='w-full'>
-                    <TabsList className='tab'>
+                <Tabs defaultValue='threads' className='w-full bg-transparent'>
+                    <TabsList className='tab blur-card-bg px-0 overflow-hidden'>
                         {profileTabs.map((tab) => (
                             <TabsTrigger key={tab.label} value={tab.value} className='tab'>
                                 <Image
@@ -88,7 +88,7 @@ async function Page({ params }: { params: { id: string } }) {
                                 <>
                                     {activities.map((activity: Activity, index: number) => (
                                         <Link key={index} href={`/thread/${activity.parentId}`}>
-                                            <article className='activity-card'>
+                                            <article className='activity-card blur-card-bg'>
                                                 <Image
                                                     src={activity.author.image}
                                                     alt='user_logo'

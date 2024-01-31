@@ -5,8 +5,8 @@ const ProfileSkeleton = () => {
     return (
         <div className='flex flex-col gap-y-8'>
             <UserSkeleton />
-            <ThreadSkeleton />
-            <ThreadSkeleton />
+            <ThreadSkeleton background="blur-card-bg shadow-none" />
+            <ThreadSkeleton background="blur-card-bg shadow-none" />
         </div>
     )
 }
