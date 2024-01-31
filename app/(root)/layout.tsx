@@ -35,7 +35,7 @@ export default async function RootLayout({
       }}
     >
       <html lang="en">
-        <body suppressHydrationWarning={true} className={`bg-dark-1  ${inter.className}`}>
+        <body suppressHydrationWarning={true} className={`main ${inter.className}`}>
           <Toaster
             position="bottom-right"
             toastOptions={{

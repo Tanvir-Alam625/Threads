@@ -84,9 +84,9 @@ const ThreadsContainer = ({ threadData }: Props) => {
                 {
                     isNext ?
                         <>
-                            <ThreadSkeleton />
+                            <ThreadSkeleton background='blur-card-bg' />
                             <div className='hidden lg:block'>
-                                <ThreadSkeleton />
+                                <ThreadSkeleton background='blur-card-bg' />
                             </div>
                         </> : null
                 }
