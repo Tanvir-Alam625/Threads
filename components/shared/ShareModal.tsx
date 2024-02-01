@@ -103,7 +103,7 @@ const ShareModal = ({ postId, postContent, postTags }: Props) => {
                     </div>
                     <div className="w-full relative overflow-hidden">
                         <Input readOnly ref={inputRef} value={postURL} className='account-form_input px-6 py-8  no-focus' />
-                        <div className=" bg-dark-3 absolute right-1 top-1 bottom-1 flex pl-4 py-2 pr-2 justify-center items-center">
+                        <div className=" blur-card-bg absolute right-1 top-1 bottom-1 flex pl-4 py-2 pr-2 border border-slate-700/20 rounded-md justify-center items-center">
                             <Button onClick={handleCopyBtn} className=" rounded-md bg-primary-500 hover:bg-primary-500 px-8 py-2 !text-small-regular text-light-1 max-xs:w-full">{isCopied ? "Copied" : "Copy"}</Button>
                         </div>
                     </div>

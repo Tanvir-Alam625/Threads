@@ -30,7 +30,7 @@ function Searchbar({ routeType, placeholder }: Props) {
 
     console.log(routeType);
     return (
-        <div className='searchbar blur-card-bg'>
+        <div className='searchbar blur-card-bg border border-slate-700/20'>
             <Image
                 src='/assets/search-gray.svg'
                 alt='search'

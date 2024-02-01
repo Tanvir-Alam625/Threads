@@ -167,7 +167,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                             <FormControl className='flex-1 text-base-semibold bg-transparent text-gray-200'>
                                 <Input
                                     type='text'
-                                    className='account-form_input blur-card-bg shadow-none no-focus'
+                                    className='account-form_input blur-card-bg border border-slate-700/20 shadow-none no-focus'
                                     {...field}
                                 />
                             </FormControl>
@@ -187,7 +187,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                             <FormControl className='flex-1 bg-transparent text-base-semibold text-gray-200'>
                                 <Input
                                     type='text'
-                                    className='account-form_input blur-card-bg  shadow-none no-focus'
+                                    className='account-form_input blur-card-bg border border-slate-700/20  shadow-none no-focus'
                                     {...field}
                                 />
                             </FormControl>
