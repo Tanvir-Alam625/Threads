@@ -75,7 +75,7 @@ Check out the live version of the application [here](https://threads-eta.vercel.
 - Authentication
   - Implement your chosen authentication method (Clerk Auth)
 
-## Demo of Screenshots
+<!-- ## Demo of Screenshots
 
 ### Home Page
 
@@ -103,7 +103,7 @@ Check out the live version of the application [here](https://threads-eta.vercel.
 
 ### Thread Details Page
 
-![image](https://github.com/Tanvir-Alam625/Threads/assets/72442289/16aaea36-1629-4887-a180-d653aa1546f9)
+![image](https://github.com/Tanvir-Alam625/Threads/assets/72442289/16aaea36-1629-4887-a180-d653aa1546f9) -->
 
 ## Contribution Guidelines
 
