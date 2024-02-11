@@ -8,9 +8,10 @@ import { Input } from "../ui/input";
 
 interface Props {
     routeType: string;
+    placeholder: string;
 }
 
-function Searchbar({ routeType }: Props) {
+function Searchbar({ routeType, placeholder }: Props) {
     const router = useRouter();
     const [search, setSearch] = useState("");
 
@@ -27,8 +28,9 @@ function Searchbar({ routeType }: Props) {
         return () => clearTimeout(delayDebounceFn);
     }, [search, routeType]);
 
+    console.log(routeType);
     return (
-        <div className='searchbar'>
+        <div className='searchbar blur-card-bg border border-slate-700/20'>
             <Image
                 src='/assets/search-gray.svg'
                 alt='search'
@@ -40,7 +42,7 @@ function Searchbar({ routeType }: Props) {
                 id='text'
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder={`${routeType !== "/search" ? "Search communities" : "Search creators"
+                placeholder={`${routeType !== "search" ? "Search communities" : "Search creators"
                     }`}
                 className='no-focus searchbar_input'
             />

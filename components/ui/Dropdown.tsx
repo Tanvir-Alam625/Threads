@@ -108,7 +108,7 @@ const Content = ({ width = '180px', className, children }: DropdownContentProps)
                         {...layerProps}
                         style={{ ...layerProps.style, width }}
                         className={twMerge(
-                            'relative z-20 animate-fade-in-up rounded-md border bg-dark-2 border-slate-700 shadow-lg dark:border-dark-800  ',
+                            'relative z-20 animate-fade-in-up rounded-md border blur-card-bg border-slate-700/20 shadow-lg dark:border-dark-800  ',
                             className
                         )}
                     >
@@ -145,7 +145,7 @@ const DropdownLink = ({ href, children, className }: DropdownLinkProps) => {
         <Link
             href={href}
             className={twMerge(
-                'flex w-full items-center px-4 py-2 text-left text-sm leading-5 text-white transition duration-150 ease-in-out first:rounded-t-md last:rounded-b-md hover:bg-dark-4 focus:outline-none',
+                'flex w-full items-center px-4 py-2 text-left text-sm leading-5 text-white transition duration-150 ease-in-out first:rounded-t-md last:rounded-b-md !hover:bg-primary-500 focus:outline-none',
                 className
             )}
             onClick={() => close()}

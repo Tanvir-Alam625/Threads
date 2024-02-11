@@ -85,9 +85,9 @@ const CommunityThreadsContainer = ({ threadData }: Props) => {
                 {
                     isNext ?
                         <>
-                            <ThreadSkeleton />
+                            <ThreadSkeleton background='blur-card-bg shadow-none' />
                             <div className='hidden lg:block'>
-                                <ThreadSkeleton />
+                                <ThreadSkeleton background='blur-card-bg shadow-none' />
                             </div>
                         </> : null
                 }

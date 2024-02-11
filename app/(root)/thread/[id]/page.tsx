@@ -40,7 +40,7 @@ async function page({ params }: { params: { id: string } }) {
                     userId={userInfo._id}
                 />
             </div>
-            <div className='mt-7'>
+            <div className='mt-7 '>
                 <Comment
                     threadId={params.id}
                     currentUserImg={userInfo?.image}
@@ -48,7 +48,7 @@ async function page({ params }: { params: { id: string } }) {
                 />
             </div>
 
-            <div className='mt-10'>
+            <div className={`mt-10  py-4 rounded-xl ${thread?.children?.length > 0 ? 'blur-card-bg' : ''}`}>
                 {thread.children.reverse().map((childItem: any) => (
                     <ThreadCard
                         key={childItem._id}
@@ -65,7 +65,9 @@ async function page({ params }: { params: { id: string } }) {
                         isComment
                     />
                 ))}
+
             </div>
+
         </section>
     );
 }

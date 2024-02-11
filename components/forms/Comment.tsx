@@ -53,7 +53,7 @@ function Comment({ threadId, currentUserImg, currentUserId }: Props) {
 
     return (
         <Form {...form}>
-            <form className='comment-form' onSubmit={form.handleSubmit(onSubmit)}>
+            <form className='comment-form blur-card-bg border border-slate-700/20 p-4 rounded-xl' onSubmit={form.handleSubmit(onSubmit)}>
                 <FormField
                     control={form.control}
                     name='thread'

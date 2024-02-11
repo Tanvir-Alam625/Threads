@@ -8,6 +8,7 @@ import Searchbar from "@/components/forms/SearchBar";
 import { getUser } from "@/lib/actions/user.actions";
 import { getCommunities } from "@/lib/actions/community.actions";
 import type { Metadata } from 'next'
+import CommunitySkeleton from "@/components/Skeletons/CommunitySkeleton";
 
 export const metadata: Metadata = {
     title: 'Communities | Threads',
@@ -37,10 +38,11 @@ async function CommunitiesPage({
             <h1 className='head-text'>Communities</h1>
 
             <div className='mt-5'>
-                <Searchbar routeType='communities' />
+                <Searchbar placeholder="Search communities" routeType='communities' />
             </div>
 
             <section className='mt-9 grid grid-cols-1 md:grid-cols-2  gap-4'>
+                {/* <CommunitySkeleton /> */}
 
                 {result.communities.length === 0 ? (
                     <p className='no-result'>No Result</p>

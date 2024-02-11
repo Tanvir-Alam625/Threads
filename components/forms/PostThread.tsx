@@ -71,7 +71,8 @@ const PostThread = ({ userId }: Props) => {
                             <FormControl className='flex-1 text-base-semibold text-gray-200'>
                                 <Textarea
                                     rows={10}
-                                    className={`${firaCode.className} no-focus border-dark-4 bg-dark-3 text-light-1`}
+                                    placeholder="What's on your mind? 🤔"
+                                    className={`${firaCode.className} no-focus blur-card-bg border border-slate-700/20 text-light-1`}
                                     {...field}
                                 />
                             </FormControl>

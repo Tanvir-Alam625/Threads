@@ -11,15 +11,16 @@ interface Props {
     username: string;
     imgUrl: string;
     personType: string;
+    callRightSidebar?: boolean
 }
 
-function UserCard({ id, name, username, imgUrl, personType }: Props) {
+function UserCard({ id, name, username, imgUrl, personType, callRightSidebar = false }: Props) {
     const router = useRouter();
 
     const isCommunity = personType === "Community";
 
     return (
-        <article className='user-card bg-dark-2 p-6 shadow rounded-xl'>
+        <article className={`user-card p-6 shadow rounded-xl ${callRightSidebar ? ' bg-slate-700 bg-opacity-50  border border-slate-700/20' : 'blur-card-bg'}`}>
             <div className='user-card_avatar'>
                 <div className='relative h-12 w-12'>
                     <Image

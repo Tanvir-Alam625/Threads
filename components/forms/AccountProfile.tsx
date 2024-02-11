@@ -111,9 +111,9 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
 
 
     return (
-        <Form {...form}>
+        <Form {...form} >
             <form
-                className='flex flex-col justify-start gap-6'
+                className={`flex flex-col justify-start gap-6  p-4 rounded-xl ${pathname !== "/onboarding" ? "blur-card-bg" : ""}`}
                 onSubmit={form.handleSubmit(onSubmit)}
             >
                 {/* User Photo  */}
@@ -147,7 +147,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                                     type='file'
                                     accept='image/*'
                                     placeholder='Add profile photo'
-                                    className='account-form_image-input'
+                                    className='account-form_image-input '
                                     onChange={(e) => handleImage(e, field.onChange)}
                                 />
                             </FormControl>
@@ -164,10 +164,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                             <FormLabel className='text-base-semibold text-light-2'>
                                 Name
                             </FormLabel>
-                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                            <FormControl className='flex-1 text-base-semibold bg-transparent text-gray-200'>
                                 <Input
                                     type='text'
-                                    className='account-form_input  no-focus'
+                                    className='account-form_input blur-card-bg border border-slate-700/20 shadow-none no-focus'
                                     {...field}
                                 />
                             </FormControl>
@@ -184,10 +184,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                             <FormLabel className='text-base-semibold text-light-2'>
                                 Username
                             </FormLabel>
-                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                            <FormControl className='flex-1 bg-transparent text-base-semibold text-gray-200'>
                                 <Input
                                     type='text'
-                                    className='account-form_input  no-focus'
+                                    className='account-form_input blur-card-bg border border-slate-700/20  shadow-none no-focus'
                                     {...field}
                                 />
                             </FormControl>
@@ -204,10 +204,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                             <FormLabel className='text-base-semibold text-light-2'>
                                 Bio
                             </FormLabel>
-                            <FormControl className='flex-1 text-base-semibold text-gray-200'>
+                            <FormControl className='flex-1 bg-transparent text-base-semibold text-gray-200'>
                                 <Textarea
                                     rows={5}
-                                    className='account-form_input  no-focus'
+                                    className='account-form_input blur-card-bg shadow-none no-focus simple-scrollbar'
                                     {...field}
                                 />
                             </FormControl>

@@ -17,7 +17,7 @@ async function RightSidebar() {
     const suggestedCOmmunities = await getCommunities({ pageSize: 4 });
 
     return (
-        <section className='custom-scrollbar rightsidebar'>
+        <section className='custom-scrollbar rightsidebar blur-card-bg'>
             <div className='flex flex-1 flex-col justify-start'>
                 <h3 className='text-heading4-medium text-light-1'>
                     Suggested Communities
@@ -32,6 +32,7 @@ async function RightSidebar() {
                                     id={community.id}
                                     name={community.name}
                                     username={community.username}
+                                    callRightSidebar={true}
                                     imgUrl={community.image}
                                     personType='Community'
                                 />
@@ -54,6 +55,7 @@ async function RightSidebar() {
                                 <UserCard
                                     key={person.id}
                                     id={person.id}
+                                    callRightSidebar={true}
                                     name={person.name.length > 10 ? person.name.slice(0, 10) + "..." : person.name}
                                     username={person.username}
                                     imgUrl={person.image}

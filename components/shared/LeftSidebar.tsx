@@ -16,7 +16,7 @@ const LeftSidebar = () => {
 
 
     return (
-        <section className='custom-scrollbar leftsidebar'>
+        <section className='custom-scrollbar leftsidebar blur-card-bg'>
             <div className='flex w-full flex-1 flex-col gap-3 px-6'>
                 {sidebarLinks.map((link) => {
                     const isActive =
@@ -29,7 +29,7 @@ const LeftSidebar = () => {
                         <Link
                             href={link.route}
                             key={link.label}
-                            className={`leftsidebar_link ${isActive ? "bg-primary-500 " : " hover:bg-dark-4"}`}
+                            className={`leftsidebar_link ${isActive ? "bg-primary-500" : " hover:bg-primary-500/20"}`}
                         >
                             <Image
                                 src={link.imgURL}
