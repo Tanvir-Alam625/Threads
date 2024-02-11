@@ -4,14 +4,45 @@
 @import url();
 
 @layer components {
-  .main {
+  /* .main {
     background-image: url("/assets/bg/bg2.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100% 100%;
   }
-  /* main */
+  main */
+  /* For WebKit based browsers (Chrome, Safari, etc.) */
+  .simple-scrollbar::-webkit-scrollbar {
+    border-radius: 7px;
+    background: #00000000;
+    width: 9px;
+  }
+
+  .simple-scrollbar::-webkit-scrollbar-thumb {
+    background: #5c5c7b;
+    cursor: pointer;
+    border-radius: 7px;
+  }
+
+  /* For Firefox */
+  .simple-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #5c5c7b transparent;
+  }
+
+  /* For IE and Edge */
+  .simple-scrollbar,
+  body {
+    -ms-overflow-style: none; /* Hide scrollbar in IE */
+  }
+
+  .simple-scrollbar::-ms-scrollbar-thumb,
+  body::-ms-scrollbar-thumb {
+    background: #5c5c7b;
+    border-radius: 7px;
+  }
+
   .main-container {
     @apply flex min-h-screen flex-1 flex-col items-center px-6 pb-10 pt-28 max-md:pb-32 sm:px-10;
   }

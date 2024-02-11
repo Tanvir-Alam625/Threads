@@ -15,6 +15,6 @@ export default async function Page() {
         return;
     }
     return <SignIn appearance={{
-        baseTheme: dark
+        baseTheme: dark,
     }} />;
 }
