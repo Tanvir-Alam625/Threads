@@ -44,14 +44,12 @@ Check out the live version of the application [here](https://threads-eta.vercel.
     - Explore replies and tags associated with their content.
 
 - Organization Feature
-  - Users have the ability to create organizations and invite others to join. Within organizations, users can:
+  - Users can create organizations and invite others to join. Within organizations, users can:
     - Post threads that are relevant to the organization's focus.
     - Collaborate with like-minded individuals in a structured environment.
 
 ## In progress Items
 
-- Home Infinity scrolling feature.
-- Full Website Glassmorphism UI design.
 - Profile Page inside Replies & Tagged tab in complete.
 - The Community Page inside the Request tab is complete.
 
