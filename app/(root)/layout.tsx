@@ -10,7 +10,7 @@ import { currentUser } from '@clerk/nextjs'
 import { redirect } from 'next/navigation';
 import { Toaster } from "react-hot-toast";
 import { dark } from '@clerk/themes';
-import BgImg from "../../public/assets/bg/5570852.jpg";
+import BgImg from "../../public/assets/bg/bg-img.jpg";
 import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
