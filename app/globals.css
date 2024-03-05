@@ -1,18 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url();
 
 @layer components {
-  /* .main {
-    background-image: url("/assets/bg/bg2.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 100% 100%;
-  }
-  main */
-  /* For WebKit based browsers (Chrome, Safari, etc.) */
   .simple-scrollbar::-webkit-scrollbar {
     border-radius: 7px;
     background: #00000000;
@@ -132,7 +122,6 @@
   .blur-card-bg {
     background: rgba(28, 30, 38, 0.6) !important;
     backdrop-filter: blur(7px) !important;
-    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.6);
     @apply border border-slate-700/20;
   }
 }
