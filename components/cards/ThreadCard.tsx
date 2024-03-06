@@ -102,6 +102,7 @@ const ThreadCard = ({
                             <Image
                                 src={author.image}
                                 alt='user_community_image'
+                                loading="lazy"
                                 fill
                                 className='cursor-pointer rounded-full'
                             />

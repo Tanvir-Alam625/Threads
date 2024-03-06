@@ -34,7 +34,7 @@ async function Page({
         name: string;
         image: string;
         id: string;
-        username: string
+        username: string;
     }
 
     return (
@@ -63,11 +63,11 @@ async function Page({
                 )}
             </div>
 
-            {/* <Pagination
+            <Pagination
                 path='search'
                 pageNumber={searchParams?.page ? +searchParams.page : 1}
                 isNext={result.isNext}
-            /> */}
+            />
         </section>
     );
 }

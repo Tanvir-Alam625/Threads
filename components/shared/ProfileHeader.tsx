@@ -31,6 +31,7 @@ function ProfileHeader({
                         <Image
                             src={imgUrl}
                             alt='logo'
+                            loading="lazy"
                             fill
                             className='rounded-full object-cover shadow-2xl'
                         />
@@ -61,7 +62,6 @@ function ProfileHeader({
 
             <p className={`${firaCode.className} mt-6 max-w-lg text-base-regular text-light-2`}>{bio}</p>
 
-            {/* <div className='mt-12 h-0.5 w-full bg-dark-3' /> */}
         </div>
     );
 }

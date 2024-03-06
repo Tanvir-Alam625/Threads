@@ -12,6 +12,7 @@ import { Toaster } from "react-hot-toast";
 import { dark } from '@clerk/themes';
 import BgImg from "../../public/assets/bg/bg-img.jpg";
 import Image from 'next/image'
+import Downloader from '@/components/shared/Downloader'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -51,6 +52,7 @@ export default async function RootLayout({
           <TopBar />
           <main className={`flex flex-row`}>
             <LeftSidebar />
+            <Downloader />
             <section className='main-container'>
               <div className="w-full max-w-4xl">
                 {children}

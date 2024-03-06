@@ -26,6 +26,7 @@ function UserCard({ id, name, username, imgUrl, personType, callRightSidebar = f
                     <Image
                         src={imgUrl}
                         alt='user_logo'
+                        loading="lazy"
                         fill
                         className='rounded-full object-cover'
                     />
