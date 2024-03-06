@@ -92,7 +92,7 @@
   }
 
   .bottombar {
-    @apply fixed bottom-0 left-0 right-0  z-10 w-full rounded-t-3xl bg-glassmorphism p-2 backdrop-blur-lg  md:hidden;
+    @apply fixed bottom-0 left-0 right-0  z-10 w-full rounded-t-3xl bg-slate-800/40 border-t border-slate-700/40 p-2 backdrop-blur-lg  md:hidden;
   }
 
   .bottombar_container {
@@ -120,9 +120,9 @@
   }
 
   .blur-card-bg {
-    background: rgba(28, 30, 38, 0.6) !important;
+    /* background: rgba(28, 30, 38, 0.6) !important; */
     backdrop-filter: blur(7px) !important;
-    @apply border border-slate-700/20;
+    @apply border border-slate-700/20 !bg-slate-800/60;
   }
 }
 
@@ -166,7 +166,7 @@
 
 /* Tab */
 .tab {
-  @apply flex min-h-[50px] flex-1 items-center gap-3  text-light-2  data-[state=active]:bg-[#0e0e12] data-[state=active]:bg-opacity-40 data-[state=active]:text-light-2 !important;
+  @apply flex min-h-[50px] flex-1 items-center gap-3  text-light-2  data-[state=active]:bg-slate-700 data-[state=active]:bg-opacity-40 data-[state=active]:text-light-2 !important;
 }
 
 .no-focus {

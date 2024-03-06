@@ -172,7 +172,7 @@ const DropdownItem = ({ children, className, onClick }: DropdownItemProps) => {
     return (
         <div
             className={twMerge(
-                'flex w-full cursor-pointer items-center px-4 py-2 text-left text-sm leading-5 text-white transition duration-150 ease-in-out first:rounded-t-md last:rounded-b-md hover:bg-dark-4 focus:outline-none',
+                'flex w-full cursor-pointer items-center px-4 py-2 text-left text-sm leading-5 text-white transition duration-150 ease-in-out first:rounded-t-md last:rounded-b-md hover:bg-slate-700/70 focus:outline-none',
                 className
             )}
             role="button"

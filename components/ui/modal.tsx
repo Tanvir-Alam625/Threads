@@ -34,7 +34,7 @@ const Modal = ({
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                         >
-                            <Dialog.Overlay className="fixed inset-0 bg-dark-1 bg-opacity-75  dark:bg-opacity-75" />
+                            <Dialog.Overlay className="fixed inset-0 bg-slate-950 bg-opacity-50" />
                         </Transition.Child>
 
                         <Transition.Child
@@ -48,7 +48,7 @@ const Modal = ({
                         >
                             <Dialog.Panel
                                 className={twMerge(
-                                    'group relative text-light-1 flex  transform flex-col self-center rounded-md blur-card-bg border border-slate-700/20 text-left shadow-xl transition-all',
+                                    'group relative text-light-1 flex  transform flex-col self-center rounded-md blur-card-bg border border-slate-700/40 text-left shadow-xl transition-all',
 
                                     className
                                 )}

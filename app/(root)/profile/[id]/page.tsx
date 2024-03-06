@@ -48,7 +48,7 @@ async function Page({ params }: { params: { id: string } }) {
                 <Tabs defaultValue='threads' className='w-full bg-transparent'>
                     <TabsList className='tab blur-card-bg px-0 overflow-hidden'>
                         {profileTabs.map((tab) => (
-                            <TabsTrigger key={tab.label} value={tab.value} className='tab'>
+                            <TabsTrigger key={tab.label} value={tab.value} className='tab [data-state:active]:bg-primary-4 '>
                                 <Image
                                     src={tab.icon}
                                     alt={tab.label}

@@ -45,7 +45,7 @@ export default async function RootLayout({
           <Toaster
             position="bottom-right"
             toastOptions={{
-              className: "!bg-dark-1 !shadow shadow-light-1 !text-light-5 !border-light-1 !text-small-regular",
+              className: "!bg-slate-800/70 backdrop-blur-3xl !shadow shadow-light-1 !text-light-5 border !border-slate-600/40 !text-small-regular",
             }}
           />
           <TopBar />
