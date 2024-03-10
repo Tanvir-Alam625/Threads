@@ -116,7 +116,7 @@
   }
 
   .rightsidebar {
-    @apply sticky right-0 top-0 z-20 flex h-screen w-fit flex-col justify-between gap-12 overflow-auto   px-5 pb-6 pt-28 max-xl:hidden;
+    @apply sticky right-0 bottom-2 rounded-lg top-2 z-20 flex h-[calc(100vh-15px)] w-fit flex-col justify-start gap-0  max-xl:hidden;
   }
 
   .blur-card-bg {

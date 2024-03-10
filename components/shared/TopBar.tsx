@@ -25,22 +25,7 @@ const TopBar = () => {
                     </SignOutButton>
                 </div>
 
-                <div className='rounded-lg blur-card-bg'>
-                    <OrganizationSwitcher
 
-                        appearance={{
-                            baseTheme: dark,
-                            elements: {
-                                organizationSwitcherTrigger: 'py-2 px-4',
-                                organizationSwitcherTriggerIcon: 'w-3 h-3',
-                                organizationSwitcherTriggerText: 'text-light-1 ml-2 text-small-regular',
-                                organizationSwitcherTriggerChevron: 'w-3 h-3',
-                                organizationSwitcherTriggerButton: '!text-small-regular',
-                                organizationSwitcherTriggerButtonHover: '!bg-light-1/10',
-                            },
-                        }}
-                    />
-                </div>
             </div>
         </nav>
     );
