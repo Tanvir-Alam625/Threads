@@ -20,5 +20,5 @@ export const userValidation = z.object({
     profile_photo: z.string().url().nonempty(),
     name: z.string().min(3).max(30).refine(validateName),
     username: z.string().min(3).max(30),
-    bio: z.string().min(50).max(1000)
+    bio: z.string().min(10).max(1000)
 });

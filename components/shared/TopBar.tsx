@@ -10,7 +10,7 @@ const TopBar = () => {
     if (!sessionId) redirect('/sign-in');
 
     return (
-        <nav className='topbar blur-card-bg'>
+        <nav className='topbar blur-card-bg px-3'>
             <Link href='/' className='flex items-center gap-4'>
                 <Image src={Logo} alt='logo' width={34} height={34} />
                 <p className='text-heading3-bold text-light-1 max-xs:hidden'>Threads</p>
@@ -25,14 +25,22 @@ const TopBar = () => {
                     </SignOutButton>
                 </div>
 
-                <OrganizationSwitcher
-                    appearance={{
-                        baseTheme: dark,
-                        elements: {
-                            organizationSwitcherTrigger: 'py-2 px-4',
-                        },
-                    }}
-                />
+                <div className='rounded-lg blur-card-bg'>
+                    <OrganizationSwitcher
+
+                        appearance={{
+                            baseTheme: dark,
+                            elements: {
+                                organizationSwitcherTrigger: 'py-2 px-4',
+                                organizationSwitcherTriggerIcon: 'w-3 h-3',
+                                organizationSwitcherTriggerText: 'text-light-1 ml-2 text-small-regular',
+                                organizationSwitcherTriggerChevron: 'w-3 h-3',
+                                organizationSwitcherTriggerButton: '!text-small-regular',
+                                organizationSwitcherTriggerButtonHover: '!bg-light-1/10',
+                            },
+                        }}
+                    />
+                </div>
             </div>
         </nav>
     );
