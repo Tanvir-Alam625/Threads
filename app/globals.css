@@ -88,7 +88,7 @@
   }
 
   .topbar {
-    @apply sticky top-2 z-30 !flex justify-between items-center gap-3 rounded-xl px-6 py-3;
+    @apply fixed md:sticky top-0 left-0 right-0 md:left-auto  md:right-auto md:top-2 z-30 !flex justify-between items-center gap-3 rounded-b-3xl  md:rounded-lg  px-6 py-3;
   }
 
   .bottombar {
@@ -104,7 +104,7 @@
   }
 
   .leftsidebar {
-    @apply sticky left-0 top-0 z-20 flex h-screen w-fit flex-col justify-between overflow-auto pb-5 pt-28 max-md:hidden;
+    @apply sticky left-0 top-2 z-20 flex h-[calc(100vh-15px)] rounded-lg w-fit flex-col justify-start gap-0  max-md:hidden;
   }
 
   .leftsidebar_link {
@@ -138,7 +138,7 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: #09090a;
+    background: transparent;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
