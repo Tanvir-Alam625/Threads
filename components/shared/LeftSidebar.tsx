@@ -18,7 +18,7 @@ const LeftSidebar = () => {
 
     return (
         <section className=' leftsidebar blur-card-bg'>
-            <div className="rounded-t-lg  border-b border-slate-700/20 px-6 py-2">
+            <div className="rounded-t-lg  border-b border-slate-700/70 px-6 py-2">
                 <Link href='/' className='flex items-center gap-4'>
                     <Image src={Logo} alt='logo' width={52} height={52} />
                     <p className='text-heading3-bold   text-light-1 max-lg:hidden'>Threads</p>
@@ -38,7 +38,7 @@ const LeftSidebar = () => {
                             <Link
                                 href={link.route}
                                 key={link.label}
-                                className={`leftsidebar_link ${isActive ? "bg-primary-500" : " hover:bg-primary-500/20"}`}
+                                className={`leftsidebar_link ${isActive ? "bg-primary-500" : " hover:bg-slate-700"}`}
                             >
                                 <Image
                                     src={link.imgURL}

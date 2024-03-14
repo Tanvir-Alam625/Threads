@@ -20,25 +20,25 @@ async function RightSidebar() {
 
     return (
         <section className=' rightsidebar blur-card-bg'>
-            <div className='rounded-t-lg  border-b border-slate-700/20 '>
+            <div className='rounded-t-lg  border-b border-slate-700/70 '>
                 <OrganizationSwitcher
 
                     appearance={{
                         baseTheme: dark,
                         elements: {
-                            organizationSwitcherTrigger: 'py-3.5 px-4 w-full flex items-center gap-20 rounded-t-lg rounded-b-none outline-none ring-0 fucus:ring-0 focus:outline-none border',
+                            organizationSwitcherTrigger: 'p-4 w-full flex items-center gap-20 rounded-t-lg rounded-b-none outline-none ring-0 fucus:ring-0 focus:outline-none border',
                             organizationSwitcherTriggerIcon: 'w-3 h-3',
                             organizationSwitcherTriggerText: 'text-light-1 ml-2 text-small-regular',
                             organizationSwitcherTriggerChevron: 'w-3 h-3',
                             organizationSwitcherTriggerButton: '!text-small-regular',
-                            organizationSwitcherTriggerButtonHover: '!bg-light-1/10',
+                            organizationSwitcherTriggerButtonHover: '!bg-slate-700',
                         },
                     }}
                 />
             </div>
             <div className="custom-scrollbar overflow-auto px-3">
                 <div className='flex flex-1 flex-col justify-start'>
-                    <h3 className='text-heading4-medium text-light-1'>
+                    <h3 className='text-heading4-medium mt-4 text-light-1'>
                         Suggested Communities
                     </h3>
 
@@ -66,7 +66,7 @@ async function RightSidebar() {
                 </div>
 
                 <div className='flex flex-1 flex-col justify-start'>
-                    <h3 className='text-heading4-medium text-light-1'>Similar Minds</h3>
+                    <h3 className='text-heading4-medium text-light-1 mt-4'>Similar Minds</h3>
                     <div className='mt-7 flex  flex-col gap-5'>
                         {similarMinds.users.length > 0 ? (
                             <>

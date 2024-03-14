@@ -5,14 +5,12 @@ const withPWA = require("next-pwa")({
   disable: process.env.NODE_MODE === "development",
 });
 
-module.exports = withPWA({
+const nextConfig = withPWA({
   experimental: {
     serverActions: true,
-    // serverComponentsExternalPackages: ["mongoose"],
+    serverComponentsExternalPackages: ["mongoose"],
   },
   eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
   images: {
@@ -36,3 +34,5 @@ module.exports = withPWA({
     ],
   },
 });
+
+module.exports = nextConfig;

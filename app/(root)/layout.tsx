@@ -13,8 +13,15 @@ import { dark } from '@clerk/themes';
 import BgImg from "../../public/assets/bg/bg-img.jpg";
 import Image from 'next/image'
 import Downloader from '@/components/shared/Downloader'
+import { getUser } from '@/lib/actions/user.actions'
 
 const inter = Inter({ subsets: ['latin'] })
+
+export interface UserData {
+  image: string
+  name: string
+  _id: string
+}
 
 
 export const metadata: Metadata = {
@@ -31,6 +38,16 @@ export default async function RootLayout({
   if (!user) {
     redirect("/sign-in");
     return null;
+  }
+  const userinfo = await getUser(user.id)
+  if (!userinfo) {
+    redirect("/onboarding");
+    return null;
+  }
+  const userData: UserData = {
+    image: userinfo.image,
+    name: userinfo.name,
+    _id: userinfo._id
   }
   return (
     <ClerkProvider
@@ -54,8 +71,10 @@ export default async function RootLayout({
             <Downloader />
             <section className='main-container'>
               <div className="w-full">
-                <TopBar />
-                {children}
+                <TopBar userData={userData} />
+                <div className='mt-6'>
+                  {children}
+                </div>
               </div>
             </section>
             <RightSidebar />

@@ -2,9 +2,10 @@
 import { useEffect, useState } from "react";
 import Modal from "../ui/modal";
 import Image from "next/image";
-import { Button } from "../ui/button";
 import Logo from "../../public/icon-512x512.png";
 import toast from "react-hot-toast";
+import { Button } from "@/components/ui/button"
+import { MdInstallDesktop } from "react-icons/md";
 interface BeforeInstallPromptEvent extends Event {
     readonly platforms: Array<string>;
     readonly userChoice: Promise<{
@@ -14,7 +15,7 @@ interface BeforeInstallPromptEvent extends Event {
     prompt(): Promise<void>;
 }
 
-const Downloader = () => {
+const Downloader = ({ isButtonShow = false }: { isButtonShow?: boolean }) => {
     const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null);
     const [modalShown, setModalShown] = useState<boolean>(false);
 
@@ -60,6 +61,11 @@ const Downloader = () => {
 
     return (
         <>
+            {
+                isButtonShow && deferredPrompt ? (<div onClick={handleInstallClick} title="Install" className="cursor-pointer p-3  border duration-300 ease-in-out transition-colors hover:bg-slate-700  border-slate-700/60 rounded-lg">
+                    <MdInstallDesktop size={16} color="#8B9AAF" />
+                </div>) : null
+            }
             <Modal isOpen={modalShown} onClose={handleCloseModal}>
                 <Modal.Content className="w-[300px] md:w-[500px]">
                     <div className="p-4 flex flex-col gap-3 justify-center items-center">

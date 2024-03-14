@@ -61,18 +61,13 @@ const ShareModal = ({ postId, postContent, postTags }: Props) => {
         hashtag: tagsString,
         title: postContent
     }
-
-
-
-
-
     return (
         <div>
 
             <button onClick={handleModalOpen}> <PiShareFatFill className="text-base-regular text-gray-1" /></button>
 
             <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-                <Modal.Content className="flex flex-col gap-6 w-[300px] md:w-[600px] p-6">
+                <Modal.Content className="flex flex-col gap-6 w-[calc(100vw-100px)] md:w-[600px] p-6">
                     <h1 className="text-xl font-medium text-light-1">Share the post</h1>
 
                     <div className="overflow-auto flex gap-4 items-center">

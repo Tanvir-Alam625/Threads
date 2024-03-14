@@ -10,6 +10,21 @@ export const sidebarLinks: SidebarLinkType[] = [
         label: "Home",
     },
     {
+        imgURL: "/assets/community.svg",
+        route: "/communities",
+        label: "Communities",
+    },
+    {
+        imgURL: "/assets/create.svg",
+        route: "/create-thread",
+        label: "Create Thread",
+    },
+    {
+        imgURL: "/assets/user.svg",
+        route: "/profile",
+        label: "Profile",
+    },
+    {
         imgURL: "/assets/search.svg",
         route: "/search",
         label: "Search",
@@ -19,21 +34,7 @@ export const sidebarLinks: SidebarLinkType[] = [
         route: "/activity",
         label: "Activity",
     },
-    {
-        imgURL: "/assets/create.svg",
-        route: "/create-thread",
-        label: "Create Thread",
-    },
-    {
-        imgURL: "/assets/community.svg",
-        route: "/communities",
-        label: "Communities",
-    },
-    {
-        imgURL: "/assets/user.svg",
-        route: "/profile",
-        label: "Profile",
-    },
+
 ];
 
 export type TabItemType = {

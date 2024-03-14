@@ -27,8 +27,6 @@ function Searchbar({ routeType, placeholder }: Props) {
 
         return () => clearTimeout(delayDebounceFn);
     }, [search, routeType]);
-
-    console.log(routeType);
     return (
         <div className='searchbar blur-card-bg border border-slate-700/20'>
             <Image

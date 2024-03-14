@@ -24,7 +24,7 @@ async function Page({ params }: { params: { id: string } }) {
     const userInfo = await getUser(params.id);
     if (!userInfo?.onboarded) redirect("/onboarding");
     const { threads: posts, isNext } = await getThreadByUserId(userInfo._id || "", 10, 1)
-    // console.log(posts)
+
     const activities = await getActivity(userInfo._id);
     type Activity = typeof activities[0]
     type Post = typeof posts[0];
