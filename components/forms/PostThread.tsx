@@ -70,9 +70,10 @@ const PostThread = ({ userId }: Props) => {
                                 <Textarea
                                     rows={10}
                                     placeholder="What's on your mind? 🤔"
-                                    className={`${firaCode.className} no-focus blur-card-bg border border-slate-700/20 text-light-1`}
+                                    className={`${firaCode.className} no-focus blur-card-bg border border-slate-700/20 text-light-1 relative caret-fuchsia-500`}
                                     {...field}
                                 />
+
                             </FormControl>
                             <FormMessage />
                         </FormItem>
