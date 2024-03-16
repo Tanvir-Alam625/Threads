@@ -20,10 +20,12 @@ const CreateThreadPage = async () => {
     }
 
     return (
-        <>
+        <div>
             <h1 className="head-text">Create Thread</h1>
-            <PostThread userId={userInfo._id} />
-        </>
+            <div className="mt-9">
+                <PostThread userId={userInfo._id} />
+            </div>
+        </div>
     )
 }
 

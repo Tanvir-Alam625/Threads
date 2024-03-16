@@ -32,14 +32,12 @@ const PostThread = ({ userId }: Props) => {
     const [loading, setLoading] = useState(false);
     const { organization } = useOrganization();
     const router = useRouter()
-    const form = useForm({
+    const form = useForm<z.infer<typeof threadValidation>>({
         resolver: zodResolver(threadValidation),
         defaultValues: {
             thread: "",
-            accountId: userId,
         },
     });
-
     const onSubmit = async (values: z.infer<typeof threadValidation>) => {
         setLoading(true)
         await createThread({
@@ -80,13 +78,12 @@ const PostThread = ({ userId }: Props) => {
                         </FormItem>
                     )}
                 />
-                <Button disabled={loading} type="submit" className="bg-primary-500">Post Thread
-                    {
-                        loading && <span className="loader"></span>
-                    }
-                </Button>
+                <div>
+                    <Button disabled={loading} className="w-full cursor-pointer bg-primary-500/70 duration-300 ease-in-out transition-colors hover:bg-primary-500" type='submit' >Post Thread {loading && <span className='loader'></span>}</Button>
+                </div>
+
             </form>
-        </Form>
+        </Form >
     )
 }
 

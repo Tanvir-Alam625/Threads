@@ -59,7 +59,7 @@ export default async function RootLayout({
         <body
           suppressHydrationWarning={true}
           className={` bg-slate-900 ${inter.className}`}>
-          <Image src={BgImg} loading='lazy' className='w-full grayscale-0 opacity-25 h-full object-cover fixed top-0 left-0 right-0 bottom-0' alt='bg' />
+          <Image src={BgImg} loading='lazy' className='w-full -z-30  opacity-25 h-full object-cover fixed top-0 left-0 right-0 bottom-0' alt='bg' />
           <Toaster
             position="bottom-right"
             toastOptions={{
@@ -69,10 +69,10 @@ export default async function RootLayout({
           <main className={`flex flex-row max-w-[100rem] mx-auto`}>
             <LeftSidebar />
             <Downloader />
-            <section className='main-container'>
+            <section className='main-container z-20'>
               <div className="w-full">
                 <TopBar userData={userData} />
-                <div className='mt-6'>
+                <div className='mt-6 '>
                   {children}
                 </div>
               </div>
