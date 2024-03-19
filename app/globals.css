@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("tippy.js/dist/tippy.css");
+@import url("tippy.js/themes/translucent.css");
+@import url("tippy.js/themes/light.css");
+@import url("tippy.js/themes/material.css");
+@import url("tippy.js/themes/light-border.css");
+@import url("tippy.js/dist/backdrop.css");
+@import url("tippy.js/animations/shift-away.css");
+@import url("tippy.js/animations/scale.css");
+@import url("tippy.js/animations/scale-subtle.css");
+@import url("tippy.js/animations/scale-extreme.css");
+@import url("tippy.js/animations/shift-toward.css");
+@import url("tippy.js/animations/scale.css");
 @layer components {
   .simple-scrollbar::-webkit-scrollbar {
     border-radius: 7px;
@@ -129,6 +141,9 @@
 @layer utilities {
   .css-invert {
     @apply invert-[50%] brightness-200;
+  }
+  .tippy {
+    @apply !bg-slate-700/20 border !border-slate-700/40 !text-slate-100 !backdrop-blur-md;
   }
 
   .custom-scrollbar::-webkit-scrollbar {

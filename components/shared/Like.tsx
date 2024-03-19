@@ -3,6 +3,10 @@ import { likeToThread } from '@/lib/actions/thread.actions';
 import millify from 'millify';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
+import Tippy from "@tippyjs/react";
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/themes/translucent.css';
+import ToolTip from '../ui/ToolTip';
 
 type Props = {
     likeCount: string[],
@@ -50,12 +54,16 @@ const Like = ({ likeCount, threadId, userId }: Props) => {
 
     return (
         <div className="flex items-center gap-3 duration-200 ease-in-out hover:text-[red] text-gray-1">
-            <div title={isLiked ? "Unlike" : "Like"} className='like-parent'>
-                <div className='heart-container'>
-                    <div
-                        className={`heart-icon ${!beforeLike && isLiked ? "liked" : ""} ${beforeLike && !isLiked ? "already-like" : ""}`} onClick={handleLikeBtn}></div>
+            <ToolTip className='-translate-y-2' content={isLiked ? "Unlike" : "Like"}>
+                <div>
+                    <div className='like-parent'>
+                        <div className='heart-container'>
+                            <div
+                                className={`heart-icon ${!beforeLike && isLiked ? "liked" : ""} ${beforeLike && !isLiked ? "already-like" : ""}`} onClick={handleLikeBtn}></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </ToolTip>
             <div className={`overflow-hidden h-4 ${beforeLike ? "text-[#E2264D]" : ""}`}>
                 <p className={`text-subtle-medium my-0 py-0 likes-number-before ${isLiked ? 'text-[#E2264D] slide-up' : ''}`}>
                     {millify(likes.length)}

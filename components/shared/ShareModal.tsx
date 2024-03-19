@@ -15,6 +15,7 @@ import {
 } from "react-share";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import ToolTip from "../ui/ToolTip";
 type Props = {
     postId: string,
     postContent: string,
@@ -64,7 +65,9 @@ const ShareModal = ({ postId, postContent, postTags }: Props) => {
     return (
         <div>
 
-            <button onClick={handleModalOpen}> <PiShareFatFill className="text-base-regular text-gray-1" /></button>
+            <ToolTip content="Share">
+                <button onClick={handleModalOpen}> <PiShareFatFill className="text-base-regular text-gray-1" /></button>
+            </ToolTip>
 
             <Modal isOpen={isModalOpen} onClose={handleModalClose}>
                 <Modal.Content className="flex flex-col gap-6 w-[calc(100vw-100px)] md:w-[600px] p-6">

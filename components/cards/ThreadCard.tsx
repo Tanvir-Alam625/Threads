@@ -8,6 +8,7 @@ import millify from "millify";
 import ShareModal from "../shared/ShareModal";
 import ThreadAction from "./ThreadAction";
 import { Fira_Code } from 'next/font/google'
+import ToolTip from "../ui/ToolTip";
 const firaCode = Fira_Code({ subsets: ['latin'] });
 
 
@@ -140,12 +141,14 @@ const ThreadCard = ({
 
                                 {/* Like Component  */}
                                 <Like {...likeData} />
-                                <Link title="Comment" href={`/thread/${id}`} className="flex items-center gap-1">
-                                    <FaComment className="text-base-regular text-gray-1" />
-                                    {
-                                        comments.length ? <p className="text-subtle-medium text-gray-1">{comments.length}</p> : null
-                                    }
-                                </Link>
+                                <ToolTip content="Comment">
+                                    <Link href={`/thread/${id}`} className="flex items-center gap-1">
+                                        <FaComment className="text-base-regular text-gray-1" />
+                                        {
+                                            comments.length ? <p className="text-subtle-medium text-gray-1">{comments.length}</p> : null
+                                        }
+                                    </Link>
+                                </ToolTip>
                                 <ShareModal postId={id} postContent={content} postTags={hashtags} />
                             </div>
 

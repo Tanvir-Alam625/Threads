@@ -6,6 +6,7 @@ import Logo from "../../public/icon-512x512.png";
 import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button"
 import { MdInstallDesktop } from "react-icons/md";
+import ToolTip from "../ui/ToolTip";
 interface BeforeInstallPromptEvent extends Event {
     readonly platforms: Array<string>;
     readonly userChoice: Promise<{
@@ -62,9 +63,9 @@ const Downloader = ({ isButtonShow = false }: { isButtonShow?: boolean }) => {
     return (
         <>
             {
-                isButtonShow && deferredPrompt ? (<div onClick={handleInstallClick} title="Install" className="cursor-pointer p-3  border duration-300 ease-in-out transition-colors hover:bg-slate-700  border-slate-700/60 rounded-lg">
+                isButtonShow && deferredPrompt ? (<ToolTip content="Install"><div onClick={handleInstallClick} className="cursor-pointer p-3  border duration-300 ease-in-out transition-colors hover:bg-slate-700  border-slate-700/60 rounded-lg">
                     <MdInstallDesktop size={16} color="#8B9AAF" />
-                </div>) : null
+                </div></ToolTip>) : null
             }
             <Modal isOpen={modalShown} onClose={handleCloseModal}>
                 <Modal.Content className="w-[300px] md:w-[500px]">

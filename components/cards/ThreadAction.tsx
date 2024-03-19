@@ -10,6 +10,7 @@ import { TiDeleteOutline } from "react-icons/ti";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import ToolTip from "../ui/ToolTip";
 
 interface Props {
     threadId: string;
@@ -81,9 +82,11 @@ function ThreadAction({
     return (
         <>
             <Dropdown showArrow>
-                <Dropdown.Trigger>
-                    <CiMenuKebab className="inline-block text-light-2" size={18} />
-                </Dropdown.Trigger>
+                <ToolTip content="More">
+                    <Dropdown.Trigger>
+                        <CiMenuKebab className="inline-block text-light-2" size={18} />
+                    </Dropdown.Trigger>
+                </ToolTip>
                 <Dropdown.Content >
                     <Dropdown.Item
                         onClick={() => handleCopyPostURL(`thread/${JSON.parse(threadId)}`)}

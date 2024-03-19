@@ -1,18 +1,18 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { SignOutButton, SignedIn, useAuth } from "@clerk/nextjs";
+import { usePathname } from "next/navigation";
+import { SignOutButton, useAuth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import Logo from '@/public/assets/logo.png';
-
-
 import { sidebarLinks } from "@/constants";
+import ToolTip from "../ui/ToolTip";
+import useWindowSize from "@/hooks/use-window-size";
 
 const LeftSidebar = () => {
     const { userId, sessionId } = useAuth();
     if (!sessionId) redirect('/sign-in');
+    const { width } = useWindowSize()
     const pathname = usePathname();
 
 
@@ -35,36 +35,40 @@ const LeftSidebar = () => {
                         if (link.route === "/profile") link.route = `${link.route}/${userId}`;
 
                         return (
-                            <Link
-                                href={link.route}
-                                key={link.label}
-                                className={`leftsidebar_link ${isActive ? "bg-primary-500" : " hover:bg-slate-700"}`}
-                            >
-                                <Image
-                                    src={link.imgURL}
-                                    alt={link.label}
-                                    width={24}
-                                    height={24}
-                                />
+                            <ToolTip placement="left" disabled={width > 1024} content={link.label}>
+                                <Link
+                                    href={link.route}
+                                    key={link.label}
+                                    className={`leftsidebar_link ${isActive ? "bg-primary-500" : " hover:bg-slate-700"}`}
+                                >
+                                    <Image
+                                        src={link.imgURL}
+                                        alt={link.label}
+                                        width={24}
+                                        height={24}
+                                    />
 
-                                <p className='text-light-1 max-lg:hidden'>{link.label}</p>
-                            </Link>
+                                    <p className='text-light-1 max-lg:hidden'>{link.label}</p>
+                                </Link>
+                            </ToolTip>
                         );
                     })}
                 </div>
 
                 <div className='mt-10 px-6'>
                     <SignOutButton signOutOptions={{ sessionId }}>
-                        <div className='flex cursor-pointer gap-4 p-4'>
-                            <Image
-                                src='/assets/logout.svg'
-                                alt='logout'
-                                width={24}
-                                height={24}
-                            />
+                        <ToolTip placement="left" disabled={width > 1024} content="Logout">
+                            <div className='flex cursor-pointer gap-4 p-4'>
+                                <Image
+                                    src='/assets/logout.svg'
+                                    alt='logout'
+                                    width={24}
+                                    height={24}
+                                />
 
-                            <p className='text-light-2 max-lg:hidden'>Logout</p>
-                        </div>
+                                <p className='text-light-2 max-lg:hidden'>Logout</p>
+                            </div>
+                        </ToolTip>
                     </SignOutButton>
                 </div>
             </div>
