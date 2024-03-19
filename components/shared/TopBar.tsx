@@ -29,7 +29,7 @@ const TopBar = ({ userData }: Props) => {
             {/* for : Medium Devices */}
 
             <div className='flex flex-1 items-center justify-end md:justify-between gap-1'>
-                <ToolTip disabled={width > 640} content="Switch Organization">
+                <ToolTip disabled={width ? width > 640 : true} content="Switch Organization">
                     <div className='rounded-lg block  lg:hidden  border border-slate-700/70 '>
                         <OrganizationSwitcher
 
@@ -48,7 +48,7 @@ const TopBar = ({ userData }: Props) => {
                     </div>
                 </ToolTip>
                 <div className="flex flex-0  md:flex-1 items-center justify-end lg:justify-between gap-2">
-                    <ToolTip disabled={width > 768} content="Create Thread">
+                    <ToolTip disabled={width ? width > 768 : true} content="Create Thread">
                         <Link href={'/create-thread'}
 
                             className="border  lg:w-full border-slate-700/70 rounded-lg cursor-pointer duration-300 ease-in-out transition-colors hover:bg-slate-700  p-3 flex gap-3 items-center justify-between"
@@ -62,15 +62,15 @@ const TopBar = ({ userData }: Props) => {
                     </ToolTip>
 
                     <Downloader isButtonShow />
-                    <div className='p-3 cursor-default rounded-lg border border-slate-700/70 duration-300 ease-in-out transition-colors hover:bg-slate-700 block md:hidden'>
-                        <SignOutButton signOutOptions={{ sessionId }}>
+                    <ToolTip className='translate-y-2' content="Logout">
+                        <div className='p-3 cursor-pointer rounded-lg border border-slate-700/70 duration-300 ease-in-out transition-colors hover:bg-slate-700 block md:hidden'>
+                            <SignOutButton signOutOptions={{ sessionId }}>
 
-                            <ToolTip className='translate-y-2' content="Logout">
                                 <Image src='/assets/logout_1.svg' alt='logout' width={16} height={16} />
-                            </ToolTip>
 
-                        </SignOutButton>
-                    </div>
+                            </SignOutButton>
+                        </div>
+                    </ToolTip>
 
 
                 </div>

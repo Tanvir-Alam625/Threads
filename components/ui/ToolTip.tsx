@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Tippy from "@tippyjs/react";
 

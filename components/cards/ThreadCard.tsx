@@ -1,14 +1,13 @@
+
 import Image from "next/image";
 import Link from "next/link";
-import { FaComment } from 'react-icons/fa';
 import { formatDateString } from "@/lib/utils";
-import DeleteThread from "../forms/DeleteThread";
 import Like from "../shared/Like";
 import millify from "millify";
 import ShareModal from "../shared/ShareModal";
 import ThreadAction from "./ThreadAction";
 import { Fira_Code } from 'next/font/google'
-import ToolTip from "../ui/ToolTip";
+import CommentLink from "./CommentLink";
 const firaCode = Fira_Code({ subsets: ['latin'] });
 
 
@@ -58,12 +57,7 @@ const ThreadCard = ({
     isComment = false, }: Props) => {
 
 
-    // function getRandomLikeCount(min: number, max: number): number {
-    //     const range = max - min;
-    //     const randomValue = Math.random();
-    //     const randomNumber = min + Math.floor(randomValue * range);
-    //     return randomNumber;
-    // }
+
 
     // Regular expression to match hashtags
     const hashtagRegex = /#(\w+)/g;
@@ -141,14 +135,7 @@ const ThreadCard = ({
 
                                 {/* Like Component  */}
                                 <Like {...likeData} />
-                                <ToolTip content="Comment">
-                                    <Link href={`/thread/${id}`} className="flex items-center gap-1">
-                                        <FaComment className="text-base-regular text-gray-1" />
-                                        {
-                                            comments.length ? <p className="text-subtle-medium text-gray-1">{comments.length}</p> : null
-                                        }
-                                    </Link>
-                                </ToolTip>
+                                <CommentLink id={id} comments={comments} />
                                 <ShareModal postId={id} postContent={content} postTags={hashtags} />
                             </div>
 

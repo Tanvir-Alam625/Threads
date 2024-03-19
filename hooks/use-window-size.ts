@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 export default function useWindowSize() {
-    const [windowSize, setWindowSize] = useState({
-        width: window.innerWidth,
-        height: window.innerHeight,
+    const [windowSize, setWindowSize] = useState<{ width: number | undefined, height: number | undefined }>({
+        width: undefined,
+        height: undefined,
     });
 
     useEffect(() => {
@@ -14,9 +14,17 @@ export default function useWindowSize() {
             });
         };
 
-        window.addEventListener('resize', handleResize);
+        // Check if window is defined (i.e., running in the browser)
+        if (typeof window !== 'undefined') {
+            // Set initial window size
+            handleResize();
 
-        return () => window.removeEventListener('resize', handleResize);
+            // Add event listener for window resize
+            window.addEventListener('resize', handleResize);
+
+            // Cleanup on unmount
+            return () => window.removeEventListener('resize', handleResize);
+        }
     }, []);
 
     return windowSize;

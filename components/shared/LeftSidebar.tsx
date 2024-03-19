@@ -35,7 +35,7 @@ const LeftSidebar = () => {
                         if (link.route === "/profile") link.route = `${link.route}/${userId}`;
 
                         return (
-                            <ToolTip placement="left" disabled={width > 1024} content={link.label}>
+                            <ToolTip placement="left" disabled={width ? width > 1024 : true} content={link.label}>
                                 <Link
                                     href={link.route}
                                     key={link.label}
@@ -55,9 +55,9 @@ const LeftSidebar = () => {
                     })}
                 </div>
 
-                <div className='mt-10 px-6'>
-                    <SignOutButton signOutOptions={{ sessionId }}>
-                        <ToolTip placement="left" disabled={width > 1024} content="Logout">
+                <ToolTip placement="left" className="-translate-x-10" disabled={width ? width > 1024 : true} content="Logout">
+                    <div className='mt-10 px-6'>
+                        <SignOutButton signOutOptions={{ sessionId }}>
                             <div className='flex cursor-pointer gap-4 p-4'>
                                 <Image
                                     src='/assets/logout.svg'
@@ -68,9 +68,9 @@ const LeftSidebar = () => {
 
                                 <p className='text-light-2 max-lg:hidden'>Logout</p>
                             </div>
-                        </ToolTip>
-                    </SignOutButton>
-                </div>
+                        </SignOutButton>
+                    </div>
+                </ToolTip>
             </div>
         </section>
     );
