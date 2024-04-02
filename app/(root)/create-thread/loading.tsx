@@ -1,6 +1,7 @@
 /**
  * @name Loading
  * @description This is the loading component of the application
+ * @module app/(root)/create-thread/loading
 */
 const loading = () => {
     return (
