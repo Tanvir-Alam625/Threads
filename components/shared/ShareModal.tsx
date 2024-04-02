@@ -1,4 +1,13 @@
 "use client"
+/**
+ * @name ShareModal
+ * @description A modal to share the post
+ * @param {string} postId - The post id
+ * @param {string} postContent - The post content
+ * @param {string[]} postTags - The post tags
+ * @returns {JSX.Element} - React component
+ * 
+*/
 import { useEffect, useRef, useState } from "react";
 import { PiShareFatFill } from "react-icons/pi"
 import Modal from "../ui/modal";

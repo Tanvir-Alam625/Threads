@@ -1,4 +1,14 @@
 "use client";
+/**
+ * @name ThreadAction
+ * @description A thread action component
+ * @param {string} threadId - The thread id
+ * @param {string} currentUserId - The current user id
+ * @param {string} authorId - The author id
+ * @param {string} parentId - The parent id
+ * @param {boolean} isComment - The comment status
+ * @returns {JSX.Element} - React component
+*/
 import { usePathname, useRouter } from "next/navigation";
 
 import { deleteThread } from "@/lib/actions/thread.actions";

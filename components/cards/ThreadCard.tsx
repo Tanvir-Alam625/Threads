@@ -1,4 +1,19 @@
-
+/**
+ * @name ThreadCard
+ * @description A card component for threads
+ * @param {string} id - The id
+ * @param {string} currentUserId - The current user id
+ * @param {string} parentId - The parent id
+ * @param {string} content - The content
+ * @param {Author} author - The author
+ * @param {Community} community - The community
+ * @param {string} createdAt - The created at date
+ * @param {Comment[]} comments - The comments
+ * @param {boolean} isComment - The comment status
+ * @param {string} userId - The user id
+ * @param {string[]} likes - The likes
+ * @returns {JSX.Element} - React component
+*/
 import Image from "next/image";
 import Link from "next/link";
 import { formatDateString } from "@/lib/utils";

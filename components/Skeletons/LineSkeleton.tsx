@@ -1,5 +1,9 @@
-import React from 'react'
-
+/**
+ * @name LineSkeleton
+ * @description A skeleton for a line
+ * @param {number} height - The height of the line
+ * @returns {JSX.Element} - React component
+*/
 type Props = {
     height: number
 }

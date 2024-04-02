@@ -1,3 +1,10 @@
+/**
+ * @name Form
+ * @description A form component
+ * @param {JSX.Element} children - The children
+ * @returns {JSX.Element} - React component
+ * 
+*/
 import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"

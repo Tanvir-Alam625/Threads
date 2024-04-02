@@ -2,8 +2,7 @@
 import { likeToThread } from '@/lib/actions/thread.actions';
 import millify from 'millify';
 import { usePathname } from 'next/navigation';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
-import Tippy from "@tippyjs/react";
+import React, { useLayoutEffect, useState } from 'react';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/translucent.css';
 import ToolTip from '../ui/ToolTip';

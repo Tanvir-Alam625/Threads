@@ -1,4 +1,13 @@
 "use client";
+/**
+ * @name Comment
+ * @description A comment form component
+ * @param {string} threadId - The thread id
+ * @param {string} currentUserImg - The current user image
+ * @param {string} currentUserId - The current user id
+ * @returns {JSX.Element} - React component
+ * 
+*/
 
 import { z } from "zod";
 import Image from "next/image";

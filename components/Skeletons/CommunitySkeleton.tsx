@@ -1,4 +1,8 @@
-
+/**
+ * @name CommunitySkeleton
+ * @description A skeleton for the community card
+ * @returns {JSX.Element} - React component
+*/
 
 const CommunitySkeleton = () => {
     return (

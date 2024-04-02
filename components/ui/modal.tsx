@@ -1,3 +1,12 @@
+/**
+ * @name Modal
+ * @description A modal component
+ * @param {React.ReactNode} children - The children
+ * @param {string} className - The class name
+ * @param {boolean} isOpen - The open status
+ * @param {() => void} onClose - The close function
+ * @returns {JSX.Element} - React component
+*/
 import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, HTMLAttributes, useCallback } from 'react';
 import { twMerge } from 'tailwind-merge';

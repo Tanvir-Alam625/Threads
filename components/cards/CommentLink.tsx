@@ -1,4 +1,12 @@
 'use client';
+/**
+ * @name CommentLink
+ * @description A comment link component
+ * @param {string} id - The id
+ * @param {any[]} comments - The comments
+ * @returns {JSX.Element} - React component
+ * 
+*/
 import React from 'react'
 import ToolTip from '../ui/ToolTip'
 import Link from 'next/link'

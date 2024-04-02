@@ -1,5 +1,12 @@
 'use client';
-import { getThreadByUserId, getThreads } from '@/lib/actions/thread.actions';
+/**
+ * @name UserThreadsContainer
+ * @description This component is used to display the threads of a user.
+ * @param {Object} threadData - The data of the thread
+ * @returns {JSX.Element} - React component
+ * @requires react
+*/
+import { getThreadByUserId } from '@/lib/actions/thread.actions';
 import React, { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer';
 import ThreadCard, { Author, Community } from '@/components/cards/ThreadCard';

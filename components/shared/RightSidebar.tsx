@@ -1,3 +1,9 @@
+/**
+ * @name RightSidebar
+ * @description A sidebar that shows suggested communities and similar minds
+ * @returns {JSX.Element} - React component
+ * 
+*/
 import { currentUser } from "@clerk/nextjs";
 
 import UserCard from "../cards/UserCard";

@@ -1,4 +1,10 @@
 'use client';
+/**
+ * @name CommunityThreadsContainer
+ * @description This component is used to display the threads of a community.
+ * @param {Object} threadData - The data of the thread
+ * @returns {JSX.Element} - React component
+*/
 import React, { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer';
 import ThreadCard, { Author, Community } from '@/components/cards/ThreadCard';

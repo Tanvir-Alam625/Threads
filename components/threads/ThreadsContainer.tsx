@@ -1,4 +1,10 @@
 'use client';
+/**
+ * @name ThreadsContainer
+ * @description This component is used to display the threads of a user.
+ * @param {Object} threadData - The data of the thread
+ * @returns {JSX.Element} - React component
+*/
 import { getThreads } from '@/lib/actions/thread.actions';
 import React, { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer';

@@ -1,5 +1,14 @@
 "use client";
-
+/**
+ * @name DeleteThread
+ * @description A delete thread component
+ * @param {string} threadId - The thread id
+ * @param {string} currentUserId - The current user id
+ * @param {string} authorId - The author id
+ * @param {string} parentId - The parent id
+ * @param {boolean} isComment - The comment status
+ * @returns {JSX.Element} - React component
+*/
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 

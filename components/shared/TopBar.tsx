@@ -1,4 +1,10 @@
 'use client';
+/**
+ * @name TopBar
+ * @description The top bar of the application
+ * @param {UserData} userData - The user data
+ * @returns {JSX.Element} - React component
+*/
 import Image from 'next/image';
 import Link from 'next/link';
 import { OrganizationSwitcher, SignOutButton, useAuth } from '@clerk/nextjs';

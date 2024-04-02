@@ -1,5 +1,9 @@
-import React from 'react'
-
+/**
+ * @name ThreadSkeleton
+ * @description A skeleton for the thread card
+ * @param {string} background - The background color
+ * @returns {JSX.Element} - React component
+*/
 type Props = {
     background?: string
 }

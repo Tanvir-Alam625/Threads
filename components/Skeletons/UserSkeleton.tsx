@@ -1,5 +1,9 @@
 
-
+/**
+ * @name UserSkeleton
+ * @description A skeleton for the user card
+ * @returns {JSX.Element} - React component
+*/
 const UserSkeleton = () => {
     return (
         <div className="flex flex-col gap-4 p-4 blur-card-bg shadow-none rounded-xl">

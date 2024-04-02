@@ -1,5 +1,9 @@
 "use client";
-
+/**
+ * @name BottomBar
+ * @description The bottom bar of the application
+ * @returns {JSX.Element} - React component
+*/
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

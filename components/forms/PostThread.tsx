@@ -1,4 +1,11 @@
 "use client";
+/**
+ * @name PostThread
+ * @description A form to post a new thread
+ * @param {string} userId - The user id
+ * @returns {JSX.Element} - React component
+ * 
+*/
 import * as z from "zod";
 import {
     Form,

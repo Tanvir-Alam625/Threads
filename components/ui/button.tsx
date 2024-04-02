@@ -1,3 +1,12 @@
+/**
+ * @name Button Component
+ * @description A button component
+ * @param {string} className - The class name
+ * @param {string} variant - The variant
+ * @param {string} size - The size
+ * @param {boolean} asChild - If the button is a child
+ * @returns {JSX.Element} - React component
+*/
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"

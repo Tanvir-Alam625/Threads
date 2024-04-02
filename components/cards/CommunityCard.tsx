@@ -1,3 +1,14 @@
+/**
+ * @name CommunityCard
+ * @description A card for the community
+ * @param {string} id - The id
+ * @param {string} name - The name
+ * @param {string} username - The username
+ * @param {string} imgUrl - The image url
+ * @param {string} bio - The bio
+ * @param {any[]} members - The members
+ * @returns {JSX.Element} - React component
+*/
 import Image from "next/image";
 import Link from "next/link";
 

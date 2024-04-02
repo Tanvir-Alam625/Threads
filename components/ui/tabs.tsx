@@ -1,5 +1,13 @@
 "use client"
-
+/**
+ * @name Tabs
+ * @description A tabs component
+ * @param {React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>} props - The props
+ * @param {React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>} props.List - The list props
+ * @param {React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>} props.Trigger - The trigger props
+ * @param {React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>} props.Content - The content props
+ * @returns {JSX.Element} - React component
+*/
 import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
 

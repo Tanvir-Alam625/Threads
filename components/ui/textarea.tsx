@@ -1,9 +1,16 @@
+/**
+ * @name Textarea
+ * @description A textarea component
+ * @param {TextareaProps} props - The props
+ * @param {JSX.Element} - React component
+ * @returns {JSX.Element} - React component
+*/
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
 export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> { }
 
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {

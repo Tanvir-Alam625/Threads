@@ -1,4 +1,10 @@
 'use client';
+/**
+ * @name Downloader
+ * @description A component to download the app
+ * @param {boolean} isButtonShow - If the button is shown
+ * @returns {JSX.Element} - React component
+*/
 import { useEffect, useState } from "react";
 import Modal from "../ui/modal";
 import Image from "next/image";

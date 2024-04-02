@@ -1,4 +1,11 @@
 "use client";
+/**
+ * @name AccountProfile
+ * @description This component is used to display the user's profile.
+ * @param {Object} user - The user's data
+ * @param {string} btnTitle - The title of the button
+ * @returns {JSX.Element} - React component
+*/
 import React, { ChangeEvent, useState } from 'react'
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"

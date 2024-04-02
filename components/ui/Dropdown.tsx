@@ -1,5 +1,13 @@
 "use client";
-
+/**
+ * @name Dropdown
+ * @description A dropdown component
+ * @param {string} placement - The placement
+ * @param {React.ReactNode} children - The children
+ * @param {string} className - The class name
+ * @param {boolean} showArrow - The show arrow status
+ * @returns {JSX.Element} - React component
+*/
 import { useDisclosure } from '@/hooks/use-disclosure';
 import { CSSUnit } from '@/constants';
 import React, { createContext, useContext } from 'react';

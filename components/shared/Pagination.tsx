@@ -1,4 +1,12 @@
 "use client";
+/**
+ * @name Pagination
+ * @description A pagination component
+ * @param {number} pageNumber - The page number
+ * @param {boolean} isNext - If the page is next
+ * @param {string} path - The path
+ * @returns {JSX.Element} - React component
+*/
 
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";

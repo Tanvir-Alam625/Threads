@@ -1,3 +1,6 @@
+/**
+ * @description This file contains all the constants used in the application
+*/
 export type SidebarLinkType = {
     imgURL: string;
     route: string;

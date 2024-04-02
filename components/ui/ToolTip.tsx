@@ -1,4 +1,20 @@
 'use client';
+/**
+ * @name ToolTip
+ * @description A tooltip component
+ * @param {string | React.ReactNode} content - The content
+ * @param {boolean} arrow - If the tooltip has an arrow
+ * @param {'top' | 'left' | 'right' | 'left-end' | 'top-start'} placement - The placement
+ * @param {React.ReactNode} children - The children
+ * @param {'fade' | 'shift-away' | 'scale' | 'shift-toward' | 'scale-subtle' | 'scale-extreme'} animation - The animation
+ * @param {'light' | 'translucent' | 'material' | 'light-border'} theme - The theme
+ * @param {number} delay - The delay
+ * @param {boolean} disabled - The disabled status
+ * @param {[number, number]} duration - The duration
+ * @param {string} className - The class name
+ * @param {React.ComponentProps<typeof Tippy>} rest - The rest
+ * @returns {React.ReactNode} The ToolTip component
+*/
 import React from 'react';
 import Tippy from "@tippyjs/react";
 

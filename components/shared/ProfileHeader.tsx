@@ -1,3 +1,15 @@
+/**
+ * @name ProfileHeader
+ * @description A component to display the profile header
+ * @param {string} accountId - The account id
+ * @param {string} authUserId - The authenticated user id
+ * @param {string} name - The name of the user
+ * @param {string} username - The username of the user
+ * @param {string} imgUrl - The image url of the user
+ * @param {string} bio - The bio of the user
+ * @param {string} type - The type of the user
+ * @returns {JSX.Element} - React component
+*/
 import Link from "next/link";
 import Image from "next/image";
 import { Fira_Code } from 'next/font/google'

@@ -1,9 +1,14 @@
 "use client";
-
+/**
+ * @name Searchbar
+ * @description A search bar component
+ * @param {string} routeType - The route type
+ * @param {string} placeholder - The placeholder
+ * @returns {JSX.Element} - React component
+*/
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
 import { Input } from "../ui/input";
 
 interface Props {

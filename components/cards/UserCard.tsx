@@ -1,5 +1,15 @@
 "use client";
-
+/**
+ * @name UserCard
+ * @description A user card component
+ * @param {string} id - The id
+ * @param {string} name - The name
+ * @param {string} username - The username
+ * @param {string} imgUrl - The image url
+ * @param {string} personType - The person type
+ * @param {boolean} callRightSidebar - The right sidebar status
+ * @returns {JSX.Element} - React component
+*/
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 

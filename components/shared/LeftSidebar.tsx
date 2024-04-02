@@ -1,4 +1,10 @@
 "use client";
+/**
+ * @name LeftSidebar
+ * @description The left sidebar of the application
+ * @returns {JSX.Element} - React component
+*/
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

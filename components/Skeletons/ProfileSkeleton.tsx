@@ -1,4 +1,8 @@
-import React from 'react'
+/**
+ * @name ProfileSkeleton
+ * @description A skeleton for the profile page
+ * @returns {JSX.Element} - React component
+*/
 import ThreadSkeleton from './ThreadSkeleton'
 import UserSkeleton from './UserSkeleton'
 const ProfileSkeleton = () => {

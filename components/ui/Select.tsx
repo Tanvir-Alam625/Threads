@@ -1,4 +1,11 @@
 'use client'
+/**
+ * @name Select
+ * @description A select component
+ * @param {JSX.Element} - React component
+ * @param {React.FC} - React functional component
+ * @returns {JSX.Element} - React component
+*/
 import React, { useState } from 'react';
 import { LuChevronsUpDown } from 'react-icons/lu';
 
