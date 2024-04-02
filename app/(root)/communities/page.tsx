@@ -1,14 +1,18 @@
+/**
+ * @name Communities Page
+ * @description This is the communities page of the application
+ * @module app/%28root%29/communities/page
+ * @path app/%28root%29/communities/page.tsx
+ * @project videon
+*/
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-
-
 import Pagination from "@/components/shared/Pagination";
 import CommunityCard from "@/components/cards/CommunityCard";
 import Searchbar from "@/components/forms/SearchBar";
 import { getUser } from "@/lib/actions/user.actions";
 import { getCommunities } from "@/lib/actions/community.actions";
 import type { Metadata } from 'next'
-import CommunitySkeleton from "@/components/Skeletons/CommunitySkeleton";
 
 export const metadata: Metadata = {
     title: 'Communities | Threads',

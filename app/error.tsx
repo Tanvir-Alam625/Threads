@@ -1,3 +1,11 @@
+
+/**
+ * Error component
+ * @description Error component
+ * @param error - The error
+ * @param reset - The reset function
+ * @returns The error component
+*/
 'use client'
 import { Button } from '@/components/ui/button'
 import { useEffect } from 'react'

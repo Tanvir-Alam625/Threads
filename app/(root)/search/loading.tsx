@@ -1,3 +1,10 @@
+/**
+ * @name loading.tsx
+ * @description This is the loading component of the application
+ * @module app/%28root%29/search/loading
+ * @path app/%28root%29/search/loading.tsx
+ * @project videon
+*/
 import UserSkeleton from '@/components/Skeletons/UserSkeleton'
 const loading = () => {
     return (

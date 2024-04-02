@@ -1,3 +1,11 @@
+/**
+ * @name Root Layout
+ * @description This is the root layout of the application
+ * @module app/%28root%29/layout
+ * @type layout
+ * @path app/%28root%29/layout.tsx
+ * @project videon
+*/
 import { ClerkProvider } from '@clerk/nextjs/app-beta'
 import '../globals.css'
 import type { Metadata } from 'next'

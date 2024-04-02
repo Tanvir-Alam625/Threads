@@ -1,3 +1,11 @@
+/**
+ * @name _document.tsx
+ * @description This is the document file for the application
+ * @module app/%28root%29/_document
+ * @path app/%28root%29/_document.tsx
+ * @type document
+ * @project videon
+*/
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { JSX } from "react";
 

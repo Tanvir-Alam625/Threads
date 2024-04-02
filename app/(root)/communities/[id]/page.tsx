@@ -1,3 +1,11 @@
+
+/**
+ * @name Community Profile Page
+ * @description This is the community profile page of the application
+ * @module app/%28root%29/communities/%5Bid%5D/page
+ * @path app/%28root%29/communities/%5Bid%5D/page.tsx
+ * @project videon
+*/
 import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
 import { communityTabs } from "@/constants";

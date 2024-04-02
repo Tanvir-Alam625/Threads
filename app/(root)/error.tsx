@@ -1,3 +1,10 @@
+/**
+ * @file error.tsx
+ * @module app/%28root%29/error
+ * @type page
+ * @description This is the error page of the application
+ * @project videon
+*/
 'use client'
 import { Button } from '@/components/ui/button'
 import { useEffect } from 'react'

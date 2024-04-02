@@ -1,3 +1,11 @@
+/**
+ * @name Search Page
+ * @description This is the search page of the application
+ * @module app/%28root%29/search/page
+ * @path app/%28root%29/search/page.tsx
+ * @project videon
+*/
+
 import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs";
 

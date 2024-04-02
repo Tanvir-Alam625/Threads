@@ -1,5 +1,8 @@
+/**
+ * @name loading
+ * @description This is the loading component of the application
+*/
 import CommunitySkeleton from '@/components/Skeletons/CommunitySkeleton'
-
 
 const loading = () => {
     return (

@@ -1,3 +1,10 @@
+/**
+ * @name Loading
+ * @description This is the loading component of the application
+ * @module app/%28root%29/thread/%5Bid%5D/loading
+ * @path app/%28root%29/thread/%5Bid%5D/loading.tsx
+ * @project videon
+*/
 import ThreadSkeleton from '@/components/Skeletons/ThreadSkeleton'
 import React from 'react'
 

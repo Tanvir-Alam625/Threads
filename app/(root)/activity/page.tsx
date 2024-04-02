@@ -1,3 +1,11 @@
+/**
+ * @name activity page
+ * @description This is the activity page of the application
+ * @module app/%28root%29/activity/page
+ * @path app/%28root%29/activity/page.tsx
+ * @project videon
+*/
+
 import Image from "next/image";
 import Link from "next/link";
 import { currentUser } from "@clerk/nextjs";

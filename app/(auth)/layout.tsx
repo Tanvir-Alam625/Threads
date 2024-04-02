@@ -1,3 +1,11 @@
+/**
+ * @name Auth Layout
+ * @description This is the layout for the authentication pages
+ * @module app/%28auth%29/layout
+ * @type layout
+ * @path app/%28auth%29/layout.tsx
+ * @project videon
+*/
 import { ClerkProvider } from '@clerk/nextjs'
 import { Inter } from 'next/font/google'
 import React from 'react'

@@ -1,3 +1,10 @@
+/**
+ * @name 404 Page
+ * @description This is the 404 page of the application
+ * @module app/%28root%29/not-found
+ * @path app/%28root%29/not-found.tsx
+ * @project videon
+*/
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Fira_Code } from "next/font/google"

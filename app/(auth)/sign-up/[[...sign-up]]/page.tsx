@@ -1,3 +1,11 @@
+/**
+ * @name SignUp Page
+ * @description This is the sign up page of the application
+ * @module app/(auth)/sign-up/[[...sign-up]]
+ * @path app/(auth)/sign-up/[[...sign-up]]/page.tsx
+ * @Documentation https://clerk.com/docs/components/authentication/sign-up 
+ * @project videon
+*/
 import { SignUp } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";

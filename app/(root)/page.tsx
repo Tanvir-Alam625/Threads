@@ -1,3 +1,11 @@
+/**
+ * @name Home Page
+ * @description This is the home page of the application
+ * @module app/%28root%29/page
+ * @path app/%28root%29/page.tsx
+ * @project videon
+*/
+
 import { getThreads } from "@/lib/actions/thread.actions"
 import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";

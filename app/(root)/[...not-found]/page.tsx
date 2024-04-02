@@ -1,3 +1,8 @@
+/**
+ * @name NotFound
+ * @description This is the 404 page of the application
+ * 
+*/
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Fira_Code } from "next/font/google"

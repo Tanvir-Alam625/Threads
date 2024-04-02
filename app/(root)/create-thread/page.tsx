@@ -1,3 +1,11 @@
+/**
+ * @name Create Thread Page
+ * @description This is the create thread page of the application
+ * @module app/%28root%29/create-thread/page
+ * @path app/%28root%29/create-thread/page.tsx
+ * @project videon
+*/
+
 import PostThread from "@/components/forms/PostThread"
 import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs"

@@ -1,3 +1,11 @@
+/**
+ * @name _offline.tsx
+ * @description This is the offline page of the application
+ * @module app/%28root%29/_offline
+ * @path app/%28root%29/_offline.tsx
+ * @type page
+ * @project videon
+*/
 import { Button } from '@/components/ui/button'
 import React from 'react'
 

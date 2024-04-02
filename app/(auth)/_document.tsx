@@ -1,3 +1,11 @@
+/**
+ * @name _document.tsx
+ * @description Document component for the application
+ * @module app/%28auth%29/_document
+ * @path app/%28auth%29/_document.tsx
+ * @type document
+ * @project videon
+*/
 import { Html, Head, Main, NextScript } from "next/document";
 
 

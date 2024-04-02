@@ -1,3 +1,8 @@
+/**
+ * This is a loading component that is displayed when the page is loading
+ * @module app/%28root%29/loading
+ * @project videon
+*/
 import ThreadSkeleton from "@/components/Skeletons/ThreadSkeleton"
 const loading = () => {
     return (

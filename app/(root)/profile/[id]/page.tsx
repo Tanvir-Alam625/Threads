@@ -1,3 +1,11 @@
+
+/**
+ * @name User Profile | Threads
+ * @description This is the user profile page of the application
+ * @module app/%28root%29/profile/%5Bid%5D/page
+ * @path app/%28root%29/profile/%5Bid%5D/page.tsx
+ * @project videon
+*/
 import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";

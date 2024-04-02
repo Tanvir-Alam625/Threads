@@ -1,4 +1,7 @@
-
+/**
+ * @name loading
+ * @description This is the loading component of the application
+*/
 const loading = () => {
     return (
         <>

@@ -1,3 +1,11 @@
+/**
+ * @name Thread Details
+ * @description This is the thread details page of the application
+ * @module app/%28root%29/thread/%5Bid%5D/page
+ * @path app/%28root%29/thread/%5Bid%5D/page.tsx
+ * @type page
+*/
+
 import { redirect } from "next/navigation";
 import { currentUser } from "@clerk/nextjs";
 import Comment from "@/components/forms/Comment";

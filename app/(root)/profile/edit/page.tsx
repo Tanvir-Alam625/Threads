@@ -1,3 +1,9 @@
+/**
+ * @name Edit Profile Page
+ * @description This is the edit profile page of the application
+ * @module app/%28root%29/profile/edit/page
+*/
+
 import AccountProfile from "@/components/forms/AccountProfile";
 import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs"

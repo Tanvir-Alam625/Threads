@@ -1,3 +1,9 @@
+/**
+ * @name Onboarding Page
+ * @description This is the onboarding page of the application
+
+*/
+
 import AccountProfile from "@/components/forms/AccountProfile";
 import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs"
