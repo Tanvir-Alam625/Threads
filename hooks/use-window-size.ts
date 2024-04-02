@@ -1,3 +1,8 @@
+/**
+ * @description A hook to get the window size
+*/
+
+
 import { useEffect, useState } from 'react';
 
 export default function useWindowSize() {

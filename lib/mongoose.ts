@@ -1,3 +1,9 @@
+/**
+ * Mongoose Configuration
+ * @description Mongoose Configuration
+ * @param mongoose - The mongoose model
+ * @returns The connection to the MongoDB database
+*/
 import mongoose from "mongoose"
 
 let isConnected = false;

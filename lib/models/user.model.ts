@@ -1,3 +1,19 @@
+/**
+ * @name User
+ * @description This is the model for the user schema
+ * @param id - The unique id of the user
+ * @param username - The username of the user
+ * @param name - The name of the user
+ * @param image - The image of the user
+ * @param bio - The bio of the user
+ * @param threads - The threads the user has created
+ * @param onboarded - Whether the user has completed onboarding
+ * @param communities - The communities the user is a member of
+ * @param User - The user model
+ * @param Community - The community model
+ * @param mongoose - The mongoose model
+ * @returns The user model
+*/
 import mongoose from "mongoose";
 
 

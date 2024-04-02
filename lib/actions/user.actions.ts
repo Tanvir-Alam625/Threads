@@ -1,3 +1,14 @@
+/**
+ * @module userActions
+ * @category Actions
+ * @subcategory User
+ * @name User Actions
+ * @file user.actions.ts
+ * @path lib/actions/user.actions.ts
+ * @project videon
+ * @description This file contains all the actions related to the user model.
+ * @license MIT License
+*/
 "use server";
 
 import { FilterQuery, SortOrder } from "mongoose";

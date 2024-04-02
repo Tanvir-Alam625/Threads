@@ -1,4 +1,7 @@
 'use client';
+/**
+ * @description A hook to manage the state of a disclosure component
+*/
 import { useCallback, useState } from 'react';
 
 export const useDisclosure = (initial = false) => {

@@ -1,4 +1,7 @@
 'use server';
+/**
+ * @description A hook to get user information
+*/
 import { getUser } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs";
 

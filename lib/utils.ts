@@ -1,3 +1,8 @@
+/**
+ * Utility functions
+ * @module lib/utils
+ * @description This module contains utility functions that can be used across the application.
+*/
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 

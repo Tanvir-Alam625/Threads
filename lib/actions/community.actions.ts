@@ -1,3 +1,14 @@
+/**
+* @module communityActions
+ * @category Actions
+ * @subcategory Community
+ * @name Community Actions
+ * @file community.actions.ts
+ * @path lib/actions/community.actions.ts
+ * @project videon
+ * @description This file contains all the actions related to the community model.
+ * @license MIT License
+*/
 "use server";
 
 import { FilterQuery, SortOrder } from "mongoose";

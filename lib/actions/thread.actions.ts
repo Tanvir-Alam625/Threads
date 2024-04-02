@@ -1,3 +1,14 @@
+/**
+ * @module threadActions
+ * @category Actions
+ * @subcategory Thread
+ * @name Thread Actions
+ * @file thread.actions.ts
+ * @path lib/actions/thread.actions.ts
+ * @project videon
+ * @description This file defines the actions for creating, updating, deleting, and fetching threads.
+ * @license MIT License
+*/
 "use server";
 import { revalidatePath } from "next/cache";
 import Thread from "../models/thread.model";
