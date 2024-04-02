@@ -30,7 +30,7 @@ function Searchbar({ routeType, placeholder }: Props) {
     return (
         <div className='searchbar blur-card-bg border border-slate-700/20'>
             <Image
-                src='/assets/search-gray.svg'
+                src='/assets/search.svg'
                 alt='search'
                 width={24}
                 height={24}

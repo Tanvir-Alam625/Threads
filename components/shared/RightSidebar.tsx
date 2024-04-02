@@ -27,7 +27,7 @@ async function RightSidebar() {
                         baseTheme: dark,
                         elements: {
                             organizationSwitcherTrigger: 'p-4 w-full flex items-center gap-20 rounded-t-lg rounded-b-none outline-none ring-0 fucus:ring-0 focus:outline-none border',
-                            organizationSwitcherTriggerIcon: 'w-3 h-3',
+                            organizationSwitcherTriggerIcon: 'w-3 h-3 text-slate-200',
                             organizationSwitcherTriggerText: 'text-light-1 ml-2 text-small-regular',
                             organizationSwitcherTriggerChevron: 'w-3 h-3',
                             organizationSwitcherTriggerButton: '!text-small-regular',

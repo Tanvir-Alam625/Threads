@@ -23,11 +23,13 @@ const onboardingPage = async () => {
     };
 
     const userInfo = await getUser(user?.id)
+    const firstName = user?.firstName ? user.firstName : ""
+    const lastName = user?.lastName ? user.lastName : ""
     const userData = {
         id: user?.id || "",
         objectId: userInfo?._id || "",
         username: userInfo?.username || user?.username,
-        name: userInfo?.name || user?.firstName + " " + user?.lastName,
+        name: userInfo?.name || `${firstName} ${lastName}`,
         bio: userInfo?.bio || "",
         image: userInfo?.image || user?.imageUrl
     }

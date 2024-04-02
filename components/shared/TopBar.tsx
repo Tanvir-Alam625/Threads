@@ -6,8 +6,6 @@ import { dark } from '@clerk/themes';
 import Logo from '@/public/assets/logo.png';
 import { redirect } from "next/navigation";
 import Downloader from './Downloader';
-import { useUserInfo } from '@/hooks/use-userInfo';
-import { useEffect, useState } from 'react';
 import { UserData } from '@/app/(root)/layout';
 import useWindowSize from '@/hooks/use-window-size';
 import ToolTip from '../ui/ToolTip';
@@ -17,7 +15,6 @@ interface Props {
 const TopBar = ({ userData }: Props) => {
     const { width } = useWindowSize()
 
-    console.log(width, 'width')
     const { sessionId } = useAuth();
     if (!sessionId) redirect('/sign-in');
     return (
