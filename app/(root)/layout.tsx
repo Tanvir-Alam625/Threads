@@ -80,7 +80,7 @@ export default async function RootLayout({
             <section className='main-container z-20'>
               <div className="w-full">
                 <TopBar userData={userData} />
-                <div className='mt-6 '>
+                <div className='mt-20 md:mt-6'>
                   {children}
                 </div>
               </div>

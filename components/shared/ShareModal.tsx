@@ -78,8 +78,12 @@ const ShareModal = ({ postId, postContent, postTags }: Props) => {
                 <button onClick={handleModalOpen}> <PiShareFatFill className="text-base-regular text-gray-1" /></button>
             </ToolTip>
 
-            <Modal isOpen={isModalOpen} onClose={handleModalClose}>
-                <Modal.Content className="flex flex-col gap-6 w-[calc(100vw-100px)] md:w-[600px] p-6">
+            <Modal isOpen={isModalOpen} onClose={handleModalClose}
+                style={{
+                    animation: "fadeIn 0.3s",
+                }}
+            >
+                <Modal.Content className="flex flex-col gap-6 w-[calc(100vw-50px)] md:w-[600px] p-6">
                     <h1 className="text-xl font-medium text-light-1">Share the post</h1>
 
                     <div className="overflow-auto flex gap-4 items-center">

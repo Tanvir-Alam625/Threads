@@ -63,30 +63,33 @@ const ThreadsContainer = ({ threadData }: Props) => {
 
     return (
         <>
-            {
-                posts?.length ? <>
-                    {
-                        posts?.map((post: Post, index: number) => {
-                            const data = {
-                                id: post?._id,
-                                currentUserId: threadData.userId,
-                                parentId: post.parentId,
-                                content: post.text,
-                                author: post.author,
-                                community: post.community,
-                                createdAt: post.createdAt,
-                                comments: post.children,
-                                userId: threadData.userInfoId,
-                                likes: post.likes
-                            }
-                            return <ThreadCard key={index} {...data} />
-                        })
-                    }
-                </> :
-                    <p className="no-result">No Post Found</p>
-            }
+            <div className="space-y-8 mb-8">
 
-            <div className='flex flex-col gap-8' ref={ref} >
+
+                {
+                    posts?.length ? <>
+                        {
+                            posts?.map((post: Post, index: number) => {
+                                const data = {
+                                    id: post?._id,
+                                    currentUserId: threadData.userId,
+                                    parentId: post.parentId,
+                                    content: post.text,
+                                    author: post.author,
+                                    community: post.community,
+                                    createdAt: post.createdAt,
+                                    comments: post.children,
+                                    userId: threadData.userInfoId,
+                                    likes: post.likes
+                                }
+                                return <ThreadCard key={index} {...data} />
+                            })
+                        }
+                    </> :
+                        <p className="no-result">No Post Found</p>
+                }
+            </div>
+            <div className='space-y-8' ref={ref} >
                 {
                     isNext ?
                         <>

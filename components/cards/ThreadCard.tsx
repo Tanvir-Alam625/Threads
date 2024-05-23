@@ -106,7 +106,7 @@ const ThreadCard = ({
                 }`}
         >
             <div className='flex items-start justify-between'>
-                <div className='flex w-full flex-1 flex-row gap-4'>
+                <div className='flex  flex-1 flex-row gap-4'>
                     <div className='flex flex-col items-center'>
                         <Link href={`/profile/${author.id}`} className='relative w-8 h-8 md:h-11 md:w-11'>
                             <Image
@@ -121,7 +121,7 @@ const ThreadCard = ({
                         <div className='thread-card_bar' />
                     </div>
 
-                    <div className='flex w-full flex-col'>
+                    <div className='block space-y-2'>
                         <div className="flex justify-between items-center">
                             <Link href={`/profile/${author.id}`} className='w-fit'>
                                 <h4 className={` cursor-pointer text-base-semibold text-light-1`}>
@@ -138,7 +138,7 @@ const ThreadCard = ({
                         </div>
 
                         <p className={`${firaCode.className} mt-2 text-small-regular text-light-2`}>{plainText}</p>
-                        <div className={`${firaCode.className} flex flex-wrap gap-x-1`}>
+                        <div className={`${firaCode.className} flex gap-x-1`}>
                             {
                                 hashtags.length ?
                                     hashtags.map((tag: string, index: number) => <span key={index} className="text-small-regular text-primary-500">#{tag}</span>) : null

@@ -183,8 +183,7 @@
 .tab {
   @apply flex min-h-[50px] flex-1 items-center gap-3  text-light-2  data-[state=active]:bg-slate-700 data-[state=active]:bg-opacity-40 data-[state=active]:text-light-2 !important;
 }
-
-.no-focus {
+user-card_btn .no-focus {
   @apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
 }
 
