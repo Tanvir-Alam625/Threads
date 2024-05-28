@@ -89,7 +89,7 @@ const ThreadsContainer = ({ threadData }: Props) => {
                         <p className="no-result">No Post Found</p>
                 }
             </div>
-            <div className='space-y-8' ref={ref} >
+            <div className='space-y-4 md:space-y-8' ref={ref} >
                 {
                     isNext ?
                         <>

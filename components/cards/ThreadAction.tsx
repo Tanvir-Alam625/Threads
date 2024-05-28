@@ -90,7 +90,7 @@ function ThreadAction({
     }
 
     return (
-        <>
+        <div className="absolute right-0">
             <Dropdown showArrow>
                 <ToolTip content="More">
                     <Dropdown.Trigger>
@@ -122,7 +122,7 @@ function ThreadAction({
 
                 </Dropdown.Content>
             </Dropdown>
-        </>
+        </div>
     );
 }
 

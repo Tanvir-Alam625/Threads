@@ -105,7 +105,7 @@ const ThreadCard = ({
             className={`flex w-full flex-col rounded-2xl ${isComment ? "px-0 xs:px-7" : " blur-card-bg p-7"
                 }`}
         >
-            <div className='flex items-start justify-between'>
+            <div className='flex items-start relative justify-between'>
                 <div className='flex  flex-1 flex-row gap-4'>
                     <div className='flex flex-col items-center'>
                         <Link href={`/profile/${author.id}`} className='relative w-8 h-8 md:h-11 md:w-11'>
@@ -121,7 +121,7 @@ const ThreadCard = ({
                         <div className='thread-card_bar' />
                     </div>
 
-                    <div className='block space-y-2'>
+                    <div className='block space-y-2 '>
                         <div className="flex justify-between items-center">
                             <Link href={`/profile/${author.id}`} className='w-fit'>
                                 <h4 className={` cursor-pointer text-base-semibold text-light-1`}>
