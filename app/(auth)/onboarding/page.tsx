@@ -41,8 +41,8 @@ const onboardingPage = async () => {
     }
 
     return (
-        <main className="mx-auto max-w-3xl flex flex-col justify-start px-10  py-20 gap-2">
-            <section className="p-10 blur-card-bg  mt-2 rounded-md shadow">
+        <main className="mx-auto max-w-3xl flex flex-col justify-start px-2 md:px-10  md:py-20 py-2 gap-2">
+            <section className="md:p-10 py-6 px-3 blur-card-bg  mt-2 rounded-md shadow">
                 <h1 className="head-text">Onboarding</h1>
                 <p className="text-base-regular text-light-2">Complete your profile now to use Threads</p>
                 <AccountProfile user={userData} btnTitle="Continue" />
