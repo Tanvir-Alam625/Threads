@@ -43,10 +43,11 @@
   body::-ms-scrollbar-thumb {
     background: #5c5c7b;
     border-radius: 7px;
+    @apply bg-transparent md:bg-[#5c5c7b] rounded-[7px];
   }
 
   .main-container {
-    @apply flex min-h-screen flex-1 flex-col items-center px-6 pb-10  max-md:pb-32 sm:px-10;
+    @apply flex min-h-[100dvh] flex-1 flex-col items-center px-4 md:px-6 pb-10  max-md:pb-32 sm:px-10;
   }
 
   /* Head Text */

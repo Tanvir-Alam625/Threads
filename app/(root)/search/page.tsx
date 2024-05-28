@@ -47,12 +47,12 @@ async function Page({
 
     return (
         <section>
-            <h1 className='head-text mb-10'>Search</h1>
+            <h1 className='head-text mb-3 md:mb-8'>Search</h1>
 
             <Searchbar placeholder='Search Users' routeType='search' />
 
 
-            <div className='mt-14 flex flex-col gap-6'>
+            <div className='mt-4 md:mt-8 flex flex-col gap-4 md:gap-6'>
                 {result.users.length === 0 ? (
                     <p className='no-result'>No Result</p>
                 ) : (

@@ -52,7 +52,7 @@ async function Page({ params }: { params: { id: string } }) {
                 imgUrl={userInfo.image}
                 bio={userInfo.bio}
             />
-            <div className='mt-9'>
+            <div className='mt-4 md:mt-8'>
                 <Tabs defaultValue='threads' className='w-full bg-transparent'>
                     <TabsList className='tab blur-card-bg px-0 overflow-hidden'>
                         {profileTabs.map((tab) => (
@@ -81,7 +81,7 @@ async function Page({ params }: { params: { id: string } }) {
                     >
                         {/* @ts-ignore */}
 
-                        <section className='mt-9 flex flex-col gap-10'>
+                        <section className='mt-4 md:mt-8 flex flex-col gap-4 md:gap-8'>
                             <UserThreadsContainer threadData={threadData} />
                         </section>
                     </TabsContent>
@@ -90,7 +90,7 @@ async function Page({ params }: { params: { id: string } }) {
                         value='replies'
                         className='w-full text-light-1'
                     >
-                        <section className='mt-9 flex flex-col gap-5'>
+                        <section className=' mt-4 md:mt-8 flex flex-col gap-3 md:gap-5'>
 
                             {activities.length > 0 ? (
                                 <>
@@ -115,7 +115,7 @@ async function Page({ params }: { params: { id: string } }) {
                                     ))}
                                 </>
                             ) : (
-                                <p className="no-result my-6">No Replies Found</p>
+                                <p className="no-result my-4 md:my-6">No Replies Found</p>
                             )}
                         </section>
                     </TabsContent>
@@ -124,7 +124,7 @@ async function Page({ params }: { params: { id: string } }) {
                         value='tagged'
                         className='w-full text-light-1'
                     >
-                        <p className="no-result my-6">No Tag Found</p>
+                        <p className="no-result my-4 md:my-6">No Tag Found</p>
                     </TabsContent>
                 </Tabs>
             </div>

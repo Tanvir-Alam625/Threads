@@ -138,7 +138,7 @@ const ThreadCard = ({
                         </div>
 
                         <p className={`${firaCode.className} mt-2 text-small-regular text-light-2`}>{plainText}</p>
-                        <div className={`${firaCode.className} flex gap-x-1`}>
+                        <div className={`${firaCode.className} flex flex-wrap gap-x-1`}>
                             {
                                 hashtags.length ?
                                     hashtags.map((tag: string, index: number) => <span key={index} className="text-small-regular text-primary-500">#{tag}</span>) : null

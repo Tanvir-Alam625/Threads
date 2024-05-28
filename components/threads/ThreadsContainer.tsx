@@ -63,7 +63,7 @@ const ThreadsContainer = ({ threadData }: Props) => {
 
     return (
         <>
-            <div className="space-y-8 mb-8">
+            <div className="space-y-4 md:space-y-8 mb-4 md:mb-8">
 
 
                 {

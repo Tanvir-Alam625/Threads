@@ -30,7 +30,7 @@ const CreateThreadPage = async () => {
     return (
         <div>
             <h1 className="head-text">Create Thread</h1>
-            <div className="mt-9">
+            <div className=" mt-4 md:mt-8">
                 <PostThread userId={userInfo._id} />
             </div>
         </div>

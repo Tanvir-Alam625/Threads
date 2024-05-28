@@ -30,7 +30,7 @@ async function ActivityPage() {
         <>
             <h1 className='head-text'>Activity</h1>
 
-            <section className='mt-9 flex flex-col gap-5'>
+            <section className='mt-4 md:mt-8 flex flex-col gap-4 md:gap-6'>
 
                 {activity.length > 0 ? (
                     <>
