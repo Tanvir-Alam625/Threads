@@ -99,7 +99,6 @@ const ThreadCard = ({
         userId: userId || "",
         likeCount: likes || []
     }
-
     return (
         <article
             className={`flex w-full flex-col rounded-2xl ${isComment ? "px-0 xs:px-7" : " blur-card-bg p-7"
